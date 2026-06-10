@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop saisa | Clean cuts, elevated everyday basics for women. Modern fits with premium linen and organic cotton, ethically made in India.">
+  <meta name="theme-color" content="#FCF8F7">
+  <title>Saisa | Product Details | Made in India</title>
+
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="product-page-body">
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" id="saisa-announcement-bar">
+    <div class="announcement-bar__content" id="announcement-text">
+      FREE SHIPPING ON ORDERS ABOVE ₹1,500 • PREPAID DISCOUNT: 5% OFF
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header" id="saisa-header">
+    <div class="header-container">
+      <!-- Left: Mobile menu button and Logo -->
+      <div class="header-left-wrap">
+        <!-- Left: Mobile Menu Trigger -->
+        <button class="icon-button" id="menu-drawer-open-btn" aria-label="Open navigation menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Logo -->
+        <div class="site-logo">
+          <a href="index.html" id="site-logo-link">saisa</a>
+        </div>
+      </div>
+
+      <!-- Center: Desktop Navigation -->
+      <nav class="desktop-navigation" aria-label="Main Navigation">
+        <ul class="desktop-nav-list">
+          <li><a href="index.html" class="desktop-nav-link" id="nav-shop">Shop</a></li>
+          <li class="nav-dropdown-wrapper">
+            <a href="index.html" class="desktop-nav-link" id="nav-collections">Collections <span class="dropdown-caret">↓</span></a>
+            <ul class="desktop-dropdown-menu">
+              <li><a href="index.html" class="dropdown-item" data-filter="Plain Kurtis">Plain Kurtas</a></li>
+              <li><a href="index.html" class="dropdown-item" data-filter="Short Kurtis">Short Kurtis</a></li>
+              <li><a href="index.html" class="dropdown-item" data-filter="Printed & Colorful">Printed & Colorful</a></li>
+              <li><a href="index.html" class="dropdown-item" data-filter="A-Line & Flared">A-Line & Flared</a></li>
+              <li><a href="index.html" class="dropdown-item" data-filter="Kurta Co-ords">Kurta Co-ords</a></li>
+              <li><a href="index.html" class="dropdown-item" data-filter="Linen & Cotton">Linen & Cotton</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html" class="desktop-nav-link" id="nav-new-arrivals" data-filter="new-arrivals">New Arrivals</a></li>
+          <li><a href="index.html" class="desktop-nav-link" id="nav-best-sellers" data-filter="best-sellers">Best Sellers</a></li>
+          <li><a href="index.html" class="desktop-nav-link" id="nav-about">About</a></li>
+          <li><a href="index.html" class="desktop-nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Search, Account, Wishlist, and Cart -->
+      <div class="header-actions">
+        <!-- Search Toggle -->
+        <button class="icon-button" id="search-toggle-btn" aria-label="Search items">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Account Section Dropdown -->
+        <div class="account-wrapper" id="account-menu-wrapper">
+          <button class="icon-button" id="account-dropdown-btn" aria-label="My Account">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="account-dropdown" id="account-dropdown-panel">
+            <div class="account-dropdown__header">
+              <p class="account-name" id="account-user-name">Welcome guest</p>
+              <p class="account-status" id="account-user-status">Not signed in</p>
+            </div>
+            <div class="account-dropdown__body">
+              <!-- Signed out state -->
+              <div id="account-signed-out-view">
+                <button class="button-primary button-sm full-width" id="header-signin-btn">Sign In</button>
+                <button class="button-outline button-sm full-width" style="margin-top: 8px;" id="header-signup-btn">Create Account</button>
+              </div>
+              <!-- Signed in state -->
+              <div id="account-signed-in-view" style="display: none;">
+                <a href="#" class="dropdown-action-link" id="account-orders-btn">My Orders (0)</a>
+                <a href="#" class="dropdown-action-link" id="account-settings-btn">Profile Settings</a>
+                <button class="button-outline button-sm full-width" style="margin-top: 12px;" id="header-signout-btn">Sign Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wishlist Icon with Badge -->
+        <button class="icon-button wishlist-trigger" id="wishlist-drawer-open-btn" aria-label="Open wishlist panel">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="wishlist-count-badge" id="wishlist-badge-count">0</span>
+        </button>
+
+        <!-- Cart Icon with Badge -->
+        <button class="icon-button cart-trigger" id="cart-drawer-open-btn" aria-label="Open cart drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count-badge" id="cart-badge-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hamburger Menu Side Drawer -->
+  <div class="drawer-overlay" id="menu-drawer-overlay"></div>
+  <aside class="side-drawer side-drawer--left" id="menu-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Menu</h3>
+      <button class="icon-button" id="menu-drawer-close-btn" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="drawer-nav">
+      <ul class="nav-links-list">
+        <li><a href="index.html" class="nav-item active-link" id="mob-nav-shop">Shop All</a></li>
+        <li class="drawer-dropdown-wrapper">
+          <button class="drawer-dropdown-toggle" id="mob-collections-toggle-btn" style="background: none; border: none; padding: 0; width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary); cursor: pointer; height: 50px;">
+            <span>Collections</span> <span class="drawer-caret" id="mob-collections-caret">↓</span>
+          </button>
+          <ul class="drawer-dropdown-list" id="mob-collections-list" style="display: none; padding-left: 15px; margin-bottom: 15px;">
+            <li style="margin: 8px 0;"><a href="index.html" class="nav-item drawer-dropdown-item" data-filter="Plain Kurtis" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Plain Kurtas</a></li>
+            <li style="margin: 8px 0;"><a href="index.html" class="nav-item drawer-dropdown-item" data-filter="Short Kurtis" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Short Kurtis</a></li>
+            <li style="margin: 8px 0;"><a href="index.html" class="nav-item drawer-dropdown-item" data-filter="Printed & Colorful" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Printed & Colorful</a></li>
+            <li style="margin: 8px 0;"><a href="index.html" class="nav-item drawer-dropdown-item" data-filter="A-Line & Flared" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">A-Line & Flared</a></li>
+            <li style="margin: 8px 0;"><a href="index.html" class="nav-item drawer-dropdown-item" data-filter="Kurta Co-ords" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Kurta Co-ords</a></li>
+            <li style="margin: 8px 0;"><a href="index.html" class="nav-item drawer-dropdown-item" data-filter="Linen & Cotton" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Linen & Cotton</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html" class="nav-item" id="mob-nav-new-arrivals" data-filter="new-arrivals">New Arrivals</a></li>
+        <li><a href="index.html" class="nav-item" id="mob-nav-best-sellers" data-filter="best-sellers">Best Sellers</a></li>
+        <li><a href="index.html" class="nav-item" id="mob-nav-about">About</a></li>
+        <li><a href="index.html" class="nav-item" id="mob-nav-contact">Contact</a></li>
+        <li class="drawer-auth-item" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+          <div id="mob-account-signed-out">
+            <button class="button-primary button-sm full-width" id="mob-signin-btn">Sign In</button>
+          </div>
+          <div id="mob-account-signed-in" style="display: none;">
+            <p style="font-size: 0.9rem; margin-bottom: 12px;">Logged in as <strong id="mob-user-display">Jane Doe</strong></p>
+            <button class="button-outline button-sm full-width" id="mob-signout-btn">Sign Out</button>
+          </div>
+        </li>
+      </ul>
+      <div class="drawer-footer-info" style="margin-top: 30px;">
+        <p>saisa • Elevated Basics</p>
+        <p class="small-text">Proudly Made in India</p>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Search Bar Overlay (Slides from under header) -->
+  <div class="search-overlay-bar" id="search-overlay">
+    <div class="search-container">
+      <input type="text" id="search-input-field" placeholder="Search for collections, tops, linen..." aria-label="Search input">
+      <button class="icon-button" id="search-close-btn" aria-label="Close search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <main id="MainContent" style="padding: 120px 0 60px;">
+    <div class="section-container">
+      
+      <!-- Back navigation link -->
+      <div class="back-navigation-wrap" style="margin-bottom: 32px;">
+        <a href="index.html" class="back-link" id="modal-close-btn" style="text-decoration: none; font-family: var(--font-headings); font-size: 0.85rem; letter-spacing: 0.1em; color: var(--text-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+          <span>←</span> <span>BACK TO SHOP</span>
+        </a>
+      </div>
+
+      <!-- Main product details block -->
+      <div id="product-detail-modal">
+        <div class="modal-content-grid">
+          <!-- Left side: Product Image Gallery & Zoom -->
+          <div class="modal-gallery-column">
+            <!-- Thumbnail strip -->
+            <div class="modal-gallery-thumbnails" id="modal-gallery-thumbnails">
+              <!-- Populated dynamically -->
+            </div>
+            <!-- Main Zoomable Image Frame -->
+            <div class="main-preview-zoom-container" id="modal-zoom-container">
+              <img src="" alt="" id="modal-product-img">
+            </div>
+          </div>
+
+          <!-- Right side: Product Configurator & Info -->
+          <div class="modal-info-panel">
+            <span class="modal-product-category" id="modal-product-cat">CATEGORY</span>
+            <h1 class="modal-product-title" id="modal-product-name" style="font-size: 2.2rem; font-weight: 300; letter-spacing: 0.02em;">Product Name</h1>
+            
+            <div class="modal-price-row">
+              <span class="modal-sale-price" id="modal-product-sale-price">₹1,499</span>
+              <span class="modal-original-price" id="modal-product-orig-price">₹1,999</span>
+            </div>
+
+            <p class="modal-product-desc" id="modal-product-description">
+              Description details go here.
+            </p>
+
+            <!-- Color Swatch Selector -->
+            <div class="modal-options-block">
+              <span class="option-label">Color: <span class="option-value-selected" id="selected-color-name">Warm Alabaster</span></span>
+              <div class="color-options-swatches" id="modal-color-swatches">
+                <!-- Dynamic swatches -->
+              </div>
+            </div>
+
+            <!-- Size Chip Selector -->
+            <div class="modal-options-block">
+              <span class="option-label">Select Size:</span>
+              <div class="size-options-chips" id="modal-size-chips">
+                <!-- Dynamic chips -->
+              </div>
+            </div>
+
+            <!-- Sizing Helper -->
+            <div class="sizing-helper">
+              <span class="ruler-icon">📏</span> Standard Indian Sizing. <button class="text-link-btn" id="open-size-guide-btn">View Size Guide</button>
+            </div>
+
+            <!-- Action Buttons (Add to Bag / Buy Now) -->
+            <div class="modal-action-row" style="gap: 12px; display: flex; align-items: center; margin-top: 16px;">
+              <div class="quantity-stepper">
+                <button class="stepper-btn" id="modal-qty-minus" aria-label="Decrease quantity">−</button>
+                <input type="number" id="modal-qty-input" value="1" min="1" aria-label="Quantity amount">
+                <button class="stepper-btn" id="modal-qty-plus" aria-label="Increase quantity">+</button>
+              </div>
+              <div class="action-buttons-wrap" style="display: flex; gap: 8px; flex-grow: 1;">
+                <button class="button-primary" id="modal-add-to-cart-btn" style="flex: 1;">Add to Bag</button>
+                <button class="button-outline" id="modal-buy-now-btn" style="flex: 1; border-color: var(--text-primary); color: var(--text-primary);">Buy Now</button>
+              </div>
+            </div>
+
+            <!-- Trust Section -->
+            <div class="product-trust-badges" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color); display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; font-size: 0.75rem; color: var(--text-muted);">
+              <div class="trust-badge-item">
+                <span style="display: block; font-size: 1.2rem; margin-bottom: 4px;">🚚</span>
+                <span>Free Shipping <br>Above ₹1,500</span>
+              </div>
+              <div class="trust-badge-item">
+                <span style="display: block; font-size: 1.2rem; margin-bottom: 4px;">🔄</span>
+                <span>Easy 7-Day <br>Exchanges</span>
+              </div>
+              <div class="trust-badge-item">
+                <span style="display: block; font-size: 1.2rem; margin-bottom: 4px;">💳</span>
+                <span>Secure UPI / <br>Razorpay</span>
+              </div>
+            </div>
+
+            <!-- Product Extra Details Accordion -->
+            <div class="details-accordion" style="margin-top: 24px;">
+              <div class="accordion-item">
+                <button class="accordion-header" id="accordion-details-btn">
+                  <span>Composition & Care</span>
+                  <span class="accordion-arrow">↓</span>
+                </button>
+                <div class="accordion-body" id="modal-product-details-list">
+                  <!-- Bullet points -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="product-modal-reviews-section" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+              <h4 style="font-family: var(--font-headings); font-weight: 500; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 12px;">Customer Reviews</h4>
+              <div class="reviews-summary-line" style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-size: 0.9rem;">
+                <span class="stars-gold" id="modal-average-stars">★★★★★</span>
+                <span id="modal-reviews-stat-text">4.8 out of 5 (36 reviews)</span>
+              </div>
+              <div class="product-modal-reviews-list" id="modal-product-reviews-list" style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding-right: 8px;">
+                <!-- Dynamic review cards -->
+              </div>
+            </div>
+
+            <!-- Related Products Section -->
+            <div class="product-modal-related-section" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+              <h4 style="font-family: var(--font-headings); font-weight: 500; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 12px;">Complete The Look</h4>
+              <div class="related-products-row-mini" id="modal-related-products-display" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                <!-- Dynamic small related cards -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recently Viewed Products Footer Strip -->
+        <div class="product-modal-recently-viewed" style="padding: 40px 0 0; border-top: 1px solid var(--border-color); background-color: transparent; margin-top: 48px;">
+          <h4 style="font-family: var(--font-headings); font-weight: 500; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.05em;">Recently Viewed</h4>
+          <div class="recently-viewed-row-strip" id="modal-recently-viewed-display" style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px;">
+            <!-- Dynamic tiny cards -->
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- Side-Drawer Cart Overlay -->
+  <div class="drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="side-drawer side-drawer--right" id="cart-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Shopping Bag (<span id="cart-count-header">0</span>)</h3>
+      <button class="icon-button" id="cart-drawer-close-btn" aria-label="Close cart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Empty Cart State -->
+    <div class="drawer-empty-state" id="cart-empty-view">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="empty-icon">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <p>Your bag is currently empty.</p>
+      <button class="button-outline" id="cart-continue-shopping-btn">Explore Staples</button>
+    </div>
+
+    <!-- Active Cart Items Container -->
+    <div class="drawer-body" id="cart-items-container">
+      <!-- Items dynamically populated -->
+    </div>
+
+    <!-- Cart Footer Details -->
+    <div class="drawer-footer" id="cart-footer">
+      <div class="footer-row">
+        <span>Shipping:</span>
+        <span id="checkout-shipping-cost">Calculated next</span>
+      </div>
+      <div class="footer-row subtotal-row">
+        <span>Subtotal:</span>
+        <span class="subtotal-price" id="cart-total-price">₹0.00</span>
+      </div>
+      <p class="footer-disclaimer">Prepaid discount of 5% will be applied at checkout.</p>
+      <button class="button-primary full-width" id="checkout-btn">Proceed To Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Mock Checkout Modal -->
+  <div class="modal-backdrop" id="checkout-modal-backdrop"></div>
+  <div class="checkout-modal" id="checkout-modal">
+    <div class="checkout-header">
+      <h3 class="checkout-title">Saisa Checkout</h3>
+      <button class="icon-button" id="checkout-modal-close" aria-label="Close checkout">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <p class="success-message" id="checkout-success-msg" style="display:none;">
+        🎉 Thank you! Your order has been placed. You will receive an SMS and email notification shortly.
+      </p>
+      <form id="checkout-form">
+        <div class="form-group">
+          <label for="shipping-name">Full Name</label>
+          <input type="text" id="shipping-name" required placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+          <label for="shipping-phone">Phone Number (For Delivery Alerts)</label>
+          <input type="text" id="shipping-phone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label for="shipping-address">Shipping Address</label>
+          <textarea id="shipping-address" required placeholder="Flat, Street, Area, City, PIN Code"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Payment Method</label>
+          <div class="payment-options">
+            <label class="radio-label">
+              <input type="radio" name="payment-method" value="prepaid" checked>
+              <span>UPI / Netbanking / Cards (5% Prepaid Discount)</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="payment-method" value="cod">
+              <span>Cash on Delivery (COD)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="checkout-summary-box">
+          <div class="summary-line">
+            <span>Subtotal:</span>
+            <span id="checkout-subtotal">₹0</span>
+          </div>
+          <div class="summary-line" id="prepaid-discount-line">
+            <span>Prepaid 5% Discount:</span>
+            <span class="discount-val" id="checkout-discount">-₹0</span>
+          </div>
+          <div class="summary-line">
+            <span>Shipping:</span>
+            <span id="checkout-shipping">Free</span>
+          </div>
+          <div class="summary-line total-line">
+            <span>Total Payable:</span>
+            <span id="checkout-total">₹0</span>
+          </div>
+        </div>
+
+        <button type="submit" class="button-primary full-width" id="place-order-btn">Confirm Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Razorpay Mock Checkout Modal -->
+  <div class="modal-backdrop" id="razorpay-modal-backdrop"></div>
+  <div class="razorpay-modal" id="razorpay-modal" style="display: none;">
+    <div class="razorpay-header">
+      <div class="razorpay-header__left">
+        <span class="razorpay-logo">Razorpay</span>
+        <p class="razorpay-merchant">Saisa Staples</p>
+      </div>
+      <div class="razorpay-header__right">
+        <span class="razorpay-amount" id="razorpay-amount-display">₹1,499</span>
+      </div>
+    </div>
+    
+    <div class="razorpay-body">
+      <!-- Tab List -->
+      <div class="razorpay-tabs">
+        <button class="razorpay-tab active" data-tab="upi" id="rp-tab-upi-btn">UPI / QR</button>
+        <button class="razorpay-tab" data-tab="card" id="rp-tab-card-btn">Card</button>
+        <button class="razorpay-tab" data-tab="netbanking" id="rp-tab-nb-btn">Netbanking</button>
+      </div>
+      
+      <!-- Tab Contents -->
+      <div class="razorpay-tab-content active" id="razorpay-tab-upi-content">
+        <div class="upi-qr-wrapper">
+          <div class="upi-qr-mock">
+            <svg class="qr-svg" viewBox="0 0 100 100" style="width: 120px; height: 120px; margin: 0 auto; display: block;">
+              <rect x="0" y="0" width="100" height="100" fill="white"/>
+              <rect x="5" y="5" width="20" height="20" fill="#3A2E2B"/>
+              <rect x="10" y="10" width="10" height="10" fill="white"/>
+              <rect x="75" y="5" width="20" height="20" fill="#3A2E2B"/>
+              <rect x="75" y="75" width="20" height="20" fill="#3A2E2B"/>
+              <rect x="30" y="30" width="40" height="40" fill="#3A2E2B"/>
+              <rect x="40" y="40" width="20" height="20" fill="white"/>
+            </svg>
+          </div>
+          <p class="upi-help-text" style="font-size: 0.8rem; text-align: center; margin-top: 8px; color: var(--text-muted);">Scan QR Code using any UPI app</p>
+          <div class="upi-or-divider" style="text-align: center; margin: 16px 0; font-size: 0.75rem; color: var(--text-muted); position: relative;"><span style="background-color: var(--bg-primary); padding: 0 8px; position: relative; z-index: 2;">OR PAY VIA UPI ID</span><div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background-color: var(--border-color); z-index: 1;"></div></div>
+          <div class="form-group">
+            <input type="text" id="razorpay-vpa-input" placeholder="e.g. name@upi" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); font-size: 0.9rem; outline: none; border-radius: 0;">
+          </div>
+        </div>
+      </div>
+      
+      <div class="razorpay-tab-content" id="razorpay-tab-card-content" style="display: none;">
+        <div class="card-inputs" style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="form-group">
+            <label for="rp-card-number" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 4px;">Card Number</label>
+            <input type="text" id="rp-card-number" placeholder="4111 2222 3333 4444" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); font-size: 0.9rem; outline: none; border-radius: 0;">
+          </div>
+          <div class="card-row" style="display: flex; gap: 12px;">
+            <div class="form-group" style="flex: 1;">
+              <label for="rp-card-expiry" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 4px;">Expiry</label>
+              <input type="text" id="rp-card-expiry" placeholder="12/29" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); font-size: 0.9rem; outline: none; border-radius: 0;">
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="rp-card-cvv" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 4px;">CVV</label>
+              <input type="password" id="rp-card-cvv" placeholder="•••" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); font-size: 0.9rem; outline: none; border-radius: 0;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="razorpay-tab-content" id="razorpay-tab-netbanking-content" style="display: none;">
+        <div class="bank-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 5px 0;">
+          <label class="bank-option" style="display: flex; align-items: center; gap: 6px; font-size: 0.9rem; cursor: pointer;"><input type="radio" name="rp-bank" value="sbi"> State Bank of India</label>
+          <label class="bank-option" style="display: flex; align-items: center; gap: 6px; font-size: 0.9rem; cursor: pointer;"><input type="radio" name="rp-bank" value="hdfc" checked> HDFC Bank</label>
+          <label class="bank-option" style="display: flex; align-items: center; gap: 6px; font-size: 0.9rem; cursor: pointer;"><input type="radio" name="rp-bank" value="icici"> ICICI Bank</label>
+          <label class="bank-option" style="display: flex; align-items: center; gap: 6px; font-size: 0.9rem; cursor: pointer;"><input type="radio" name="rp-bank" value="axis"> Axis Bank</label>
+        </div>
+      </div>
+      
+      <div class="razorpay-processing" id="razorpay-processing" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-primary); z-index: 10; flex-direction: column; justify-content: center; align-items: center; gap: 16px;">
+        <div class="rp-spinner" style="width: 40px; height: 40px; border: 3px solid var(--border-color); border-top-color: #0980EC; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <p style="font-size: 0.9rem; color: var(--text-primary); font-weight: 500;">Processing Secure Payment...</p>
+      </div>
+
+      <div class="razorpay-success" id="razorpay-success" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-primary); z-index: 10; flex-direction: column; justify-content: center; align-items: center; gap: 12px; text-align: center; padding: 20px;">
+        <div class="rp-checkmark" style="width: 60px; height: 60px; border-radius: 50%; background-color: #22C55E; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold;">✓</div>
+        <p class="rp-success-title" style="font-family: var(--font-headings); font-size: 1.3rem; font-weight: 600; color: #22C55E; text-transform: uppercase; margin-top: 8px;">Payment Successful</p>
+        <p id="razorpay-success-ref" style="font-size: 0.8rem; color: var(--text-muted);">Ref: pay_saisa_123456</p>
+      </div>
+    </div>
+    
+    <div class="razorpay-footer" style="padding: 20px 30px; border-top: 1px solid var(--border-color); display: flex; flex-direction: column;">
+      <button class="button-primary full-width" id="razorpay-pay-btn" style="background-color: #0980EC; border-color: #0980EC; color: white; padding: 14px 20px; font-weight: 600;">Pay Now</button>
+      <button class="text-link-btn" id="razorpay-cancel-btn" style="display: block; margin: 12px auto 0; font-size: 0.8rem; color: var(--text-muted); cursor: pointer; text-decoration: underline;">Cancel Payment</button>
+    </div>
+  </div>
+
+  <!-- Side-Drawer Wishlist Overlay -->
+  <div class="drawer-overlay" id="wishlist-drawer-overlay"></div>
+  <aside class="side-drawer side-drawer--right" id="wishlist-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Wishlist (<span id="wishlist-count-header">0</span>)</h3>
+      <button class="icon-button" id="wishlist-drawer-close-btn" aria-label="Close wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Empty Wishlist State -->
+    <div class="drawer-empty-state" id="wishlist-empty-view">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="empty-icon">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+      <p>Your wishlist is currently empty.</p>
+      <button class="button-outline" id="wishlist-continue-shopping-btn">Explore Staples</button>
+    </div>
+
+    <!-- Active Wishlist Items Container -->
+    <div class="drawer-body" id="wishlist-items-container">
+      <!-- Items dynamically populated -->
+    </div>
+  </aside>
+
+  <!-- Size Guide Modal -->
+  <div class="modal-backdrop" id="size-guide-backdrop"></div>
+  <div class="checkout-modal" id="size-guide-modal" style="max-width: 600px;">
+    <div class="checkout-header">
+      <h3 class="checkout-title">Saisa Size Guide</h3>
+      <button class="icon-button" id="size-guide-close-btn" aria-label="Close size guide">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <p style="font-size: 0.85rem; margin-bottom: 20px; color: var(--text-muted);">
+        All measurements are garment dimensions in inches. Saisa clothing is designed with relaxed and easy fits.
+      </p>
+      <table class="size-chart-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Bust (in)</th>
+            <th>Waist (in)</th>
+            <th>Hips (in)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS</strong> (UK 6)</td>
+            <td>32</td>
+            <td>26</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong> (UK 8)</td>
+            <td>34</td>
+            <td>28</td>
+            <td>37</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong> (UK 10)</td>
+            <td>36</td>
+            <td>30</td>
+            <td>39</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong> (UK 12)</td>
+            <td>38</td>
+            <td>32</td>
+            <td>41</td>
+          </tr>
+          <tr>
+            <td><strong>XL</strong> (UK 14)</td>
+            <td>40</td>
+            <td>34</td>
+            <td>43</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 20px;">
+        *Note: If you are between sizes, we recommend ordering one size down for a more fitted silhouette, or your standard size for a relaxed drape.
+      </p>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toast-notify-bar">
+    <span id="toast-message-text">Item added to bag!</span>
+  </div>
+
+  <footer class="site-footer" id="saisa-footer">
+    <div class="footer-container">
+      <div class="footer-brand-column">
+        <span class="footer-logo">saisa</span>
+        <p class="footer-tagline">Elevated Basics. Made with care in India. Designed to breathe.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Pinterest">Pinterest</a>
+        </div>
+      </div>
+      
+      <div class="footer-links-grid">
+        <div class="footer-column">
+          <h5 class="footer-heading">Shop</h5>
+          <ul>
+            <li><a href="index.html" class="nav-item" data-filter="all">Shop All</a></li>
+            <li><a href="index.html" class="nav-item" data-filter="Plain Kurtis">Plain Kurtas</a></li>
+            <li><a href="index.html" class="nav-item" data-filter="Printed & Colorful">Printed & Colorful</a></li>
+            <li><a href="index.html" class="nav-item" data-filter="Kurta Co-ords">Kurta Co-ords</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h5 class="footer-heading">Support</h5>
+          <ul>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns & Exchanges</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h5 class="footer-heading">Our Values</h5>
+          <ul>
+            <li><a href="#">About Saisa</a></li>
+            <li><a href="#">Fabric Guide</a></li>
+            <li><a href="#">Ethical Production</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p class="copyright-text">&copy; 2026 saisa. All Rights Reserved. Made in India.</p>
+        <div class="footer-policies">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Auth Modal (Sign In / Create Account) -->
+  <div class="modal-backdrop" id="auth-modal-backdrop"></div>
+  <div class="auth-modal" id="auth-modal">
+    <button class="icon-button modal-close-btn" id="auth-modal-close" aria-label="Close form">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="auth-modal__body">
+      <h3 class="auth-modal__title" id="auth-modal-title">Sign In</h3>
+      <p class="auth-modal__subtitle" id="auth-modal-subtitle">Enter your email and password to log in to saisa.</p>
+      
+      <form id="auth-form">
+        <div class="form-group" id="auth-name-group" style="display: none;">
+          <label for="auth-name">Full Name</label>
+          <input type="text" id="auth-name" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+          <label for="auth-email">Email Address</label>
+          <input type="email" id="auth-email" required placeholder="jane@example.com">
+        </div>
+        <div class="form-group">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" required placeholder="••••••••">
+        </div>
+        
+        <button type="submit" class="button-primary full-width" id="auth-submit-btn" style="margin-top: 10px;">Sign In</button>
+      </form>
+      
+      <div class="auth-modal__footer" style="margin-top: 20px; text-align: center; font-size: 0.85rem;">
+        <span id="auth-toggle-text">Don't have an account?</span>
+        <button class="text-link-btn" id="auth-toggle-btn" style="font-weight: 600; background: none; border: none; text-decoration: underline; cursor: pointer; color: var(--text-primary);">Create One</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include App Data & Core Logic Scripts -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
