@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let recentlyViewed = [];
   let razorpayCheckoutType = null; // 'cart' or 'single'
   let singleProductToBuy = null; // if single product
+  let currentRazorpayAmount = 0;
+
+  // Supabase Configuration
+  const SUPABASE_URL = "https://mhwwwkbkihcwzcwccqyu.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1od3d3a2JraWhjd3pjd2NjcXl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMjQwMzMsImV4cCI6MjA5NjgwMDAzM30.9GQww_gkyIjXnbAIhFzrQBcFUbhj9vc5ZgLcaPCQNNY";
+  const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
   // DOM Cache
   const productGrid = document.getElementById('product-grid-display');
@@ -25,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const sortSelect = document.getElementById('catalog-sort-by');
   const cartBadge = document.getElementById('cart-badge-count');
   const wishlistBadge = document.getElementById('wishlist-badge-count');
+  
+  // Profile & Orders UI DOM Cache
+  const profileModal = document.getElementById('profile-modal');
+  const profileModalBackdrop = document.getElementById('profile-modal-backdrop');
+  const ordersDrawer = document.getElementById('orders-drawer');
+  const ordersDrawerOverlay = document.getElementById('orders-drawer-overlay');
   
   // Side Drawers
   const menuDrawer = document.getElementById('menu-drawer');
@@ -97,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       loadCartFromLocalStorage();
       loadWishlistFromLocalStorage();
-      loadUserFromLocalStorage();
+      initSessionTracker();
       renderProducts();
       renderBestSellers();
       renderNewArrivals();
@@ -180,6 +192,401 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function loadGuestProfileFromStorage() {
+    try {
+      const savedGuest = localStorage.getItem('saisa_guest_profile');
+      if (savedGuest) return JSON.parse(savedGuest);
+    } catch (e) {
+      console.warn("[Saisa Storage Error] Could not load guest profile:", e);
+    }
+    return null;
+  }
+
+  function isAnonymousUser(user) {
+    return !!(user && user.is_anonymous);
+  }
+
+  function isRegisteredUser(user) {
+    return !!(user && !user.is_anonymous);
+  }
+
+  async function ensureGuestSession() {
+    if (!supabase) return false;
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) return true;
+
+      const { error } = await supabase.auth.signInAnonymously();
+      if (error) {
+        console.error("[Saisa Guest Auth] Anonymous sign-in failed:", error);
+        return false;
+      }
+      return true;
+    } catch (err) {
+      console.error("[Saisa Guest Auth] ensureGuestSession failed:", err);
+      return false;
+    }
+  }
+
+  async function syncGuestProfileToSupabase(userId, guestProfile) {
+    if (!supabase || !guestProfile) return null;
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .upsert({
+          id: userId,
+          name: guestProfile.name,
+          phone: guestProfile.phone,
+          address: guestProfile.address,
+          updated_at: new Date().toISOString()
+        })
+        .select('*')
+        .maybeSingle();
+      if (error) throw error;
+      return data;
+    } catch (err) {
+      console.error("[Saisa Database Error] Guest profile sync failed:", err);
+      return null;
+    }
+  }
+
+  async function applyAuthSession(session) {
+    if (!session?.user) {
+      currentUser = null;
+      updateUserUI();
+      return;
+    }
+
+    const user = session.user;
+    const guestProfile = loadGuestProfileFromStorage();
+    let profile = null;
+    const isAnon = isAnonymousUser(user);
+
+    if (guestProfile && guestProfile.name) {
+      profile = await syncGuestProfileToSupabase(user.id, guestProfile);
+      // Only clear local guest profile after a successful sync to a registered account
+      if (profile && isRegisteredUser(user)) {
+        try {
+          localStorage.removeItem('saisa_guest_profile');
+        } catch (e) {}
+        showToast("Guest profile synchronized with your account!");
+      }
+    }
+
+    if (!profile) {
+      const { data } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .maybeSingle();
+      profile = data;
+    }
+
+    currentUser = {
+      id: user.id,
+      email: user.email || "",
+      name: profile?.name || guestProfile?.name || user.user_metadata?.full_name || (isAnon ? "Guest" : "Valued Customer"),
+      phone: profile?.phone || guestProfile?.phone || "",
+      address: profile?.address || guestProfile?.address || "",
+      isAnonymous: isAnon
+    };
+
+    fetchAndShowOrderCount();
+    updateUserUI();
+  }
+
+  function initSessionTracker() {
+    // Paint guest profile from localStorage immediately (before async auth resolves)
+    updateUserUI();
+
+    if (!supabase) {
+      loadUserFromLocalStorage();
+      return;
+    }
+
+    let authHydrated = false;
+
+    async function hydrateAuth() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        await applyAuthSession(session);
+
+        // Returning guest shoppers: restore anonymous Supabase session for order tracking
+        if (!session && loadGuestProfileFromStorage()) {
+          await ensureGuestSession();
+        }
+      } catch (err) {
+        console.error("[Saisa Supabase Auth Error] Initial session hydration failed:", err);
+        currentUser = null;
+        updateUserUI();
+      } finally {
+        authHydrated = true;
+      }
+    }
+
+    try {
+      supabase.auth.onAuthStateChange(async (event, session) => {
+        try {
+          if (!authHydrated && event === 'INITIAL_SESSION') return;
+          if (event === 'INITIAL_SESSION') return;
+          await applyAuthSession(session);
+        } catch (authErr) {
+          console.error("[Saisa Supabase Auth Error] Session handler crashed:", authErr);
+        }
+      });
+
+      hydrateAuth();
+    } catch (e) {
+      console.error("[Saisa Supabase Auth Error] Auth listener binding failed:", e);
+      loadUserFromLocalStorage();
+    }
+  }
+
+  async function fetchAndShowOrderCount() {
+    if (!currentUser) return;
+    try {
+      let count = 0;
+      if (supabase) {
+        const { count: dbCount, error } = await supabase
+          .from('orders')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_id', currentUser.id);
+        if (error) throw error;
+        count = dbCount || 0;
+      } else {
+        const savedOrders = JSON.parse(localStorage.getItem('saisa_orders') || '[]');
+        count = savedOrders.filter(o => o.user_email === currentUser.email).length;
+      }
+      const orderBtn = document.getElementById('account-orders-btn');
+      if (orderBtn) orderBtn.textContent = `My Orders (${count})`;
+    } catch (err) {
+      console.error("[Saisa Database Error] Failed to fetch order count:", err);
+    }
+  }
+
+  async function saveCustomerAddress(name, phone, address) {
+    try {
+      const guestProfile = { name, phone, address };
+
+      if (supabase && currentUser && !currentUser.isAnonymous) {
+        const { error } = await supabase
+          .from('profiles')
+          .upsert({
+            id: currentUser.id,
+            name: name,
+            phone: phone,
+            address: address,
+            updated_at: new Date().toISOString()
+          });
+        if (error) throw error;
+      } else if (supabase) {
+        // Guest / anonymous shopper — persist locally and create a Supabase guest session
+        try {
+          localStorage.setItem('saisa_guest_profile', JSON.stringify(guestProfile));
+        } catch (e) {}
+
+        await ensureGuestSession();
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          await syncGuestProfileToSupabase(session.user.id, guestProfile);
+          await applyAuthSession(session);
+        }
+      }
+      
+      if (currentUser && !currentUser.isAnonymous) {
+        currentUser.name = name;
+        currentUser.phone = phone;
+        currentUser.address = address;
+        try {
+          localStorage.setItem('saisa_user', JSON.stringify(currentUser));
+        } catch (e) {}
+      } else if (!supabase) {
+        try {
+          localStorage.setItem('saisa_guest_profile', JSON.stringify(guestProfile));
+        } catch (e) {}
+      }
+      
+      // Prefill checkout fields
+      const nameInput = document.getElementById('shipping-name');
+      const phoneInput = document.getElementById('shipping-phone');
+      const addressInput = document.getElementById('shipping-address');
+      if (nameInput) nameInput.value = name;
+      if (phoneInput) phoneInput.value = phone;
+      if (addressInput) addressInput.value = address;
+      
+      updateUserUI();
+      showToast("Profile settings saved successfully!");
+    } catch (err) {
+      console.error("[Saisa Database Error] Failed to save address:", err);
+      showToast("Failed to save profile settings.");
+    }
+  }
+
+  async function recordCheckoutOrder(totalAmount, paymentMethod) {
+    if (!currentUser && supabase) {
+      await ensureGuestSession();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) await applyAuthSession(session);
+    }
+    if (!currentUser) return false;
+    const orderItems = cart.map(item => ({
+      productId: item.productId,
+      quantity: item.quantity,
+      size: item.selectedSize,
+      color: item.selectedColor
+    }));
+    try {
+      if (supabase) {
+        const { error } = await supabase
+          .from('orders')
+          .insert({
+            user_id: currentUser.id,
+            items: orderItems,
+            total_amount: totalAmount,
+            payment_method: paymentMethod,
+            status: 'Processing'
+          });
+        if (error) throw error;
+      } else {
+        const savedOrders = JSON.parse(localStorage.getItem('saisa_orders') || '[]');
+        savedOrders.push({
+          id: Math.random().toString(36).substr(2, 9),
+          user_email: currentUser.email,
+          items: orderItems,
+          total_amount: totalAmount,
+          payment_method: paymentMethod,
+          status: 'Processing',
+          created_at: new Date().toISOString()
+        });
+        localStorage.setItem('saisa_orders', JSON.stringify(savedOrders));
+      }
+      return true;
+    } catch (err) {
+      console.error("[Saisa Database Error] Failed to save order:", err);
+      return false;
+    }
+  }
+
+  async function fetchAndRenderOrders() {
+    const emptyView = document.getElementById('orders-empty-view');
+    const container = document.getElementById('orders-items-container');
+    if (!container || !emptyView) return;
+
+    if (!currentUser) {
+      emptyView.style.display = 'flex';
+      container.style.display = 'none';
+      const helpText = emptyView.querySelector('p');
+      if (helpText) {
+        helpText.textContent = loadGuestProfileFromStorage()
+          ? "Save your guest profile or sign in to view orders."
+          : "Please sign in or set up a guest profile to view your orders.";
+      }
+      return;
+    }
+
+    try {
+      let orders = [];
+      if (supabase) {
+        const { data, error } = await supabase
+          .from('orders')
+          .select('*')
+          .eq('user_id', currentUser.id)
+          .order('created_at', { ascending: false });
+        if (error) throw error;
+        orders = data || [];
+      } else {
+        const savedOrders = JSON.parse(localStorage.getItem('saisa_orders') || '[]');
+        orders = savedOrders
+          .filter(o => o.user_email === currentUser.email)
+          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      }
+
+      if (orders.length === 0) {
+        emptyView.style.display = 'flex';
+        container.style.display = 'none';
+        const helpText = emptyView.querySelector('p');
+        if (helpText) helpText.textContent = "You haven't placed any orders yet.";
+        return;
+      }
+
+      emptyView.style.display = 'none';
+      container.style.display = 'flex';
+      container.innerHTML = '';
+
+      orders.forEach(order => {
+        const card = document.createElement('div');
+        card.className = 'cart-item';
+        card.style.flexDirection = 'column';
+        card.style.gap = '8px';
+        card.style.padding = '16px';
+        card.style.border = '1px solid var(--border-color)';
+        card.style.marginBottom = '12px';
+
+        const date = new Date(order.created_at).toLocaleDateString('en-IN', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        let itemsListHtml = '';
+        order.items.forEach(item => {
+          const product = window.PRODUCTS.find(p => p.id === item.productId);
+          const title = product ? product.title : item.productId;
+          itemsListHtml += `<p style="font-size: 0.8rem; margin: 2px 0;">• ${title} (${item.size}/${item.color}) x ${item.quantity}</p>`;
+        });
+
+        card.innerHTML = `
+          <div style="display: flex; justify-content: space-between; width: 100%; font-size: 0.8rem; color: var(--text-muted); border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+            <span>Date: ${date}</span>
+            <span style="text-transform: uppercase; font-weight: 600; color: var(--accent-hover);">${order.status}</span>
+          </div>
+          <div style="padding: 4px 0; width: 100%;">
+            ${itemsListHtml}
+          </div>
+          <div style="display: flex; justify-content: space-between; width: 100%; font-family: var(--font-headings); font-weight: 500; font-size: 0.9rem; margin-top: 4px; border-top: 1px dashed var(--border-color); padding-top: 6px;">
+            <span>Total: ₹${order.total_amount.toLocaleString('en-IN')}</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-body); text-transform: uppercase;">${order.payment_method}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    } catch (err) {
+      console.error("[Saisa Database Error] Failed to load orders:", err);
+      showToast("Failed to load order history.");
+    }
+  }
+
+  function triggerProfileModal(show) {
+    try {
+      if (!profileModal || !profileModalBackdrop) return;
+      if (show) {
+        profileModal.classList.add('active');
+        profileModalBackdrop.classList.add('active');
+      } else {
+        profileModal.classList.remove('active');
+        profileModalBackdrop.classList.remove('active');
+      }
+    } catch (err) {
+      console.error("[Saisa UI Error] Profile modal toggle failed:", err);
+    }
+  }
+
+  function triggerOrdersDrawer(show) {
+    try {
+      if (!ordersDrawer || !ordersDrawerOverlay) return;
+      if (show) {
+        ordersDrawer.classList.add('active');
+        ordersDrawerOverlay.classList.add('active');
+        fetchAndRenderOrders();
+      } else {
+        ordersDrawer.classList.remove('active');
+        ordersDrawerOverlay.classList.remove('active');
+      }
+    } catch (err) {
+      console.error("[Saisa UI Error] Orders drawer toggle failed:", err);
+    }
+  }
+
   function updateUserUI() {
     try {
       const nameEl = document.getElementById('account-user-name');
@@ -191,8 +598,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const mobUser = document.getElementById('mob-user-display');
 
       if (currentUser) {
+        const isGuestSession = !!currentUser.isAnonymous;
         if (nameEl) nameEl.textContent = `Welcome, ${currentUser.name}!`;
-        if (statusEl) statusEl.textContent = "Premium Member";
+        if (statusEl) statusEl.textContent = isGuestSession ? "Guest Checkout" : "Premium Member";
         if (outView) outView.style.display = 'none';
         if (inView) inView.style.display = 'block';
         
@@ -200,13 +608,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mobIn) mobIn.style.display = 'block';
         if (mobUser) mobUser.textContent = currentUser.name;
 
-        // Prefill checkout if empty
+        // Prefill checkout if empty or defaults
         const nameInput = document.getElementById('shipping-name');
         const phoneInput = document.getElementById('shipping-phone');
         const addressInput = document.getElementById('shipping-address');
-        if (nameInput && !nameInput.value) nameInput.value = currentUser.name;
-        if (phoneInput && !phoneInput.value) phoneInput.value = currentUser.phone || "+91 98765 43210";
-        if (addressInput && !addressInput.value) addressInput.value = currentUser.address || "Flat 402, Alabaster Heights, New Delhi, 110001";
+        if (nameInput && (!nameInput.value || nameInput.value === "Jane Doe" || nameInput.value === "")) nameInput.value = currentUser.name || "";
+        if (phoneInput && (!phoneInput.value || phoneInput.value === "+91 98765 43210" || phoneInput.value === "")) phoneInput.value = currentUser.phone || "";
+        if (addressInput && (!addressInput.value || addressInput.value === "Flat 402, Alabaster Heights, New Delhi, 110001" || addressInput.value === "")) addressInput.value = currentUser.address || "";
+
+        // Prefill profile settings modal
+        const profNameInput = document.getElementById('profile-name');
+        const profPhoneInput = document.getElementById('profile-phone');
+        const profAddressInput = document.getElementById('profile-address');
+        if (profNameInput) profNameInput.value = currentUser.name || "";
+        if (profPhoneInput) profPhoneInput.value = currentUser.phone || "";
+        if (profAddressInput) profAddressInput.value = currentUser.address || "";
       } else {
         if (nameEl) nameEl.textContent = "Welcome guest";
         if (statusEl) statusEl.textContent = "Not signed in";
@@ -216,13 +632,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mobOut) mobOut.style.display = 'block';
         if (mobIn) mobIn.style.display = 'none';
 
-        // Clear prefill only if it matches default autofill values
+        const guestProfile = loadGuestProfileFromStorage();
+
         const nameInput = document.getElementById('shipping-name');
         const phoneInput = document.getElementById('shipping-phone');
         const addressInput = document.getElementById('shipping-address');
-        if (nameInput && nameInput.value === "Jane Doe") nameInput.value = "";
-        if (phoneInput && phoneInput.value === "+91 98765 43210") phoneInput.value = "";
-        if (addressInput && addressInput.value === "Flat 402, Alabaster Heights, New Delhi, 110001") addressInput.value = "";
+        const profNameInput = document.getElementById('profile-name');
+        const profPhoneInput = document.getElementById('profile-phone');
+        const profAddressInput = document.getElementById('profile-address');
+
+        if (guestProfile) {
+          if (nameEl) nameEl.textContent = `Welcome, ${guestProfile.name || "guest"}!`;
+          if (nameInput) nameInput.value = guestProfile.name || "";
+          if (phoneInput) phoneInput.value = guestProfile.phone || "";
+          if (addressInput) addressInput.value = guestProfile.address || "";
+          if (profNameInput) profNameInput.value = guestProfile.name || "";
+          if (profPhoneInput) profPhoneInput.value = guestProfile.phone || "";
+          if (profAddressInput) profAddressInput.value = guestProfile.address || "";
+        } else {
+          if (nameInput) nameInput.value = "";
+          if (phoneInput) phoneInput.value = "";
+          if (addressInput) addressInput.value = "";
+          if (profNameInput) profNameInput.value = "";
+          if (profPhoneInput) profPhoneInput.value = "";
+          if (profAddressInput) profAddressInput.value = "";
+        }
       }
     } catch (err) {
       console.error("[Saisa UI Error] Failed to update authentication UI:", err);
@@ -985,6 +1419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       razorpayCheckoutType = type;
       singleProductToBuy = singleProduct;
+      currentRazorpayAmount = amount;
 
       const amountDisplay = document.getElementById('razorpay-amount-display');
       if (amountDisplay) {
@@ -1060,7 +1495,25 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (processing) processing.style.display = 'flex';
       
-      setTimeout(() => {
+      setTimeout(async () => {
+        // Record order in Supabase / LocalStorage
+        let orderSaved = false;
+        if (razorpayCheckoutType === 'cart') {
+          orderSaved = await recordCheckoutOrder(currentRazorpayAmount, 'Prepaid (Razorpay)');
+        } else if (razorpayCheckoutType === 'single' && selectedModalProduct) {
+          const qtyInput = document.getElementById('modal-qty-input');
+          const qty = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+          const oldCart = [...cart];
+          cart = [{
+            productId: selectedModalProduct.id,
+            quantity: qty,
+            selectedSize: selectedModalSize || selectedModalProduct.sizes[0],
+            selectedColor: selectedModalColor ? selectedModalColor.name : selectedModalProduct.colors[0].name
+          }];
+          orderSaved = await recordCheckoutOrder(currentRazorpayAmount, 'Prepaid (Razorpay)');
+          cart = oldCart;
+        }
+
         if (processing) processing.style.display = 'none';
         if (success) success.style.display = 'flex';
         
@@ -1083,6 +1536,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           
           closeRazorpayModal();
+          fetchAndShowOrderCount(); // Refresh order count in header
         }, 2000);
       }, 1500);
     } catch (e) {
@@ -1397,9 +1851,15 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      7. CHECKOUT TRANSACTION MANAGER
      ========================================================================== */
-  function openCheckoutModal() {
+  async function openCheckoutModal() {
     try {
       triggerCartDrawer(false);
+
+      if (!currentUser && supabase) {
+        await ensureGuestSession();
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) await applyAuthSession(session);
+      }
       
       const checkoutSuccess = document.getElementById('checkout-success-msg');
       const checkoutForm = document.getElementById('checkout-form');
@@ -1620,13 +2080,52 @@ document.addEventListener('DOMContentLoaded', () => {
     safeBind('checkout-modal-close', 'click', closeCheckoutModal);
     safeBind('checkout-modal-backdrop', 'click', closeCheckoutModal);
 
+    // Profile Settings modal interactions
+    safeBind('account-settings-btn', 'click', (e) => {
+      e.preventDefault();
+      triggerAccountDropdown(false);
+      triggerProfileModal(true);
+    });
+    safeBind('guest-settings-btn', 'click', (e) => {
+      e.preventDefault();
+      triggerAccountDropdown(false);
+      triggerProfileModal(true);
+    });
+    safeBind('mob-guest-settings-btn', 'click', (e) => {
+      e.preventDefault();
+      triggerMenuDrawer(false);
+      triggerProfileModal(true);
+    });
+    safeBind('profile-modal-close', 'click', () => triggerProfileModal(false));
+    safeBind('profile-modal-backdrop', 'click', () => triggerProfileModal(false));
+    safeBind('profile-form', 'submit', (e) => {
+      e.preventDefault();
+      const nameInput = document.getElementById('profile-name');
+      const phoneInput = document.getElementById('profile-phone');
+      const addressInput = document.getElementById('profile-address');
+      const name = nameInput ? nameInput.value : "";
+      const phone = phoneInput ? phoneInput.value : "";
+      const address = addressInput ? addressInput.value : "";
+      saveCustomerAddress(name, phone, address);
+      triggerProfileModal(false);
+    });
+
+    // Orders Drawer interactions
+    safeBind('account-orders-btn', 'click', (e) => {
+      e.preventDefault();
+      triggerAccountDropdown(false);
+      triggerOrdersDrawer(true);
+    });
+    safeBind('orders-drawer-close-btn', 'click', () => triggerOrdersDrawer(false));
+    safeBind('orders-drawer-overlay', 'click', () => triggerOrdersDrawer(false));
+
     // Dynamic prepaid method price updates
     safeBindAll('input[name="payment-method"]', 'change', () => {
       updateCheckoutSummary();
     });
 
     // Checkout Form submission simulation
-    safeBind('checkout-form', 'submit', (e) => {
+    safeBind('checkout-form', 'submit', async (e) => {
       e.preventDefault();
       
       const submitBtn = document.getElementById('place-order-btn');
@@ -1634,37 +2133,47 @@ document.addEventListener('DOMContentLoaded', () => {
       const checkoutSuccess = document.getElementById('checkout-success-msg');
       const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
 
+      let subtotal = 0;
+      cart.forEach(item => {
+        const product = window.PRODUCTS.find(p => p.id === item.productId);
+        if (product) subtotal += product.price * item.quantity;
+      });
+
       if (paymentMethod === 'prepaid') {
-        let subtotal = 0;
-        cart.forEach(item => {
-          const product = window.PRODUCTS.find(p => p.id === item.productId);
-          if (product) subtotal += product.price * item.quantity;
-        });
         const discount = Math.round(subtotal * 0.05);
         const shipping = subtotal >= 1500 ? 0 : 100;
         const total = subtotal - discount + shipping;
         
         openRazorpayModal(total, 'cart');
       } else {
+        const shipping = subtotal >= 1500 ? 0 : 100;
+        const total = subtotal + shipping;
+
         if (submitBtn) {
           submitBtn.textContent = "Processing Order...";
           submitBtn.disabled = true;
         }
 
+        const success = await recordCheckoutOrder(total, 'Cash on Delivery (COD)');
+        
         setTimeout(() => {
-          cart = [];
-          saveCartToLocalStorage();
-          updateCartUI();
+          if (success) {
+            cart = [];
+            saveCartToLocalStorage();
+            updateCartUI();
 
-          if (checkoutForm) checkoutForm.reset();
+            if (checkoutForm) checkoutForm.reset();
+            if (checkoutForm) checkoutForm.style.display = 'none';
+            if (checkoutSuccess) checkoutSuccess.style.display = 'block';
+            showToast("Success! Order placed successfully (COD).");
+            fetchAndShowOrderCount(); // Refresh order count in header
+          } else {
+            showToast("Could not place order. Please try again.");
+          }
           if (submitBtn) {
             submitBtn.textContent = "Confirm Order";
             submitBtn.disabled = false;
           }
-          
-          if (checkoutForm) checkoutForm.style.display = 'none';
-          if (checkoutSuccess) checkoutSuccess.style.display = 'block';
-          showToast("Success! Order placed successfully (COD).");
         }, 1500);
       }
     });
@@ -1709,6 +2218,11 @@ document.addEventListener('DOMContentLoaded', () => {
       triggerAuthModal(true, false);
     });
 
+    safeBind('mob-signup-btn', 'click', () => {
+      triggerMenuDrawer(false);
+      triggerAuthModal(true, true);
+    });
+
     safeBind('auth-modal-close', 'click', () => triggerAuthModal(false));
     safeBind('auth-modal-backdrop', 'click', () => triggerAuthModal(false));
 
@@ -1721,57 +2235,129 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Sign Out trigger
-    safeBind('header-signout-btn', 'click', () => {
+    safeBind('header-signout-btn', 'click', async () => {
+      if (supabase) {
+        try {
+          await supabase.auth.signOut();
+        } catch (err) {
+          console.error("Supabase signOut error:", err);
+        }
+      }
       currentUser = null;
       try {
         localStorage.removeItem('saisa_user');
-      } catch (err) {
-        console.warn("[Saisa Storage Error] Could not clear user session:", err);
-      }
+      } catch (err) {}
+      // Keep saisa_guest_profile so guest checkout details survive sign-out
       updateUserUI();
       triggerAccountDropdown(false);
       showToast("Signed out successfully.");
     });
 
-    safeBind('mob-signout-btn', 'click', () => {
+    safeBind('mob-signout-btn', 'click', async () => {
+      if (supabase) {
+        try {
+          await supabase.auth.signOut();
+        } catch (err) {
+          console.error("Supabase signOut error:", err);
+        }
+      }
       currentUser = null;
       try {
         localStorage.removeItem('saisa_user');
-      } catch (err) {
-        console.warn("[Saisa Storage Error] Could not clear user session:", err);
-      }
+      } catch (err) {}
       updateUserUI();
       triggerMenuDrawer(false);
       showToast("Signed out successfully.");
     });
 
-    // Auth Form mock login/register logic
-    safeBind('auth-form', 'submit', (e) => {
+    // Auth Form login/register logic
+    safeBind('auth-form', 'submit', async (e) => {
       e.preventDefault();
       const title = document.getElementById('auth-modal-title');
       const isSignUp = title && title.textContent === "Create Account";
       const emailInput = document.getElementById('auth-email');
+      const passwordInput = document.getElementById('auth-password');
       const nameInput = document.getElementById('auth-name');
-      
-      const email = emailInput ? emailInput.value : "jane@example.com";
-      const name = (isSignUp && nameInput && nameInput.value) ? nameInput.value : "Jane Doe";
+      const submitBtn = document.getElementById('auth-submit-btn');
 
-      currentUser = {
-        name: name,
-        email: email,
-        phone: "+91 98765 43210",
-        address: "Flat 402, Alabaster Heights, New Delhi, 110001"
-      };
+      const email = emailInput ? emailInput.value : "";
+      const password = passwordInput ? passwordInput.value : "";
+      const name = (isSignUp && nameInput && nameInput.value) ? nameInput.value : "Guest User";
 
-      try {
-        localStorage.setItem('saisa_user', JSON.stringify(currentUser));
-      } catch (err) {
-        console.warn("[Saisa Storage Error] Could not save user session:", err);
+      if (submitBtn) {
+        submitBtn.textContent = "Processing...";
+        submitBtn.disabled = true;
       }
 
-      updateUserUI();
-      triggerAuthModal(false);
-      showToast(`Welcome, ${name}!`);
+      try {
+        if (supabase) {
+          if (isSignUp) {
+            const { data: { session: existingSession } } = await supabase.auth.getSession();
+            if (existingSession?.user?.is_anonymous) {
+              const { error } = await supabase.auth.updateUser({
+                email,
+                password,
+                data: { full_name: name }
+              });
+              if (error) throw error;
+              showToast("Account created! Your guest cart and orders are linked.");
+            } else {
+              const { error } = await supabase.auth.signUp({
+                email,
+                password,
+                options: {
+                  data: { full_name: name }
+                }
+              });
+              if (error) throw error;
+              showToast("Account created successfully!");
+            }
+          } else {
+            const { error } = await supabase.auth.signInWithPassword({
+              email,
+              password
+            });
+            if (error) throw error;
+            showToast("Signed in successfully!");
+          }
+        } else {
+          // Check if there is guest profile data in localStorage to merge/sync
+          let guestProfile = null;
+          try {
+            const savedGuest = localStorage.getItem('saisa_guest_profile');
+            if (savedGuest) {
+              guestProfile = JSON.parse(savedGuest);
+            }
+          } catch (e) {}
+
+          currentUser = {
+            name: (guestProfile && guestProfile.name) ? guestProfile.name : name,
+            email: email,
+            phone: (guestProfile && guestProfile.phone) ? guestProfile.phone : "+91 98765 43210",
+            address: (guestProfile && guestProfile.address) ? guestProfile.address : "Flat 402, Alabaster Heights, New Delhi, 110001"
+          };
+          localStorage.setItem('saisa_user', JSON.stringify(currentUser));
+          
+          if (guestProfile) {
+            try {
+              localStorage.removeItem('saisa_guest_profile');
+            } catch (e) {}
+            showToast("Guest profile synchronized with your account!");
+          } else {
+            showToast(`Welcome, ${name}!`);
+          }
+          updateUserUI();
+        }
+        triggerAuthModal(false);
+      } catch (err) {
+        console.error("Auth action failed:", err);
+        showToast(err.message || "Authentication failed.");
+      } finally {
+        if (submitBtn) {
+          submitBtn.textContent = isSignUp ? "Register" : "Sign In";
+          submitBtn.disabled = false;
+        }
+      }
     });
 
     // Desktop Main Navigation Shop Link

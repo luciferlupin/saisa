@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Log in or Register to saisa to track your orders, manage your wishlist, and save your addresses.">
+  <title>Account Access | saisa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .login-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 24px;
+      background-color: var(--bg-secondary);
+    }
+    .login-card {
+      background: var(--white);
+      padding: 48px;
+      max-width: 460px;
+      width: 100%;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 16px 40px rgba(58, 46, 43, 0.05);
+      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .login-logo {
+      font-family: var(--font-headings);
+      font-size: 2.2rem;
+      text-transform: lowercase;
+      letter-spacing: 0.12em;
+      text-align: center;
+      margin-bottom: 32px;
+      display: block;
+      color: var(--text-primary);
+    }
+    .login-title {
+      font-family: var(--font-headings);
+      font-size: 1.4rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .login-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-family: var(--font-headings);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    .form-group input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      outline: none;
+      font-size: 0.95rem;
+      transition: border-color var(--transition-speed);
+      border-radius: 0;
+    }
+    .form-group input:focus {
+      border-color: var(--border-focus);
+    }
+    .login-footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+    }
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-card">
+      <a href="index.html" class="login-logo">saisa</a>
+      
+      <!-- Explicit Navigation Tabs -->
+      <div class="auth-tabs" style="display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 24px;">
+        <button class="auth-tab active" id="tab-signin-btn" style="flex: 1; background: none; border: none; padding: 12px; font-family: var(--font-headings); font-size: 0.9rem; letter-spacing: 0.08em; cursor: pointer; color: var(--text-primary); border-bottom: 2px solid var(--text-primary); text-transform: uppercase; outline: none;">Sign In</button>
+        <button class="auth-tab" id="tab-signup-btn" style="flex: 1; background: none; border: none; padding: 12px; font-family: var(--font-headings); font-size: 0.9rem; letter-spacing: 0.08em; cursor: pointer; color: var(--text-muted); border-bottom: 2px solid transparent; text-transform: uppercase; outline: none;">Create Account</button>
+      </div>
+
+      <h3 class="login-title" id="page-auth-title">Sign In</h3>
+      <p class="login-subtitle" id="page-auth-subtitle">Enter your email and password to log in to saisa.</p>
+      
+      <form id="page-auth-form">
+        <div class="form-group" id="page-auth-name-group" style="display: none;">
+          <label for="page-auth-name">Full Name</label>
+          <input type="text" id="page-auth-name" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+          <label for="page-auth-email">Email Address</label>
+          <input type="email" id="page-auth-email" required placeholder="jane@example.com">
+        </div>
+        <div class="form-group">
+          <label for="page-auth-password">Password</label>
+          <input type="password" id="page-auth-password" required placeholder="••••••••">
+        </div>
+        
+        <p id="auth-error-msg" style="color: var(--danger-color); font-size: 0.85rem; margin-top: 12px; margin-bottom: 12px; display: none; text-align: center; font-weight: 500;"></p>
+        
+        <button type="submit" class="button-primary full-width" id="page-auth-submit-btn" style="margin-top: 10px; padding: 14px 20px;">Sign In</button>
+      </form>
+      
+      <div class="login-footer">
+        <span id="page-auth-toggle-text">Don't have an account?</span>
+        <button class="text-link-btn" id="page-auth-toggle-btn" style="font-weight: 600; background: none; border: none; text-decoration: underline; cursor: pointer; color: var(--text-primary);">Create One</button>
+      </div>
+
+      <a href="index.html" class="back-home">← Back to Shop</a>
+    </div>
+  </div>
+
+  <div class="toast-notification" id="toast-notify-bar">
+    <span id="toast-message-text"></span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Supabase Configuration
+    const SUPABASE_URL = "https://mhwwwkbkihcwzcwccqyu.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1od3d3a2JraWhjd3pjd2NjcXl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMjQwMzMsImV4cCI6MjA5NjgwMDAzM30.9GQww_gkyIjXnbAIhFzrQBcFUbhj9vc5ZgLcaPCQNNY";
+    const supabaseClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+    // Toast Notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toast-notify-bar');
+      const toastText = document.getElementById('toast-message-text');
+      if (toast && toastText) {
+        toastText.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+    }
+
+    function loadGuestProfileFromStorage() {
+      try {
+        const savedGuest = localStorage.getItem('saisa_guest_profile');
+        if (savedGuest) return JSON.parse(savedGuest);
+      } catch (e) {}
+      return null;
+    }
+
+    async function syncGuestProfileToSupabase(userId, guestProfile) {
+      if (!supabaseClient || !guestProfile) return null;
+      try {
+        const { data, error } = await supabaseClient
+          .from('profiles')
+          .upsert({
+            id: userId,
+            name: guestProfile.name,
+            phone: guestProfile.phone,
+            address: guestProfile.address,
+            updated_at: new Date().toISOString()
+          })
+          .select('*')
+          .maybeSingle();
+        if (error) throw error;
+        return data;
+      } catch (err) {
+        console.error("Guest profile sync failed:", err);
+        return null;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('page-auth-form');
+      const title = document.getElementById('page-auth-title');
+      const subtitle = document.getElementById('page-auth-subtitle');
+      const nameGroup = document.getElementById('page-auth-name-group');
+      const submitBtn = document.getElementById('page-auth-submit-btn');
+      const toggleBtn = document.getElementById('page-auth-toggle-btn');
+      const toggleText = document.getElementById('page-auth-toggle-text');
+      const tabSignIn = document.getElementById('tab-signin-btn');
+      const tabSignUp = document.getElementById('tab-signup-btn');
+
+      let isSignUp = false;
+
+      // Helper function to switch tabs/modes
+      function switchMode(toSignUp) {
+        isSignUp = toSignUp;
+        if (isSignUp) {
+          title.textContent = "Create Account";
+          subtitle.textContent = "Sign up to start saving your wishlist and track orders.";
+          nameGroup.style.display = "block";
+          submitBtn.textContent = "Create Account";
+          toggleText.textContent = "Already have an account?";
+          toggleBtn.textContent = "Sign In";
+
+          tabSignUp.style.borderBottomColor = "var(--text-primary)";
+          tabSignUp.style.color = "var(--text-primary)";
+          tabSignUp.classList.add("active");
+          tabSignIn.style.borderBottomColor = "transparent";
+          tabSignIn.style.color = "var(--text-muted)";
+          tabSignIn.classList.remove("active");
+        } else {
+          title.textContent = "Sign In";
+          subtitle.textContent = "Enter your email and password to log in to saisa.";
+          nameGroup.style.display = "none";
+          submitBtn.textContent = "Sign In";
+          toggleText.textContent = "Don't have an account?";
+          toggleBtn.textContent = "Create One";
+
+          tabSignIn.style.borderBottomColor = "var(--text-primary)";
+          tabSignIn.style.color = "var(--text-primary)";
+          tabSignIn.classList.add("active");
+          tabSignUp.style.borderBottomColor = "transparent";
+          tabSignUp.style.color = "var(--text-muted)";
+          tabSignUp.classList.remove("active");
+        }
+      }
+
+      // Check if URL specifies signup mode
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('mode') === 'signup') {
+        switchMode(true);
+      }
+
+      // Tab Event Listeners
+      tabSignIn.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchMode(false);
+      });
+
+      tabSignUp.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchMode(true);
+      });
+
+      // Handle toggle mode click at bottom
+      toggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchMode(!isSignUp);
+      });
+
+      // Handle form submit
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('page-auth-email').value;
+        const password = document.getElementById('page-auth-password').value;
+        const name = isSignUp ? document.getElementById('page-auth-name').value : "";
+
+        const errorMsg = document.getElementById('auth-error-msg');
+        if (errorMsg) {
+          errorMsg.style.display = "none";
+          errorMsg.textContent = "";
+        }
+
+        if (submitBtn) {
+          submitBtn.textContent = "Processing...";
+          submitBtn.disabled = true;
+        }
+
+        try {
+          if (!supabaseClient) {
+            throw new Error("Supabase connection is not loaded.");
+          }
+
+          const guestProfile = loadGuestProfileFromStorage();
+
+          if (isSignUp) {
+            const { data: { session: existingSession } } = await supabaseClient.auth.getSession();
+            let data;
+            let error;
+
+            if (existingSession?.user?.is_anonymous) {
+              ({ data, error } = await supabaseClient.auth.updateUser({
+                email,
+                password,
+                data: { full_name: name }
+              }));
+            } else {
+              ({ data, error } = await supabaseClient.auth.signUp({
+                email,
+                password,
+                options: {
+                  data: { full_name: name }
+                }
+              }));
+            }
+            if (error) throw error;
+
+            const activeUser = data?.user || (await supabaseClient.auth.getSession()).data.session?.user;
+            if (guestProfile && activeUser && !activeUser.is_anonymous) {
+              const synced = await syncGuestProfileToSupabase(activeUser.id, guestProfile);
+              if (synced) {
+                localStorage.removeItem('saisa_guest_profile');
+              }
+            }
+
+            showToast("Account created successfully!");
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 1500);
+          } else {
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+              email,
+              password
+            });
+            if (error) throw error;
+
+            if (guestProfile && data?.user) {
+              const synced = await syncGuestProfileToSupabase(data.user.id, guestProfile);
+              if (synced) {
+                localStorage.removeItem('saisa_guest_profile');
+              }
+            }
+
+            showToast("Logged in successfully!");
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 1500);
+          }
+        } catch (err) {
+          console.error("Auth error:", err);
+          if (errorMsg) {
+            errorMsg.textContent = err.message || "Authentication failed.";
+            errorMsg.style.display = "block";
+          } else {
+            showToast(err.message || "Authentication failed.");
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.textContent = isSignUp ? "Create Account" : "Sign In";
+            submitBtn.disabled = false;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

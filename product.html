@@ -91,6 +91,7 @@
               <div id="account-signed-out-view">
                 <button class="button-primary button-sm full-width" id="header-signin-btn">Sign In</button>
                 <button class="button-outline button-sm full-width" style="margin-top: 8px;" id="header-signup-btn">Create Account</button>
+                <a href="#" class="dropdown-action-link" id="guest-settings-btn" style="display: block; margin-top: 12px; text-align: center; text-decoration: underline; font-size: 0.85rem; color: var(--text-primary);">Guest Profile Settings</a>
               </div>
               <!-- Signed in state -->
               <div id="account-signed-in-view" style="display: none;">
@@ -158,6 +159,8 @@
         <li class="drawer-auth-item" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-color);">
           <div id="mob-account-signed-out">
             <button class="button-primary button-sm full-width" id="mob-signin-btn">Sign In</button>
+            <button class="button-outline button-sm full-width" style="margin-top: 8px;" id="mob-signup-btn">Create Account</button>
+            <a href="#" class="dropdown-action-link" id="mob-guest-settings-btn" style="display: block; margin-top: 12px; text-align: center; text-decoration: underline; font-size: 0.85rem; color: var(--text-primary);">Guest Profile Settings</a>
           </div>
           <div id="mob-account-signed-in" style="display: none;">
             <p style="font-size: 0.9rem; margin-bottom: 12px;">Logged in as <strong id="mob-user-display">Jane Doe</strong></p>
@@ -664,7 +667,7 @@
     
     <div class="footer-bottom">
       <div class="footer-bottom-container">
-        <p class="copyright-text">&copy; 2026 saisa. All Rights Reserved. Made in India.</p>
+        <p class="copyright-text">&copy; 2026 saisa. All Rights Reserved. Made in India. &bull; Made by <a href="https://www.curiouskaizer.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;" title="Curious Kaizer - Web Development Company in Delhi">Curious Kaizer</a></p>
         <div class="footer-policies">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -710,7 +713,69 @@
     </div>
   </div>
 
+  <!-- Profile Settings Modal -->
+  <div class="modal-backdrop" id="profile-modal-backdrop"></div>
+  <div class="checkout-modal" id="profile-modal" style="max-width: 500px;">
+    <div class="checkout-header">
+      <h3 class="checkout-title">Profile Settings</h3>
+      <button class="icon-button" id="profile-modal-close" aria-label="Close settings">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <form id="profile-form">
+        <div class="form-group">
+          <label for="profile-name">Full Name</label>
+          <input type="text" id="profile-name" required placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+          <label for="profile-phone">Phone Number</label>
+          <input type="text" id="profile-phone" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label for="profile-address">Shipping Address</label>
+          <textarea id="profile-address" placeholder="Flat, Street, Area, City, PIN Code"></textarea>
+        </div>
+        <button type="submit" class="button-primary full-width" id="save-profile-btn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Side-Drawer Orders Overlay -->
+  <div class="drawer-overlay" id="orders-drawer-overlay"></div>
+  <aside class="side-drawer side-drawer--right" id="orders-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">My Orders</h3>
+      <button class="icon-button" id="orders-drawer-close-btn" aria-label="Close orders">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Empty Orders State -->
+    <div class="drawer-empty-state" id="orders-empty-view" style="display: flex;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="empty-icon">
+        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+        <line x1="7" y1="8" x2="17" y2="8"></line>
+        <line x1="7" y1="12" x2="17" y2="12"></line>
+        <line x1="7" y1="16" x2="13" y2="16"></line>
+      </svg>
+      <p>You haven't placed any orders yet.</p>
+    </div>
+
+    <!-- Active Orders Container -->
+    <div class="drawer-body" id="orders-items-container" style="display: none;">
+      <!-- Orders populated dynamically by app.js -->
+    </div>
+  </aside>
+
   <!-- Include App Data & Core Logic Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="products.js"></script>
   <script src="app.js"></script>
 </body>
