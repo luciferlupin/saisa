@@ -783,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
           <div class="product-card-details">
-            <h3 class="product-card-title">${product.title}</h3>
+            <h3 class="product-card-title"><a href="product.html?id=${product.id}">${product.title}</a></h3>
             
             <div class="product-card-rating-row">
               <span class="rating-stars-gold">${starsHtml}</span>
