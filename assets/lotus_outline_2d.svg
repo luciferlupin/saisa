@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
   <!-- Central Crown Drops -->
-  <circle cx="250" cy="22" r="2.5" fill="currentColor" stroke="none" />
-  <circle cx="250" cy="36" r="4.5" fill="currentColor" stroke="none" />
+  <circle cx="250" cy="18" r="3.5" fill="currentColor" stroke="none" />
+  <circle cx="250" cy="34" r="6" fill="currentColor" stroke="none" />
   
   <!-- Central Petal -->
-  <path d="M 250 50 C 220 130 205 210 250 280 C 295 210 280 130 250 50 Z" stroke-width="2" />
+  <path d="M 250 50 C 220 130 205 210 250 280 C 295 210 280 130 250 50 Z" stroke-width="4.5" />
   
   <!-- Inner Left Petals -->
-  <path d="M 250 54 C 200 100 165 190 220 275" stroke-width="1.8" />
-  <path d="M 250 280 C 180 230 145 150 185 95 C 215 145 235 220 250 280 Z" stroke-width="1.8" />
+  <path d="M 250 54 C 200 100 165 190 220 275" stroke-width="4" />
+  <path d="M 250 280 C 180 230 145 150 185 95 C 215 145 235 220 250 280 Z" stroke-width="4" />
   
   <!-- Inner Right Petals -->
-  <path d="M 250 54 C 300 100 335 190 280 275" stroke-width="1.8" />
-  <path d="M 250 280 C 320 230 355 150 315 95 C 285 145 265 220 250 280 Z" stroke-width="1.8" />
+  <path d="M 250 54 C 300 100 335 190 280 275" stroke-width="4" />
+  <path d="M 250 280 C 320 230 355 150 315 95 C 285 145 265 220 250 280 Z" stroke-width="4" />
   
   <!-- Middle Left Petal -->
-  <path d="M 250 280 C 140 260 90 180 130 125 C 160 180 200 240 250 280 Z" stroke-width="1.8" />
+  <path d="M 250 280 C 140 260 90 180 130 125 C 160 180 200 240 250 280 Z" stroke-width="4" />
   
   <!-- Middle Right Petal -->
-  <path d="M 250 280 C 360 260 410 180 370 125 C 340 180 300 240 250 280 Z" stroke-width="1.8" />
+  <path d="M 250 280 C 360 260 410 180 370 125 C 340 180 300 240 250 280 Z" stroke-width="4" />
   
   <!-- Outer Flared Base Left Petal -->
-  <path d="M 250 282 C 150 285 60 250 45 190 C 95 195 170 235 250 282 Z" stroke-width="1.8" />
+  <path d="M 250 282 C 150 285 60 250 45 190 C 95 195 170 235 250 282 Z" stroke-width="4" />
   
   <!-- Outer Flared Base Right Petal -->
-  <path d="M 250 282 C 350 285 440 250 455 190 C 405 195 330 235 250 282 Z" stroke-width="1.8" />
+  <path d="M 250 282 C 350 285 440 250 455 190 C 405 195 330 235 250 282 Z" stroke-width="4" />
   
   <!-- Bottom Base Arch & Calyx -->
-  <path d="M 180 280 C 215 295 285 295 320 280" stroke-width="2" />
-  <path d="M 195 285 C 225 300 275 300 305 285" stroke-width="1.5" />
+  <path d="M 180 280 C 215 295 285 295 320 280" stroke-width="4.5" />
+  <path d="M 195 285 C 225 302 275 302 305 285" stroke-width="3.5" />
 </svg>
