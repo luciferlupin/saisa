@@ -22,87 +22,122 @@
 
   revealHero();
 
+  // =========================================================================
+  // GUARANTEED REAL-TIME SCROLL MOTION ENGINE FOR HEADINGS & SUBHEADINGS
+  // =========================================================================
+  function initTextScrollMotion() {
+    const headingSelectors = [
+      '.tres-categories-heading',
+      '.ombre-collection-heading',
+      '.staples-title',
+      '.limited-edition-heading',
+      '.saisa-reels-title',
+      '.influencer-title',
+      '.worn-reviewed-title',
+      '.section-title',
+      '.footer-newsletter-title',
+      '.tres-trust-title'
+    ];
+
+    const subSelectors = [
+      '.saisa-reels-sub',
+      '.influencer-subtitle',
+      '.section-subtitle',
+      '.staples-desc',
+      '.footer-newsletter-sub'
+    ];
+
+    // Light Start: RGB(228, 204, 198) -> #E4CCC6 (Soft Light Champagne Rose)
+    // Dark End:   RGB(42, 13, 15)     -> #2A0D0F (Rich Deep Regal Wine)
+    const headStartRGB = [228, 204, 198];
+    const headEndRGB   = [42, 13, 15];
+
+    // Subtitle Start: RGB(218, 192, 184) -> #DAC0B8
+    // Subtitle End:   RGB(99, 59, 56)    -> #633B38
+    const subStartRGB  = [218, 192, 184];
+    const subEndRGB    = [99, 59, 56];
+
+    let ticking = false;
+
+    function renderTextMotion() {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const headEls = document.querySelectorAll(headingSelectors.join(','));
+      const subEls  = document.querySelectorAll(subSelectors.join(','));
+
+      headEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // Starts entering at 96% viewport height, completes transition by 48% viewport height
+        const startY = vh * 0.96;
+        const endY   = vh * 0.48;
+        
+        let p = (startY - rect.top) / (startY - endY);
+        if (p < 0) p = 0;
+        if (p > 1) p = 1;
+
+        // Smooth ease-out quad curve
+        const ease = 1 - (1 - p) * (1 - p);
+
+        const r = Math.round(headStartRGB[0] + (headEndRGB[0] - headStartRGB[0]) * ease);
+        const g = Math.round(headStartRGB[1] + (headEndRGB[1] - headStartRGB[1]) * ease);
+        const b = Math.round(headStartRGB[2] + (headEndRGB[2] - headStartRGB[2]) * ease);
+        const opacity = 0.35 + 0.65 * ease;
+        const translateY = 24 * (1 - ease);
+
+        el.style.color = `rgb(${r}, ${g}, ${b})`;
+        el.style.opacity = opacity.toFixed(3);
+        el.style.transform = `translateY(${translateY.toFixed(1)}px)`;
+      });
+
+      subEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const startY = vh * 0.95;
+        const endY   = vh * 0.52;
+        
+        let p = (startY - rect.top) / (startY - endY);
+        if (p < 0) p = 0;
+        if (p > 1) p = 1;
+
+        const ease = 1 - (1 - p) * (1 - p);
+        const r = Math.round(subStartRGB[0] + (subEndRGB[0] - subStartRGB[0]) * ease);
+        const g = Math.round(subStartRGB[1] + (subEndRGB[1] - subStartRGB[1]) * ease);
+        const b = Math.round(subStartRGB[2] + (subEndRGB[2] - subStartRGB[2]) * ease);
+        const opacity = 0.4 + 0.6 * ease;
+        const translateY = 14 * (1 - ease);
+
+        el.style.color = `rgb(${r}, ${g}, ${b})`;
+        el.style.opacity = opacity.toFixed(3);
+        el.style.transform = `translateY(${translateY.toFixed(1)}px)`;
+      });
+
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(renderTextMotion);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    renderTextMotion();
+    
+    // Also re-run after images and DOM content load
+    window.addEventListener('load', renderTextMotion);
+    setTimeout(renderTextMotion, 300);
+    setTimeout(renderTextMotion, 1000);
+  }
+
+  // Initialize immediately
+  initTextScrollMotion();
+
   function mountMotion() {
     context?.revert();
     if (!gsap || !window.ScrollTrigger || paused) return;
     gsap.registerPlugin(window.ScrollTrigger);
     context = gsap.context(() => {
       ribbonTween = gsap.to('.ribbon-track',{xPercent:-50,duration:34,repeat:-1,ease:'none'});
-      
-      // =========================================================================
-      // LUXURY LIGHT-TO-DARK SCROLL-TRIGGERED COLOR ANIMATION (ALL SECTION HEADINGS)
-      // =========================================================================
-      const allHeadingSelectors = [
-        '.tres-categories-heading',
-        '.ombre-collection-heading',
-        '.staples-title',
-        '.limited-edition-heading',
-        '.saisa-reels-title',
-        '.influencer-title',
-        '.worn-reviewed-title',
-        '.reviews-section-title',
-        '.section-title',
-        '.footer-newsletter-title',
-        '.tres-categories-section h2',
-        '.ombre-collection-section h2',
-        '.limited-edition-section h2',
-        '.saisa-reels-section h2',
-        '.influencer-showcase-section h2',
-        '.worn-reviewed-section h2'
-      ];
-
-      // Query and animate all unique heading elements
-      const headingElements = gsap.utils.toArray(allHeadingSelectors.join(','));
-      headingElements.forEach((heading) => {
-        gsap.fromTo(heading, 
-          { 
-            color: '#E2C8C2', // Luminous soft light champagne rose
-            opacity: 0.35,
-            y: 28,
-            letterSpacing: '0.04em'
-          },
-          { 
-            color: '#2A0D0F', // Rich deep luxury dark wine
-            opacity: 1,
-            y: 0,
-            letterSpacing: '-0.01em',
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: heading,
-              start: 'top 96%',
-              end: 'top 48%',
-              scrub: 0.6,
-              toggleActions: 'play reverse play reverse'
-            }
-          }
-        );
-      });
-
-      // Also animate section subheadings smoothly from soft muted light to rich dark tone
-      const subHeadingSelectors = [
-        '.saisa-reels-sub',
-        '.influencer-subtitle',
-        '.section-subtitle',
-        '.staples-desc',
-        '.footer-newsletter-sub'
-      ];
-      gsap.utils.toArray(subHeadingSelectors.join(',')).forEach((sub) => {
-        gsap.fromTo(sub,
-          { color: '#D9BDB5', opacity: 0.4, y: 16 },
-          { 
-            color: '#633B38', 
-            opacity: 0.95, 
-            y: 0, 
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: sub,
-              start: 'top 95%',
-              end: 'top 52%',
-              scrub: 0.6
-            }
-          }
-        );
-      });
 
       // =========================================================================
       // SEAMLESS SECTION-TO-SECTION FLOW TRANSITIONS & ORGANIC PARALLAX

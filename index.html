@@ -887,8 +887,10 @@
       font-weight: 600 !important;
       letter-spacing: 0.12em !important;
       text-transform: uppercase !important;
-      color: #7D2D2A !important;
+      color: #7D2D2A;
       margin: 0 0 36px !important;
+      will-change: color, transform, opacity;
+      transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
     }
 
     .limited-grid {
@@ -1871,8 +1873,10 @@
       font-size: clamp(28px, 3.8vw, 44px) !important;
       font-weight: 600 !important;
       letter-spacing: -0.015em !important;
-      color: #381A18 !important;
+      color: #381A18;
       margin: 0 !important;
+      will-change: color, transform, opacity;
+      transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
     }
 
     .worn-reviewed-carousel-wrap {
@@ -4080,6 +4084,6 @@
   <script src="app.js?v=sections2026_v7"></script>
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
-  <script src="motion.js?v=flow_flow_v2"></script>
+  <script src="motion.js?v=live_interpolator_v3"></script>
 </body>
 </html>
