@@ -3,24 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shop saisa | Clean cuts, elevated everyday basics for women. Modern fits with premium linen and organic cotton, ethically made in India.">
-  <meta name="theme-color" content="#FCF8F7">
-  <title>Saisa | Product Details | Made in India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="description" content="Shop Saïsa | Ethnic wear for every you. Modern fits with premium linen and organic cotton, ethically made in India.">
+  <meta name="theme-color" content="#FAF6F3">
+  <title>Saïsa | Product Details | Made in India</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 
 
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="editorial.css">
+  <link rel="stylesheet" href="style.css?v=logo2026_2">
+  <link rel="stylesheet" href="editorial.css?v=logo2026_2">
 </head>
 <body class="product-page-body">
-
-  <!-- Top Announcement Bar -->
-  <div class="announcement-bar" id="saisa-announcement-bar">
-    <div class="announcement-bar__content" id="announcement-text">
-      FREE SHIPPING ON ORDERS ABOVE ₹1,500 • PREPAID DISCOUNT: 5% OFF
-    </div>
-  </div>
 
   <!-- Main Navigation Header -->
   <header class="site-header" id="saisa-header">
@@ -38,7 +32,9 @@
 
         <!-- Logo -->
         <div class="site-logo">
-          <a href="index.html" id="site-logo-link">saisa</a>
+          <a href="index.html" id="site-logo-link" class="site-logo-brand" aria-label="Saïsa - Ethnic Wear For Every You">
+            <img src="assets/logo_nav.png" alt="Saïsa" class="header-logo-image">
+          </a>
         </div>
       </div>
 
@@ -49,12 +45,12 @@
           <li class="nav-dropdown-wrapper">
             <a href="index.html" class="desktop-nav-link" id="nav-collections">Collections <span class="dropdown-caret">↓</span></a>
             <ul class="desktop-dropdown-menu">
-              <li><a href="index.html" class="dropdown-item" data-filter="Plain Kurtis">Plain Kurtas</a></li>
-              <li><a href="index.html" class="dropdown-item" data-filter="Short Kurtis">Short Kurtis</a></li>
-              <li><a href="index.html" class="dropdown-item" data-filter="Printed & Colorful">Printed & Colorful</a></li>
-              <li><a href="index.html" class="dropdown-item" data-filter="A-Line & Flared">A-Line & Flared</a></li>
-              <li><a href="index.html" class="dropdown-item" data-filter="Kurta Co-ords">Kurta Co-ords</a></li>
-              <li><a href="index.html" class="dropdown-item" data-filter="Linen & Cotton">Linen & Cotton</a></li>
+              <li><a href="index.html#tres-categories" class="dropdown-item" data-filter="Farshi Salwar Suits">Farshi Salwar Suits</a></li>
+              <li><a href="index.html#tres-categories" class="dropdown-item" data-filter="Co-ord sets">Co-ord Sets</a></li>
+              <li><a href="index.html#tres-categories" class="dropdown-item" data-filter="Kurtis">Kurtis</a></li>
+              <li><a href="index.html#tres-categories" class="dropdown-item" data-filter="Festive Edit">Festive Edit</a></li>
+              <li><a href="index.html#tres-categories" class="dropdown-item" data-filter="Dresses">Dresses</a></li>
+              <li><a href="index.html#tres-categories" class="dropdown-item" data-filter="Anarkali Suits">Anarkali Suits</a></li>
             </ul>
           </li>
           <li><a href="index.html" class="desktop-nav-link" id="nav-new-arrivals" data-filter="new-arrivals">New Arrivals</a></li>
@@ -170,7 +166,7 @@
         </li>
       </ul>
       <div class="drawer-footer-info" style="margin-top: 30px;">
-        <p>saisa • Elevated Basics</p>
+        <p>Saïsa • Ethnic Wear For Every You</p>
         <p class="small-text">Proudly Made in India</p>
       </div>
     </nav>
@@ -262,6 +258,12 @@
               </div>
             </div>
 
+            <!-- Customisations & Urgent Orders Note -->
+            <div class="custom-orders-notice" style="margin-top: 14px; padding: 11px 14px; background: #FAF3EE; border: 1px solid rgba(166, 91, 86, 0.22); border-radius: 8px; display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #5E3D39; line-height: 1.4;">
+              <span class="custom-orders-icon" style="color: #CAA058; font-size: 0.95rem; flex-shrink: 0;">✦</span>
+              <span>For customisations and urgent orders, DM <a href="https://www.instagram.com/saisa.wardrobe/" target="_blank" rel="noopener noreferrer" style="color: #A65B56; font-weight: 600; text-decoration: underline; text-underline-offset: 2px;">@saisa.wardrobe</a></span>
+            </div>
+
             <!-- Trust Section -->
             <div class="product-trust-badges" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color); display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; font-size: 0.75rem; color: var(--text-muted);">
               <div class="trust-badge-item">
@@ -346,7 +348,7 @@
         <path d="M16 10a4 4 0 0 1-8 0"></path>
       </svg>
       <p>Your bag is currently empty.</p>
-      <button class="button-outline" id="cart-continue-shopping-btn">Explore Staples</button>
+      <button class="button-outline" id="cart-continue-shopping-btn">Explore Collections</button>
     </div>
 
     <!-- Active Cart Items Container -->
@@ -443,7 +445,7 @@
     <div class="razorpay-header">
       <div class="razorpay-header__left">
         <span class="razorpay-logo">Razorpay</span>
-        <p class="razorpay-merchant">Saisa Staples</p>
+        <p class="razorpay-merchant">Saïsa Ethnic Wear</p>
       </div>
       <div class="razorpay-header__right">
         <span class="razorpay-amount" id="razorpay-amount-display">₹1,499</span>
@@ -545,7 +547,7 @@
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
       </svg>
       <p>Your wishlist is currently empty.</p>
-      <button class="button-outline" id="wishlist-continue-shopping-btn">Explore Staples</button>
+      <button class="button-outline" id="wishlist-continue-shopping-btn">Explore Collections</button>
     </div>
 
     <!-- Active Wishlist Items Container -->
@@ -626,8 +628,10 @@
   <footer class="site-footer" id="saisa-footer">
     <div class="footer-container">
       <div class="footer-brand-column">
-        <span class="footer-logo">saisa</span>
-        <p class="footer-tagline">Elevated Basics. Made with care in India. Designed to breathe.</p>
+        <div class="footer-logo-wrap">
+          <img src="assets/logo_full.png" alt="Saïsa - Ethnic Wear For Every You" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">Ethnic Wear for Every You. Made with care in India.</p>
         <div class="footer-socials">
           <a href="#" aria-label="Instagram">Instagram</a>
           <a href="#" aria-label="Pinterest">Pinterest</a>
@@ -638,10 +642,13 @@
         <div class="footer-column">
           <h5 class="footer-heading">Shop</h5>
           <ul>
-            <li><a href="index.html" class="nav-item" data-filter="all">Shop All</a></li>
-            <li><a href="index.html" class="nav-item" data-filter="Plain Kurtis">Plain Kurtas</a></li>
-            <li><a href="index.html" class="nav-item" data-filter="Printed & Colorful">Printed & Colorful</a></li>
-            <li><a href="index.html" class="nav-item" data-filter="Kurta Co-ords">Kurta Co-ords</a></li>
+            <li><a href="index.html#tres-categories" class="nav-item" data-filter="all">All Collections</a></li>
+            <li><a href="index.html#tres-categories" class="nav-item" data-filter="Farshi Salwar Suits">Farshi Salwar Suits</a></li>
+            <li><a href="index.html#tres-categories" class="nav-item" data-filter="Co-ord sets">Co-ord Sets</a></li>
+            <li><a href="index.html#tres-categories" class="nav-item" data-filter="Kurtis">Kurtis</a></li>
+            <li><a href="index.html#tres-categories" class="nav-item" data-filter="Festive Edit">Festive Edit</a></li>
+            <li><a href="index.html#tres-categories" class="nav-item" data-filter="Dresses">Dresses</a></li>
+            <li><a href="index.html#tres-categories" class="nav-item" data-filter="Anarkali Suits">Anarkali Suits</a></li>
           </ul>
         </div>
         
@@ -687,8 +694,11 @@
       </svg>
     </button>
     <div class="auth-modal__body">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <img src="assets/logo_full.png" alt="Saïsa" style="max-width: 130px; height: auto; display: inline-block;">
+      </div>
       <h3 class="auth-modal__title" id="auth-modal-title">Sign In</h3>
-      <p class="auth-modal__subtitle" id="auth-modal-subtitle">Enter your email and password to log in to saisa.</p>
+      <p class="auth-modal__subtitle" id="auth-modal-subtitle">Enter your email and password to log in to Saïsa.</p>
       
       <form id="auth-form">
         <div class="form-group" id="auth-name-group" style="display: none;">
@@ -778,6 +788,6 @@
   <!-- Include App Data & Core Logic Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="products.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=logo2026_2"></script>
 </body>
 </html>

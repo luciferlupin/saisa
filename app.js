@@ -119,6 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
       bindEvents();
       startAnnouncementRotation();
       initHeroCarousel();
+      initStaplesShowcase();
+      initWornReviewedCarousel();
 
       // Standalone product page initialization
       const urlParams = new URLSearchParams(window.location.search);
@@ -1238,48 +1240,176 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Hero Autoplay Carousel
-  function initHeroCarousel() {
+  // Hero Horizontal Auto-Moving Slideshow (Automoving photos, infinite loop)
+  function initHeroSlideshow() {
     try {
-      const track = document.querySelector('.hero-carousel-track');
-      const dots = document.querySelectorAll('.hero-carousel-dots .dot');
-      if (!track || dots.length === 0) return;
+      const heroArt = document.getElementById('hero-slider-art');
+      const track = document.getElementById('hero-slides-track');
+      const slides = track ? track.querySelectorAll('.hero-slide') : [];
+      const prevBtn = document.getElementById('hero-slide-prev');
+      const nextBtn = document.getElementById('hero-slide-next');
+      const progressItems = document.querySelectorAll('.hero-progress-item');
+      const wrapper = document.getElementById('hero-slides-wrapper');
 
-      let currentSlide = 0;
-      const totalSlides = dots.length;
-      let autoplayInterval;
+      if (!heroArt || !track || slides.length === 0) return;
 
-      function goToSlide(index) {
-        currentSlide = index;
-        track.style.transform = `translateX(-${index * 25}%)`;
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === index);
+      const totalSlides = 6; // 6 photoshoot banners (3 colors × 2 poses) with 2 loop clones
+      let currentIndex = 1;  // Start at first real slide (index 1)
+      let isAnimating = false;
+      let progressTimer = null;
+      const slideDuration = 3800; // Auto-moves every 3.8s
+      const intervalStep = 50;
+
+      // Position track initially without animation
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      function updateDots(activeRealIndex) {
+        progressItems.forEach((item, idx) => {
+          const fill = item.querySelector('.hero-progress-fill');
+          if (idx === activeRealIndex) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+            if (fill) fill.style.width = '0%';
+          }
         });
       }
 
-      function startAutoplay() {
-        autoplayInterval = setInterval(() => {
-          let nextSlide = (currentSlide + 1) % totalSlides;
-          goToSlide(nextSlide);
-        }, 5000);
+      function moveToSlide(targetIndex, animated = true) {
+        if (animated) {
+          isAnimating = true;
+          track.style.transition = 'transform 0.75s cubic-bezier(0.25, 1, 0.5, 1)';
+        } else {
+          track.style.transition = 'none';
+        }
+
+        currentIndex = targetIndex;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        const realIndex = ((currentIndex - 1 + totalSlides) % totalSlides);
+        updateDots(realIndex);
+        if (animated) startProgress();
       }
 
-      function stopAutoplay() {
-        if (autoplayInterval) clearInterval(autoplayInterval);
+      // Handle seamless infinite loop on transitionend
+      track.addEventListener('transitionend', () => {
+        isAnimating = false;
+        // If moved past the last real slide to clone of slide 1 (index 4)
+        if (currentIndex >= totalSlides + 1) {
+          track.style.transition = 'none';
+          currentIndex = 1;
+          track.style.transform = `translateX(-100%)`;
+        }
+        // If moved before first real slide to clone of slide 3 (index 0)
+        else if (currentIndex <= 0) {
+          track.style.transition = 'none';
+          currentIndex = totalSlides;
+          track.style.transform = `translateX(-${totalSlides * 100}%)`;
+        }
+      });
+
+      function startProgress() {
+        if (progressTimer) clearInterval(progressTimer);
+        let elapsed = 0;
+        const realIndex = ((currentIndex - 1 + totalSlides) % totalSlides);
+        const currentFill = progressItems[realIndex]?.querySelector('.hero-progress-fill');
+
+        progressTimer = setInterval(() => {
+          elapsed += intervalStep;
+          const pct = Math.min(100, (elapsed / slideDuration) * 100);
+          if (currentFill) currentFill.style.width = `${pct}%`;
+
+          if (elapsed >= slideDuration) {
+            clearInterval(progressTimer);
+            if (!isAnimating) {
+              moveToSlide(currentIndex + 1);
+            }
+          }
+        }, intervalStep);
       }
 
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          stopAutoplay();
-          goToSlide(index);
-          startAutoplay();
+      function nextSlide() {
+        if (isAnimating) return;
+        moveToSlide(currentIndex + 1);
+      }
+
+      function prevSlide() {
+        if (isAnimating) return;
+        moveToSlide(currentIndex - 1);
+      }
+
+      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+
+      progressItems.forEach((item, idx) => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          moveToSlide(idx + 1);
         });
       });
 
-      startAutoplay();
+      // Pause on hover
+      heroArt.addEventListener('mouseenter', () => {
+        if (progressTimer) clearInterval(progressTimer);
+      });
+      heroArt.addEventListener('mouseleave', () => {
+        startProgress();
+      });
+
+      // Touch swipe & mouse drag support
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+
+      function onDragStart(e) {
+        if (isAnimating) return;
+        startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        isDragging = true;
+        if (progressTimer) clearInterval(progressTimer);
+        track.style.transition = 'none';
+      }
+
+      function onDragMove(e) {
+        if (!isDragging) return;
+        currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const deltaX = currentX - startX;
+        track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${deltaX}px))`;
+      }
+
+      function onDragEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const deltaX = currentX - startX;
+        if (deltaX < -50) {
+          nextSlide();
+        } else if (deltaX > 50) {
+          prevSlide();
+        } else {
+          moveToSlide(currentIndex);
+        }
+      }
+
+      if (wrapper) {
+        wrapper.addEventListener('touchstart', onDragStart, { passive: true });
+        wrapper.addEventListener('touchmove', onDragMove, { passive: true });
+        wrapper.addEventListener('touchend', onDragEnd);
+
+        wrapper.addEventListener('mousedown', onDragStart);
+        window.addEventListener('mousemove', onDragMove);
+        window.addEventListener('mouseup', onDragEnd);
+      }
+
+      // Initialize
+      updateDots(0);
+      startProgress();
     } catch (e) {
-      console.error("Failed to initialize hero carousel:", e);
+      console.error("[Hero Slideshow Init Error]:", e);
     }
+  }
+
+  function initHeroCarousel() {
+    initHeroSlideshow();
   }
 
   /* ==========================================================================
@@ -2451,8 +2581,25 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       renderProducts();
       const catalogEl = document.getElementById('featured-products-section');
-      if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
     });
+
+    window.filterCatalogByCategory = function(category) {
+      try {
+        activeFilter = category || 'all';
+        filterButtons.forEach(b => {
+          if (b.getAttribute('data-filter') === category) {
+            b.classList.add('active');
+          } else {
+            b.classList.remove('active');
+          }
+        });
+        renderProducts();
+        const catalogEl = document.getElementById('featured-products-section');
+        if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
+      } catch (err) {
+        console.warn("filterCatalogByCategory error:", err);
+      }
+    };
 
     // Collection Cards click bind
     safeBindAll('.explore-collection-link', 'click', (e, link) => {
@@ -2531,9 +2678,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function startAnnouncementRotation() {
     try {
       const announcements = [
+        "FOR CUSTOMISATIONS & URGENT ORDERS, DM @SAISA.WARDROBE",
         "FREE SHIPPING ON ORDERS ABOVE ₹1,500 • PREPAID DISCOUNT: 5% OFF",
         "SLOW FASHION • ETHICALLY SOURCED AND MANUFACTURED IN INDIA",
-        "7-DAY HASSLE-FREE EXCHANGES ON ALL ELEVATED BASICS"
+        "7-DAY HASSLE-FREE EXCHANGES ON ALL ORDERS"
       ];
       
       let currentIndex = 0;
@@ -2556,6 +2704,137 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("Announcement banner registration failed:", e);
     }
   }
+
+  /* ==========================================================================
+     SAÏSA STAPLES PALETTE SHOWCASE INTERACTION
+     ========================================================================== */
+  function initStaplesShowcase() {
+    try {
+      const section = document.getElementById('staples-showcase');
+      if (!section) return;
+
+      const pills = section.querySelectorAll('.staples-pill');
+      const cards = section.querySelectorAll('.staples-card');
+      const dots = section.querySelectorAll('.staples-dot');
+      const grid = document.getElementById('staples-grid-container');
+
+      // Filter pills
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => {
+            p.classList.remove('active');
+            p.setAttribute('aria-selected', 'false');
+          });
+          pill.classList.add('active');
+          pill.setAttribute('aria-selected', 'true');
+
+          const targetShade = pill.getAttribute('data-staple-target');
+
+          cards.forEach((card, idx) => {
+            const cardShade = card.getAttribute('data-shade');
+            if (targetShade === 'all' || cardShade === targetShade) {
+              card.classList.remove('dimmed');
+              card.classList.toggle('highlighted', targetShade !== 'all');
+              if (targetShade !== 'all') {
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                dots.forEach((d, dIdx) => d.classList.toggle('active', dIdx === idx));
+              }
+            } else {
+              card.classList.add('dimmed');
+              card.classList.remove('highlighted');
+            }
+          });
+        });
+      });
+
+      // Mobile swipe dots synchronization
+      if (grid && dots.length > 0) {
+        grid.addEventListener('scroll', () => {
+          const scrollLeft = grid.scrollLeft;
+          const cardWidth = grid.querySelector('.staples-card')?.offsetWidth || 260;
+          const activeIndex = Math.min(dots.length - 1, Math.max(0, Math.round(scrollLeft / cardWidth)));
+          dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === activeIndex);
+          });
+        }, { passive: true });
+
+        dots.forEach((dot, idx) => {
+          dot.addEventListener('click', () => {
+            const card = cards[idx];
+            if (card) {
+              card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+          });
+        });
+      }
+    } catch (e) {
+      console.error("[Staples Showcase Init Error]:", e);
+    }
+  }
+
+  window.quickAddStapleToCart = function(productId) {
+    try {
+      const product = (window.PRODUCTS || []).find(p => p.id === productId);
+      if (!product) return;
+      const size = product.sizes?.[0] || 'M';
+      const color = product.colors?.[0]?.name || 'Classic';
+      addToCart(productId, size, color, 1);
+      triggerCartDrawer(true);
+      if (typeof showToast === 'function') {
+        showToast(`Added ${product.title} to bag!`);
+      }
+    } catch (e) {
+      console.error("quickAddStapleToCart failed:", e);
+    }
+  };
+
+  /* ==========================================================================
+     WORN & REVIEWED CAROUSEL INTERACTION
+     ========================================================================== */
+  function initWornReviewedCarousel() {
+    try {
+      const track = document.getElementById('worn-reviewed-track');
+      const prevBtn = document.getElementById('rev-arrow-prev');
+      const nextBtn = document.getElementById('rev-arrow-next');
+      const dots = document.querySelectorAll('#worn-reviewed-dots .rev-dot');
+      if (!track) return;
+
+      const scrollAmount = 315;
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+      }
+
+      track.addEventListener('scroll', () => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (maxScroll <= 0) return;
+        const progress = track.scrollLeft / maxScroll;
+        const activeIndex = Math.min(dots.length - 1, Math.max(0, Math.round(progress * (dots.length - 1))));
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === activeIndex));
+      }, { passive: true });
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          const maxScroll = track.scrollWidth - track.clientWidth;
+          track.scrollTo({ left: (maxScroll / (dots.length - 1)) * idx, behavior: 'smooth' });
+        });
+      });
+    } catch (e) {
+      console.error("[Worn & Reviewed Carousel Error]:", e);
+    }
+  }
+
+  window.openProductModal = openProductModal;
+  window.addToCart = addToCart;
+  window.triggerCartDrawer = triggerCartDrawer;
 
   // Execute Core Init with global catch
   try {

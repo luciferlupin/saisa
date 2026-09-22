@@ -4,17 +4,51 @@
 
 /* Variables */
 :root {
-  /* Color Palette (Dusty Rose & Warm Espresso) */
-  --bg-primary: #FCF8F7;       /* Blush Alabaster */
-  --bg-secondary: #F5ECE8;     /* Warm Sand Rose */
-  --text-primary: #3A2E2B;     /* Deep Warm Espresso */
-  --text-muted: rgba(58, 46, 43, 0.65);
-  --accent-color: #D4A392;     /* Muted Dusty Rose */
-  --accent-hover: #B37B67;     /* Deep Rosewood */
-  --border-color: rgba(58, 46, 43, 0.12);
-  --border-focus: #3A2E2B;
+  /* Color Palette - Saisa Lotus & Champagne Gold from Brand Logo */
+  --bg-primary: #FAF6F3;       /* Warm Ivory Linen from Logo Background */
+  --bg-secondary: #FDEEE9;     /* Delicate Pastel Lotus Blush */
+  --bg-tertiary: #FAF1DF;      /* Soft Pastel Champagne Gold */
+  --text-primary: #361F1D;     /* Deep Warm Rosewood Espresso from Logo Lettering */
+  --text-secondary: #5E3D39;   /* Warm Terracotta Brown */
+  --text-muted: rgba(54, 31, 29, 0.65);
+  --accent-color: #782E2B;     /* Saisa Signature Wine from Logo */
+  --accent-hover: #571C1F;     /* Deep Velvety Wine */
+  --gold-accent: #CAA058;      /* Warm Lotus Gold from Petals & Accent 'ï' */
+  --gold-bright: #DFBA74;      /* Radiant Shimmering Gold */
+  --gold-hover: #DEB46E;       /* Radiant Champagne Gold */
+  --gold-soft: #FAF1DF;        /* Soft Gold Tint */
+  --border-color: rgba(166, 91, 86, 0.16);
+  --border-focus: #782E2B;
   --white: #FFFFFF;
-  --danger-color: #E07A5F;     /* Soft Terracotta Coral */
+  --danger-color: #D95D4A;     /* Soft Terracotta Coral */
+
+  /* Official Saïsa Brand Colors directly extracted from the Logo */
+  --saisa-wine-deep: #4A1518;
+  --saisa-wine: #6E2628;
+  --saisa-wine-light: #88373A;
+  --saisa-rosewood: #AC645D;
+  --saisa-petal-blush: #FDEEE9;
+  --saisa-petal-rose: #D97873;
+  --saisa-gold: #CAA058;
+  --saisa-gold-bright: #DFBA74;
+  --saisa-gold-soft: #FAF1DF;
+  --saisa-ivory: #FEFDF9;
+
+  /* Official Saïsa Smooth Gradient System */
+  --grad-saisa-navbar: linear-gradient(135deg, #4A1518 0%, #5E1F22 35%, #742E30 70%, #85373A 100%);
+  --grad-saisa-brand: linear-gradient(135deg, #571C1F 0%, #742E30 45%, #88373A 75%, #AC645D 100%);
+  --grad-saisa-gold: linear-gradient(135deg, #CAA058 0%, #E2C07D 50%, #B88A44 100%);
+  --grad-saisa-text: linear-gradient(135deg, #571C1F 0%, #88373A 55%, #CAA058 100%);
+  --grad-saisa-blush: linear-gradient(180deg, #FFF9F8 0%, #FDEEE9 55%, #FAF0EB 100%);
+  --grad-saisa-ribbon: linear-gradient(90deg, #FDEEE9 0%, #FFF7F2 25%, #FAF1DF 50%, #FFF7F2 75%, #FDEEE9 100%);
+  --grad-saisa-card: linear-gradient(145deg, #FFFFFF 0%, #FAF3EF 100%);
+
+  /* Gradient Tokens in Pastel Logo Colors */
+  --gradient-pastel: linear-gradient(135deg, #FDF5F2 0%, #FAF1E4 50%, #F5EAE4 100%);
+  --gradient-blush: linear-gradient(135deg, #FBF0EC 0%, #F5DFD7 100%);
+  --gradient-gold: linear-gradient(135deg, #CAA058 0%, #B89656 100%);
+  --gradient-rose: linear-gradient(135deg, #782E2B 0%, #AC645D 100%);
+  --gradient-card: linear-gradient(145deg, #FFFFFF 0%, #FAF3EF 100%);
   
   /* Fonts - Apple SF Pro Refined Typography */
   --font-headings: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -238,11 +272,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-logo {
+  display: flex;
+  align-items: center;
   font-family: var(--font-headings);
   font-size: 1.6rem;
   font-weight: 400;
   letter-spacing: 0.12em;
-  text-transform: lowercase; /* Clean minimal text logo style */
+}
+
+.site-logo-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.header-logo-image {
+  height: 44px;
+  width: auto;
+  max-width: 220px;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.site-logo-brand:hover .header-logo-image {
+  transform: scale(1.03);
+  filter: drop-shadow(0 3px 10px rgba(166, 91, 86, 0.22));
 }
 
 .header-actions {
@@ -1236,8 +1292,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .success-message {
   padding: 20px;
-  background-color: #E2ECE9; /* Soft green success box */
-  border: 1px solid var(--accent-color);
+  background: linear-gradient(135deg, #FAF2E4 0%, #F5EAE5 100%);
+  border: 1px solid var(--gold-accent);
+  color: var(--text-primary);
   font-size: 0.95rem;
   text-align: center;
   margin-bottom: 16px;
@@ -2406,7 +2463,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .proof-stat-item:hover .icon-leaf {
   animation: growLeaf 0.8s ease-in-out forwards;
-  color: #8A9A86;
+  color: var(--gold-accent);
 }
 
 .icon-exchange {

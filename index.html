@@ -3,48 +3,2447 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shop saisa | Clean cuts, elevated everyday basics for women. Modern fits with premium linen and organic cotton, ethically made in India.">
-  <meta name="theme-color" content="#FCF8F7">
-  <title>Saisa | Clean Cuts, Elevated Basics | Made in India</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="description" content="Shop Saïsa | Ethnic wear for every you. Modern fits with premium linen and organic cotton, ethically made in India.">
+  <meta name="theme-color" content="#FAF6F3">
+  <title>Saïsa | Ethnic Wear For Every You | Made in India</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://saisa.co/">
-  <meta property="og:title" content="Saisa | Clean Cuts, Elevated Basics">
-  <meta property="og:description" content="Shop saisa | Clean cuts, elevated everyday basics for women. Modern fits with premium linen and organic cotton.">
-  <meta property="og:image" content="assets/hero_kurta.png">
+  <meta property="og:title" content="Saïsa | Ethnic Wear For Every You">
+  <meta property="og:description" content="Shop Saïsa | Ethnic wear for every you. Modern fits with premium linen and organic cotton.">
+  <meta property="og:image" content="assets/logo_full.png">
 
 
 
   <link rel="preload" href="assets/fonts/geist-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="editorial.css">
-  <script src="motion.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=staples2026_v4">
+  <link rel="stylesheet" href="editorial.css?v=sections2026_v7">
+
+  <style id="saisa-new-sections-styles">
+    /* ==========================================================
+       SAÏSA FOOTER GRADIENT LUXURY NAVBAR
+       ========================================================== */
+    .announcement-bar#saisa-announcement-bar {
+      display: none !important;
+    }
+
+    .site-header#saisa-header {
+      background: linear-gradient(180deg, #FDEEE9 0%, #FAF0EC 40%, #F5DDD5 80%, #EEC9BC 100%) !important;
+      border-bottom: 1px solid rgba(184, 78, 84, 0.2) !important;
+      box-shadow: 0 4px 22px rgba(58, 30, 28, 0.08) !important;
+      height: 58px !important;
+      padding: 0 !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .site-header#saisa-header.header--scrolled {
+      background: linear-gradient(180deg, #FAF0EC 0%, #F5DDD5 50%, #E8BCB0 100%) !important;
+      box-shadow: 0 6px 26px rgba(58, 30, 28, 0.14) !important;
+      border-bottom: 1px solid rgba(184, 78, 84, 0.3) !important;
+    }
+
+    .header-container {
+      max-width: 1560px !important;
+      height: 100% !important;
+      padding: 0 28px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .header-left-wrap {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+    }
+
+    .site-brand-saisa {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      text-decoration: none !important;
+      color: #3A1E1C !important;
+      user-select: none !important;
+      transition: all 0.25s ease !important;
+    }
+
+    .site-brand-saisa:hover {
+      opacity: 0.96 !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .brand-saisa-lotus {
+      width: auto !important;
+      height: 42px !important;
+      max-height: 44px !important;
+      object-fit: contain !important;
+      display: block !important;
+      filter: drop-shadow(0 1px 4px rgba(58, 30, 28, 0.08)) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
+    }
+
+    .site-brand-saisa:hover .brand-saisa-lotus {
+      transform: scale(1.04) !important;
+      filter: drop-shadow(0 2px 8px rgba(184, 78, 84, 0.2)) !important;
+    }
+
+    .brand-saisa-text {
+      display: flex !important;
+      flex-direction: column !important;
+      line-height: 1 !important;
+    }
+
+    .brand-saisa-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      color: #3A1E1C !important;
+      text-transform: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+    }
+
+    .logo-gold-i {
+      color: #85373A !important;
+      display: inline-block !important;
+      font-style: normal !important;
+    }
+
+    .brand-saisa-sub {
+      font-size: 7.5px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.24em !important;
+      color: #85373A !important;
+      text-transform: uppercase !important;
+      margin-top: 3px !important;
+      opacity: 0.95 !important;
+    }
+
+    /* Center Nav Links */
+    .desktop-navigation {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 1 !important;
+      margin: 0 20px !important;
+    }
+
+    .desktop-nav-list {
+      display: flex !important;
+      align-items: center !important;
+      gap: clamp(12px, 1.3vw, 22px) !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .desktop-nav-link {
+      color: #3A1E1C !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+      padding: 6px 0 !important;
+      position: relative !important;
+      transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease !important;
+      opacity: 0.9 !important;
+    }
+
+    .desktop-nav-link:hover {
+      opacity: 1 !important;
+      transform: translateY(-1px) !important;
+      color: #85373A !important;
+    }
+
+    .desktop-nav-link::after {
+      content: '' !important;
+      position: absolute !important;
+      bottom: 2px !important;
+      left: 0 !important;
+      width: 0 !important;
+      height: 1.5px !important;
+      background: #85373A !important;
+      transition: width 0.25s cubic-bezier(0.2, 1, 0.3, 1) !important;
+    }
+
+    .desktop-nav-link:hover::after {
+      width: 100% !important;
+    }
+
+    /* Right Action Icons */
+    .header-actions {
+      display: flex !important;
+      align-items: center !important;
+      gap: 16px !important;
+    }
+
+    .header-actions .icon-button {
+      color: #3A1E1C !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease !important;
+      opacity: 0.92 !important;
+    }
+
+    .header-actions .icon-button:hover {
+      opacity: 1 !important;
+      color: #85373A !important;
+      transform: scale(1.08) !important;
+    }
+
+    .header-actions .icon-svg {
+      stroke: #3A1E1C !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    .cart-count-badge, .wishlist-count-badge {
+      background: linear-gradient(135deg, #4A1518 0%, #85373A 100%) !important;
+      color: #FFFFFF !important;
+      font-weight: 700 !important;
+      font-size: 10px !important;
+      border: 1px solid rgba(255, 255, 255, 0.6) !important;
+      box-shadow: 0 2px 6px rgba(58, 30, 28, 0.25) !important;
+    }
+
+    #menu-drawer-open-btn .icon-svg {
+      stroke: #3A1E1C !important;
+    }
+
+    /* ==========================================================
+       HERO EDITORIAL SLIDESHOW WITH SELECT STAPLES OVERLAYS
+       ========================================================== */
+    .editorial-hero#saisa-hero {
+      position: relative !important;
+      width: 100% !important;
+      height: calc(100vh - 54px) !important;
+      min-height: 560px !important;
+      max-height: 920px !important;
+      overflow: hidden !important;
+      background: #EAE6E1 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .hero-art#hero-slider-art {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+    }
+
+    .hero-slides-wrapper#hero-slides-wrapper {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+      touch-action: pan-y !important;
+      cursor: grab !important;
+    }
+
+    .hero-slides-wrapper:active {
+      cursor: grabbing !important;
+    }
+
+    .hero-slides-track#hero-slides-track {
+      display: flex !important;
+      width: 100% !important;
+      height: 100% !important;
+      will-change: transform !important;
+      transform: translateX(-100%);
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .hero-slide {
+      position: relative !important;
+      flex: 0 0 100% !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+    }
+
+    .hero-slide-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center 25% !important;
+      display: block !important;
+      user-select: none !important;
+      -webkit-user-drag: none !important;
+      pointer-events: none !important;
+    }
+
+    /* Fixed Top-Left Watermark matching screenshot */
+    .hero-watermark-overlay {
+      position: absolute !important;
+      top: clamp(24px, 3.5vw, 44px) !important;
+      left: clamp(28px, 4vw, 56px) !important;
+      z-index: 8 !important;
+      pointer-events: none !important;
+      user-select: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      line-height: 0.95 !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .hero-watermark-sub {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: clamp(28px, 4.2vw, 56px) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.04em !important;
+      color: #FFFFFF !important;
+      text-transform: uppercase !important;
+    }
+
+    .hero-watermark-main {
+      font-size: clamp(10px, 1.2vw, 15px) !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.22em !important;
+      color: rgba(255, 255, 255, 0.9) !important;
+      text-transform: uppercase !important;
+      margin-top: 4px !important;
+    }
+
+    /* Slide Editorial Content (Clean Minimalist Luxury Product Name) */
+    .hero-editorial-overlay {
+      position: absolute !important;
+      inset: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+      padding: 0 4vw clamp(45px, 6vw, 75px) !important;
+      z-index: 5 !important;
+      pointer-events: none !important;
+      user-select: none !important;
+      text-align: center !important;
+    }
+
+    .hero-editorial-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: clamp(32px, 5.2vw, 72px) !important;
+      font-weight: 700 !important;
+      letter-spacing: clamp(0.08em, 1.2vw, 0.18em) !important;
+      color: #FFFFFF !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+      line-height: 1.1 !important;
+      margin: 0 !important;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    .hero-editorial-sub {
+      font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+      font-size: clamp(11px, 1.35vw, 16px) !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.18em !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      text-transform: uppercase !important;
+      text-align: center !important;
+      align-self: center !important;
+      margin: 0 0 18px !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45) !important;
+    }
+
+    .hero-editorial-cta {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      background: linear-gradient(135deg, #CAA058 0%, #E2C07D 50%, #B88A44 100%) !important;
+      color: #4A1518 !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      padding: 11px 26px !important;
+      border-radius: 999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      box-shadow: 0 8px 24px rgba(202, 160, 88, 0.4) !important;
+      transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1) !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+
+    .hero-editorial-cta:hover {
+      background: linear-gradient(135deg, #4A1518 0%, #6E2628 50%, #88373A 100%) !important;
+      color: #FFFFFF !important;
+      border-color: #DFBA74 !important;
+      transform: translateY(-2px) scale(1.04) !important;
+      box-shadow: 0 12px 28px rgba(74, 21, 24, 0.5) !important;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp-btn {
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 24px !important;
+      width: 52px !important;
+      height: 52px !important;
+      border-radius: 50% !important;
+      background: #25D366 !important;
+      color: #FFFFFF !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45) !important;
+      z-index: 999 !important;
+      transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.3s ease !important;
+      text-decoration: none !important;
+    }
+
+    .floating-whatsapp-btn:hover {
+      transform: scale(1.1) translateY(-2px) !important;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6) !important;
+    }
+
+    .floating-whatsapp-btn svg {
+      width: 30px !important;
+      height: 30px !important;
+      fill: currentColor !important;
+    }
+
+    /* Sleek Slider Controls */
+    .hero-slider-controls {
+      position: absolute !important;
+      bottom: 24px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 12 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      background: rgba(20, 10, 10, 0.32) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      padding: 6px 14px !important;
+      border-radius: 40px !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .hero-progress-bars {
+      display: flex !important;
+      gap: 6px !important;
+      width: 120px !important;
+      align-items: center !important;
+    }
+
+    .hero-progress-item {
+      height: 3px !important;
+      flex: 1 !important;
+      background: rgba(255, 255, 255, 0.35) !important;
+      border-radius: 999px !important;
+      overflow: hidden !important;
+      cursor: pointer !important;
+      transition: height 0.2s ease !important;
+    }
+
+    .hero-progress-item:hover {
+      height: 5px !important;
+    }
+
+    .hero-progress-fill {
+      height: 100% !important;
+      width: 0% !important;
+      background: #ffffff !important;
+      border-radius: 999px !important;
+    }
+
+    .hero-nav-arrow {
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+      color: #ffffff !important;
+      font-size: 16px !important;
+      line-height: 1 !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .hero-nav-arrow:hover {
+      background: #ffffff !important;
+      color: #791F1F !important;
+    }
+
+    @media (max-width: 900px) {
+      .desktop-navigation {
+        display: none !important;
+      }
+      .hero-watermark-overlay {
+        top: 20px !important;
+        left: 20px !important;
+      }
+      .hero-editorial-overlay {
+        padding: 0 16px 36px !important;
+      }
+      .hero-editorial-sub {
+        align-self: center !important;
+        text-align: center !important;
+        margin-right: 0 !important;
+      }
+    }
+
+
+
+    /* Hero Fashion Typography Overlay (Select Staples Style) */
+    .hero-banner-content {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      padding: clamp(35px, 6vw, 75px) clamp(24px, 5vw, 65px) !important;
+      color: #ffffff !important;
+      pointer-events: none !important;
+      z-index: 4 !important;
+      box-sizing: border-box !important;
+    }
+
+    .hero-banner-content.center {
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .hero-banner-content.right {
+      align-items: flex-end !important;
+      text-align: right !important;
+    }
+
+    .hero-banner-content.left {
+      align-items: flex-start !important;
+      text-align: left !important;
+    }
+
+    .hero-banner-tag {
+      font-size: clamp(14px, 2vw, 22px) !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.04em !important;
+      color: #ffffff !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55) !important;
+      margin-bottom: 6px !important;
+    }
+
+    .hero-banner-bold-title {
+      font-size: clamp(46px, 10.5vw, 130px) !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.12em !important;
+      line-height: 0.9 !important;
+      text-transform: uppercase !important;
+      color: #ffffff !important;
+      text-shadow: 0 4px 26px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .hero-banner-title-spaced {
+      font-size: clamp(34px, 8vw, 105px) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.28em !important;
+      line-height: 1.05 !important;
+      text-transform: uppercase !important;
+      color: #ffffff !important;
+      text-shadow: 0 4px 26px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .hero-banner-sub-spaced {
+      font-size: clamp(13px, 2vw, 24px) !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.28em !important;
+      text-transform: uppercase !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      margin-top: 10px !important;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* SAÏSA Heart Ticker Ribbon */
+    .tres-heart-ribbon {
+      background: linear-gradient(90deg, #FDEEE9 0%, #FFF7F2 25%, #FAF1DF 50%, #FFF7F2 75%, #FDEEE9 100%) !important;
+      padding: 12px 0 !important;
+      overflow: hidden !important;
+      white-space: nowrap !important;
+      border-top: 1px solid rgba(202, 160, 88, 0.35) !important;
+      border-bottom: 1px solid rgba(202, 160, 88, 0.35) !important;
+    }
+
+    .tres-heart-track {
+      display: inline-flex !important;
+      animation: ribbonScroll 28s linear infinite !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.12em !important;
+      color: #6E2628 !important;
+      text-transform: uppercase !important;
+    }
+
+    .tres-heart-track span {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 36px !important;
+      padding-right: 36px !important;
+    }
+
+    /* =========================================================
+       SAÏSA 2D LOTUS OUTLINE BACKGROUND WATERMARKS
+       ========================================================= */
+    .bg-lotus-watermark {
+      position: absolute !important;
+      pointer-events: none !important;
+      user-select: none !important;
+      z-index: 0 !important;
+      color: #CAA058 !important;
+      opacity: 0.055 !important;
+      will-change: transform, opacity !important;
+      transition: opacity 0.4s ease !important;
+    }
+
+    .bg-lotus-watermark.left {
+      left: -60px !important;
+      top: 8% !important;
+      width: clamp(260px, 32vw, 500px) !important;
+      transform: rotate(-10deg) !important;
+    }
+
+    .bg-lotus-watermark.right {
+      right: -60px !important;
+      top: 12% !important;
+      width: clamp(260px, 32vw, 500px) !important;
+      transform: rotate(10deg) !important;
+    }
+
+    .bg-lotus-watermark.center {
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: clamp(320px, 45vw, 640px) !important;
+      opacity: 0.042 !important;
+    }
+
+    .bg-lotus-watermark.rose {
+      color: #85373A !important;
+      opacity: 0.048 !important;
+    }
+
+    /* SAÏSA Categories Section (Harmonic Fluid Gradient Flow) */
+    .tres-categories-section {
+      background: linear-gradient(180deg, #FDEEE9 0%, #FAF0EC 50%, #FDF7F4 100%) !important;
+      padding: 75px 0 85px !important;
+      width: 100% !important;
+      position: relative !important;
+      box-sizing: border-box !important;
+      border: none !important;
+    }
+
+    .tres-categories-container {
+      max-width: 1320px !important;
+      margin: 0 auto !important;
+      padding: 0 24px !important;
+      box-sizing: border-box !important;
+    }
+
+    .tres-categories-heading {
+      text-align: center !important;
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: clamp(30px, 4vw, 46px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.01em !important;
+      color: #381A18;
+      margin: 0 0 42px !important;
+      will-change: color, transform, opacity;
+      transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .tres-categories-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 22px !important;
+    }
+
+    .tres-category-card {
+      position: relative !important;
+      border-radius: 24px !important;
+      overflow: hidden !important;
+      aspect-ratio: 3 / 4 !important;
+      box-shadow: 0 10px 28px rgba(120, 46, 43, 0.08) !important;
+      border: 1.5px solid rgba(202, 160, 88, 0.3) !important;
+      cursor: pointer !important;
+      text-decoration: none !important;
+      display: block !important;
+      background: #FAF0EB !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease !important;
+    }
+
+    .tres-category-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 18px 38px rgba(120, 46, 43, 0.16), 0 0 24px rgba(202, 160, 88, 0.22) !important;
+      border-color: rgba(202, 160, 88, 0.65) !important;
+    }
+
+    .tres-category-card img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .tres-category-card:hover img {
+      transform: scale(1.05) !important;
+    }
+
+    .tres-category-card-overlay {
+      position: absolute !important;
+      inset: auto 0 0 0 !important;
+      padding: 24px 22px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      z-index: 2 !important;
+      background: linear-gradient(to top, rgba(56, 26, 24, 0.72) 0%, transparent 100%) !important;
+    }
+
+    .tres-category-name {
+      color: #ffffff !important;
+      font-size: clamp(16px, 1.8vw, 22px) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .tres-category-arrow {
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      background: #ffffff !important;
+      color: #782E2B !important;
+      display: grid !important;
+      place-items: center !important;
+      font-size: 18px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+      transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease !important;
+    }
+
+    .tres-category-card:hover .tres-category-arrow {
+      transform: rotate(45deg) scale(1.1) !important;
+      background: linear-gradient(135deg, #CAA058 0%, #DFBA74 100%) !important;
+      color: #4A1518 !important;
+      box-shadow: 0 4px 16px rgba(202, 160, 88, 0.4) !important;
+    }
+
+    /* Ombre Collection Section (TRÈS Style) */
+    .ombre-collection-section {
+      padding: 75px 0 85px !important;
+      background: linear-gradient(180deg, #FDF7F4 0%, #FAF2EE 50%, #F8F3EF 100%) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      border: none !important;
+    }
+
+    .ombre-container {
+      max-width: 1320px !important;
+      margin: 0 auto !important;
+      padding: 0 24px !important;
+      box-sizing: border-box !important;
+    }
+
+    .ombre-collection-heading {
+      text-align: center !important;
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: clamp(28px, 3.8vw, 42px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.01em !important;
+      color: #381A18;
+      margin: 0 0 40px !important;
+      will-change: color, transform, opacity;
+      transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .ombre-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 22px !important;
+    }
+
+    .ombre-card {
+      display: flex !important;
+      flex-direction: column !important;
+      text-decoration: none !important;
+      color: inherit !important;
+      cursor: pointer !important;
+    }
+
+    .ombre-img-wrap {
+      position: relative !important;
+      border-radius: 18px !important;
+      overflow: hidden !important;
+      aspect-ratio: 3 / 4 !important;
+      background: #F4F1ED !important;
+      margin-bottom: 14px !important;
+      border: 1px solid rgba(202, 160, 88, 0.2) !important;
+      box-shadow: 0 6px 18px rgba(120, 46, 43, 0.06) !important;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+
+    .ombre-card:hover .ombre-img-wrap {
+      border-color: rgba(202, 160, 88, 0.6) !important;
+      box-shadow: 0 12px 28px rgba(120, 46, 43, 0.14), 0 0 18px rgba(202, 160, 88, 0.2) !important;
+    }
+
+    .ombre-img-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.5s ease !important;
+    }
+
+    .ombre-card:hover .ombre-img-wrap img {
+      transform: scale(1.04) !important;
+    }
+
+    .ombre-badge {
+      position: absolute !important;
+      top: 12px !important;
+      left: 12px !important;
+      background: linear-gradient(135deg, #4A1518 0%, #742E30 100%) !important;
+      color: #FFFFFF !important;
+      border: 1px solid rgba(202, 160, 88, 0.5) !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      padding: 4px 11px !important;
+      border-radius: 999px !important;
+      box-shadow: 0 3px 10px rgba(74, 21, 24, 0.3) !important;
+      letter-spacing: 0.04em !important;
+    }
+
+    .ombre-card-title {
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      color: #333333 !important;
+      margin: 0 0 6px !important;
+      line-height: 1.3 !important;
+    }
+
+    .ombre-card-prices {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+    }
+
+    .ombre-price-current {
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      color: #782E2B !important;
+    }
+
+    .ombre-price-original {
+      font-size: 13px !important;
+      color: #8c8c8c !important;
+      text-decoration: line-through !important;
+    }
+
+    /* LIMITED EDITION Section (Continuous Luxury Flow) */
+    .limited-edition-section {
+      padding: 75px 0 85px !important;
+      background: linear-gradient(180deg, #F5EAE4 0%, #FAF4F0 50%, #FFF7F4 100%) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      border: none !important;
+    }
+
+    .limited-container {
+      max-width: 1320px !important;
+      margin: 0 auto !important;
+      padding: 0 24px !important;
+      box-sizing: border-box !important;
+    }
+
+    .limited-edition-heading {
+      text-align: center !important;
+      font-size: clamp(20px, 2.5vw, 28px) !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      color: #7D2D2A !important;
+      margin: 0 0 36px !important;
+    }
+
+    .limited-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 14px !important;
+    }
+
+    .limited-card {
+      display: flex !important;
+      flex-direction: column !important;
+      text-decoration: none !important;
+      color: inherit !important;
+      position: relative !important;
+    }
+
+    .limited-img-wrap {
+      position: relative !important;
+      aspect-ratio: 1 / 1.48 !important;
+      border-radius: 2px !important;
+      overflow: hidden !important;
+      background: #F7F3EE !important;
+      margin-bottom: 12px !important;
+    }
+
+    .limited-img-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.5s ease !important;
+    }
+
+    .limited-card:hover .limited-img-wrap img {
+      transform: scale(1.03) !important;
+    }
+
+    .limited-tag-badge {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      background: #7D2D2A !important;
+      color: #ffffff !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      padding: 4px 8px !important;
+      z-index: 2 !important;
+    }
+
+    .limited-quick-bag-btn {
+      position: absolute !important;
+      bottom: 14px !important;
+      right: 14px !important;
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 50% !important;
+      background: #ffffff !important;
+      color: #361F1D !important;
+      border: none !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      z-index: 3 !important;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease !important;
+    }
+
+    .limited-quick-bag-btn:hover {
+      transform: scale(1.12) !important;
+      background: #7D2D2A !important;
+      color: #ffffff !important;
+    }
+
+    .limited-card-name {
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: #592723 !important;
+      margin: 0 0 4px !important;
+      line-height: 1.3 !important;
+    }
+
+    .limited-card-price {
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      color: #592723 !important;
+      margin: 0 !important;
+    }
+
+    /* ==========================================================
+       RESPONSIVE GRID & MOBILE HIERARCHY SYSTEM
+       ========================================================== */
+    @media (max-width: 950px) {
+      .tres-categories-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+      .ombre-grid, .limited-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      /* Section Spacing & Margin Hierarchy */
+      .tres-categories-section,
+      .ombre-collection-section,
+      .limited-edition-section,
+      .staples-showcase-section,
+      .saisa-reels-section,
+      .influencer-section,
+      .worn-reviewed-section {
+        padding: 44px 0 50px !important;
+      }
+
+      .tres-categories-container,
+      .ombre-container,
+      .limited-container,
+      .staples-container,
+      .saisa-reels-container,
+      .influencer-container {
+        padding: 0 16px !important;
+      }
+
+      .tres-categories-heading,
+      .ombre-collection-heading,
+      .limited-edition-heading,
+      .staples-title,
+      .saisa-reels-title,
+      .influencer-title,
+      .worn-reviewed-title {
+        margin: 0 0 20px !important;
+        font-size: clamp(20px, 5.4vw, 25px) !important;
+        line-height: 1.25 !important;
+      }
+
+      /* 2-Column Professional Mobile E-Commerce Grids */
+      .tres-categories-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      .tres-category-card {
+        border-radius: 16px !important;
+      }
+      .tres-category-card-overlay {
+        padding: 12px 10px !important;
+      }
+      .tres-category-name {
+        font-size: 11px !important;
+        letter-spacing: 0.06em !important;
+      }
+      .tres-category-arrow {
+        font-size: 13px !important;
+      }
+
+      .ombre-grid, .limited-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      .ombre-img-wrap {
+        border-radius: 12px !important;
+        margin-bottom: 8px !important;
+      }
+      .ombre-card-title {
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 4px !important;
+      }
+      .ombre-card-prices {
+        gap: 6px !important;
+      }
+      .ombre-price-current {
+        font-size: 13.5px !important;
+      }
+      .ombre-price-original {
+        font-size: 11.5px !important;
+      }
+
+      .limited-img-wrap {
+        border-radius: 8px !important;
+        margin-bottom: 8px !important;
+      }
+      .limited-card-name {
+        font-size: 12.5px !important;
+        margin-bottom: 3px !important;
+      }
+      .limited-card-price {
+        font-size: 13px !important;
+      }
+      .limited-quick-bag-btn {
+        width: 32px !important;
+        height: 32px !important;
+        top: 6px !important;
+        right: 6px !important;
+      }
+    }
+
+    /* ==========================================================
+       SELECT STAPLES: 4-COLUMN HORIZONTAL ALIGNMENT
+       ========================================================== */
+    .staples-showcase-section {
+      padding: 75px 0 85px !important;
+      background: linear-gradient(180deg, #F8F3EF 0%, #FAF5F1 50%, #F5EAE4 100%) !important;
+      border-top: none !important;
+      border-bottom: none !important;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      display: block !important;
+    }
+
+    .staples-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    .staples-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .staples-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #782E2B;
+      margin-bottom: 12px;
+    }
+
+    .staples-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #CAA058;
+    }
+
+    .staples-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: clamp(26px, 3.6vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #381A18;
+      margin: 0 0 10px;
+      line-height: 1.2;
+      will-change: color, transform, opacity;
+      transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .staples-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #666666;
+      max-width: 580px;
+      margin: 0 auto 26px;
+    }
+
+    .staples-palette-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #F8F7F5;
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(202, 160, 88, 0.2);
+    }
+
+    .staples-pill {
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #555555;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    .staples-pill:hover {
+      color: #111;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .staples-pill.active {
+      background: linear-gradient(135deg, #4A1518 0%, #6E2628 100%) !important;
+      color: #ffffff !important;
+      border-color: #CAA058 !important;
+      box-shadow: 0 4px 14px rgba(74, 21, 24, 0.25) !important;
+    }
+
+    .staples-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* 4-COLUMN HORIZONTAL GRID */
+    .staples-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 20px !important;
+      align-items: start !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .staples-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 14px 12px 20px;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+      box-sizing: border-box !important;
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+
+    .staples-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 38px -10px var(--card-glow, rgba(0, 0, 0, 0.12));
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .staples-visual-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    .staples-model-img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      max-height: 480px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .staples-card:hover .staples-model-img {
+      transform: scale(1.025);
+    }
+
+    .staples-hover-action {
+      position: absolute;
+      bottom: 14px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .staples-hover-btn {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      color: #1f1918;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      transform: translateY(8px);
+      opacity: 0;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .staples-card:hover .staples-hover-btn {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .staples-hover-btn:hover {
+      background: #1f1918;
+      color: #ffffff;
+    }
+
+    .staples-info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .staples-shade-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #555555;
+      margin-bottom: 6px;
+    }
+
+    .staples-swatch {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 1.5px solid #ffffff;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .staples-item-title {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1f1918;
+      line-height: 1.3;
+    }
+
+    .staples-item-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .staples-price-box {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+
+    .staples-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1f1918;
+    }
+
+    .staples-orig-price {
+      font-size: 13px;
+      color: #9CA3AF;
+      text-decoration: line-through;
+    }
+
+    .staples-discount {
+      font-size: 10px;
+      font-weight: 600;
+      color: #A65B56;
+      background: rgba(166, 91, 86, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .staples-card-actions {
+      display: grid !important;
+      grid-template-columns: 1fr 1.3fr !important;
+      gap: 7px !important;
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .staples-btn-secondary {
+      background: #F9F9F8;
+      color: #333333;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .staples-btn-secondary:hover {
+      background: #ECEAE7;
+      color: #111;
+    }
+
+    .staples-btn-primary {
+      background: linear-gradient(135deg, #4A1518 0%, #6E2628 50%, #88373A 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(202, 160, 88, 0.4) !important;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(74, 21, 24, 0.25) !important;
+    }
+
+    .staples-btn-primary:hover {
+      background: linear-gradient(135deg, #CAA058 0%, #DFBA74 100%) !important;
+      color: #4A1518 !important;
+      border-color: #CAA058 !important;
+      box-shadow: 0 4px 14px rgba(202, 160, 88, 0.4) !important;
+    }
+
+    .staples-mobile-dots {
+      display: none;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .staples-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #D1D5DB;
+      cursor: pointer;
+    }
+
+    .staples-dot.active {
+      width: 20px;
+      border-radius: 999px;
+      background: #361F1D;
+    }
+
+    @media (max-width: 992px) {
+      .staples-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .staples-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 14px !important;
+        padding-bottom: 10px !important;
+      }
+      .staples-grid::-webkit-scrollbar {
+        display: none;
+      }
+      .staples-card {
+        flex: 0 0 76% !important;
+        scroll-snap-align: center !important;
+      }
+      .staples-mobile-dots {
+        display: flex !important;
+      }
+    }
+
+    /* ==========================================================
+       INFLUENCER FAVOURITE'S 4-COLUMN HORIZONTAL ALIGNMENT
+       ========================================================== */
+    .influencer-section {
+      padding: 75px 0 85px !important;
+      background: linear-gradient(180deg, #FAF0EC 0%, #FDF5F2 50%, #FDEEE9 100%) !important;
+      border: none !important;
+      width: 100%;
+      box-sizing: border-box;
+      display: block !important;
+    }
+
+    .influencer-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .influencer-title {
+      font-family: Geist, Arial, sans-serif;
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7A1B1F;
+      margin: 0 0 8px;
+    }
+
+    .influencer-subtitle {
+      font-size: 14px;
+      font-style: italic;
+      color: #6E534F;
+      margin: 0;
+    }
+
+    .influencer-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 18px !important;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    .influencer-card {
+      display: flex !important;
+      flex-direction: column !important;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.35s ease;
+      min-width: 0 !important;
+    }
+
+    .influencer-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .influencer-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 203 / 318;
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: #f5f5f5;
+      margin-bottom: 10px;
+    }
+
+    .influencer-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .influencer-card:hover .influencer-img {
+      transform: scale(1.035);
+    }
+
+    .influencer-bag-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .influencer-card:hover .influencer-bag-btn {
+      background: #7A1B1F;
+      color: #ffffff;
+    }
+
+    .influencer-caption {
+      font-size: 13px;
+      color: #333333;
+      margin: 2px 0 0;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    @media (max-width: 992px) {
+      .influencer-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .influencer-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 14px !important;
+        padding: 0 16px 8px !important;
+      }
+      .influencer-card {
+        flex: 0 0 72% !important;
+        scroll-snap-align: center !important;
+      }
+    }
+
+    /* ==========================================================
+       SAÏSA REELS SHOWCASE (GIRLY POP LUXURY VIDEO FEED)
+       ========================================================== */
+    .saisa-reels-section {
+      padding: 75px 0 90px !important;
+      background: linear-gradient(180deg, #FFF7F4 0%, #FFF4F0 50%, #FAF0EC 100%) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+      overflow: hidden !important;
+      border: none !important;
+    }
+
+    .saisa-reels-container {
+      max-width: 1360px !important;
+      margin: 0 auto !important;
+      padding: 0 24px !important;
+      box-sizing: border-box !important;
+    }
+
+    .saisa-reels-header {
+      text-align: center !important;
+      margin-bottom: 40px !important;
+    }
+
+    .saisa-reels-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      background: linear-gradient(135deg, rgba(202, 160, 88, 0.15) 0%, rgba(214, 93, 86, 0.15) 100%) !important;
+      border: 1px solid rgba(202, 160, 88, 0.45) !important;
+      color: #6E2628 !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.16em !important;
+      text-transform: uppercase !important;
+      padding: 6px 16px !important;
+      border-radius: 999px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .saisa-reels-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: clamp(28px, 4vw, 44px) !important;
+      font-weight: 700 !important;
+      color: #381A18;
+      margin: 0 0 10px !important;
+      letter-spacing: -0.01em !important;
+      will-change: color, transform, opacity;
+      transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .saisa-reels-sub {
+      font-size: 14.5px !important;
+      color: #784E4B !important;
+      margin: 0 !important;
+      letter-spacing: 0.02em !important;
+    }
+
+    .saisa-reels-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 22px !important;
+    }
+
+    .saisa-reel-card {
+      position: relative !important;
+      aspect-ratio: 9 / 16 !important;
+      border-radius: 22px !important;
+      overflow: hidden !important;
+      background: #2D1413 !important;
+      box-shadow: 0 12px 32px rgba(120, 46, 43, 0.14) !important;
+      border: 1px solid rgba(214, 93, 86, 0.2) !important;
+      cursor: pointer !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease !important;
+    }
+
+    .saisa-reel-card:hover {
+      transform: translateY(-8px) scale(1.02) !important;
+      box-shadow: 0 22px 46px rgba(120, 46, 43, 0.24) !important;
+      border-color: rgba(214, 93, 86, 0.4) !important;
+    }
+
+    .saisa-reel-thumb {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .saisa-reel-card:hover .saisa-reel-thumb {
+      transform: scale(1.06) !important;
+    }
+
+    .saisa-reel-play-btn {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 52px !important;
+      height: 52px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.88) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #782E2B !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28) !important;
+      transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1), background 0.3s ease, color 0.3s ease !important;
+      z-index: 3 !important;
+    }
+
+    .saisa-reel-card:hover .saisa-reel-play-btn {
+      transform: translate(-50%, -50%) scale(1.15) !important;
+      background: #FFFFFF !important;
+      color: #D65D56 !important;
+    }
+
+    .saisa-reel-play-btn svg {
+      width: 22px !important;
+      height: 22px !important;
+      margin-left: 2px !important;
+      fill: currentColor !important;
+    }
+
+    .saisa-reel-meta-top {
+      position: absolute !important;
+      top: 14px !important;
+      left: 14px !important;
+      right: 14px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      z-index: 3 !important;
+      pointer-events: none !important;
+    }
+
+    .saisa-reel-tag {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      background: rgba(45, 20, 19, 0.68) !important;
+      backdrop-filter: blur(6px) !important;
+      color: #FFFFFF !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      padding: 4px 10px !important;
+      border-radius: 999px !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    }
+
+    .saisa-reel-likes {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      color: #FFFFFF !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      background: rgba(45, 20, 19, 0.68) !important;
+      backdrop-filter: blur(6px) !important;
+      padding: 4px 9px !important;
+      border-radius: 999px !important;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4) !important;
+    }
+
+    .saisa-reel-bottom {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      padding: 24px 16px 16px !important;
+      background: linear-gradient(to top, rgba(35, 12, 11, 0.94) 0%, rgba(35, 12, 11, 0.65) 65%, transparent 100%) !important;
+      z-index: 3 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+
+    .saisa-reel-handle {
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.04em !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      margin: 0 !important;
+    }
+
+    .saisa-reel-caption {
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+      color: #FFFFFF !important;
+      margin: 0 !important;
+      line-height: 1.3 !important;
+    }
+
+    .saisa-reel-shop-btn {
+      background: linear-gradient(135deg, #CAA058 0%, #DFBA74 100%) !important;
+      color: #4A1518 !important;
+      border: none !important;
+      border-radius: 999px !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      padding: 8px 14px !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      margin-top: 4px !important;
+      box-shadow: 0 4px 14px rgba(202, 160, 88, 0.4) !important;
+      transition: all 0.25s ease !important;
+    }
+
+    .saisa-reel-card:hover .saisa-reel-shop-btn {
+      background: linear-gradient(135deg, #4A1518 0%, #6E2628 100%) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 14px rgba(74, 21, 24, 0.4) !important;
+    }
+
+    @media (max-width: 992px) {
+      .saisa-reels-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .saisa-reels-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 14px !important;
+        padding-bottom: 12px !important;
+      }
+      .saisa-reels-grid::-webkit-scrollbar {
+        display: none !important;
+      }
+      .saisa-reel-card {
+        flex: 0 0 72% !important;
+        scroll-snap-align: center !important;
+      }
+    }
+
+    /* ==========================================================
+       SAÏSA "SEE WHAT OUR SAÏSA GIRLS SAID" SECTION
+       ========================================================== */
+    .worn-reviewed-section {
+      padding: 75px 0 90px !important;
+      background: linear-gradient(180deg, #FDEEE9 0%, #FAF0EC 50%, #FDF6F3 100%) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      display: block !important;
+      overflow: hidden !important;
+      border: none !important;
+    }
+
+    .worn-reviewed-header {
+      text-align: center !important;
+      margin-bottom: 44px !important;
+      padding: 0 20px !important;
+    }
+
+    .worn-reviewed-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif) !important;
+      font-size: clamp(28px, 3.8vw, 44px) !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.015em !important;
+      color: #381A18 !important;
+      margin: 0 !important;
+    }
+
+    .worn-reviewed-carousel-wrap {
+      position: relative !important;
+      max-width: 1480px !important;
+      margin: 0 auto !important;
+      padding: 0 32px !important;
+      box-sizing: border-box !important;
+    }
+
+    .worn-reviewed-track {
+      display: flex !important;
+      gap: 20px !important;
+      overflow-x: auto !important;
+      scroll-behavior: smooth !important;
+      scroll-snap-type: x mandatory !important;
+      -webkit-overflow-scrolling: touch !important;
+      padding: 10px 4px 25px !important;
+    }
+
+    .worn-reviewed-track::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .review-card {
+      background: #FFFFFF !important;
+      border-radius: 24px !important;
+      padding: 22px !important;
+      flex: 0 0 295px !important;
+      width: 295px !important;
+      max-width: 295px !important;
+      box-shadow: 0 6px 22px rgba(120, 46, 43, 0.07) !important;
+      border: 1px solid rgba(214, 93, 86, 0.12) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      scroll-snap-align: start !important;
+      box-sizing: border-box !important;
+      transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.3s ease !important;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 28px rgba(120, 46, 43, 0.14) !important;
+    }
+
+    .customer-header-row {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      width: 100% !important;
+      margin-bottom: 12px !important;
+    }
+
+    .customer-avatar-initial {
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 50% !important;
+      background: #782E2B !important;
+      color: #FFFFFF !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    .customer-author-name {
+      font-size: 14.5px !important;
+      font-weight: 600 !important;
+      color: #381A18 !important;
+    }
+
+    .customer-review-photo {
+      width: 100% !important;
+      height: 215px !important;
+      object-fit: cover !important;
+      border-radius: 16px !important;
+      display: block !important;
+      background: #FAF0EB !important;
+      margin-bottom: 14px !important;
+    }
+
+    .customer-stars-row {
+      color: #CAA058 !important; /* Lotus Gold Stars */
+      font-size: 15px !important;
+      letter-spacing: 2px !important;
+      margin-bottom: 10px !important;
+      line-height: 1 !important;
+    }
+
+    .customer-review-body {
+      font-size: 13.5px !important;
+      line-height: 1.5 !important;
+      color: #4A2826 !important;
+      margin: 0 !important;
+      text-align: left !important;
+    }
+
+    .rev-arrow {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50% !important;
+      background: #FFFFFF !important;
+      border: 1px solid rgba(214, 93, 86, 0.2) !important;
+      color: #782E2B !important;
+      font-size: 22px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 4px 14px rgba(120, 46, 43, 0.1) !important;
+      cursor: pointer !important;
+      z-index: 5 !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .rev-arrow:hover {
+      background: #782E2B !important;
+      color: #FFFFFF !important;
+    }
+
+    .rev-prev { left: 8px !important; }
+    .rev-next { right: 8px !important; }
+
+    @media (max-width: 600px) {
+      .worn-reviewed-section {
+        padding: 50px 0 60px !important;
+      }
+      .worn-reviewed-carousel-wrap {
+        padding: 0 16px !important;
+      }
+      .review-card {
+        flex: 0 0 260px !important;
+        width: 260px !important;
+        padding: 18px !important;
+      }
+      .customer-review-photo {
+        height: 195px !important;
+      }
+      .rev-arrow {
+        display: none !important;
+      }
+    }
+
+    /* =========================================================
+       SAÏSA TRUST BADGES & ANIMATED WAVY FOOTER
+       ========================================================= */
+    .tres-trust-section {
+      background: linear-gradient(180deg, #FDF6F3 0%, #FAF2ED 50%, #FDEEE9 100%) !important;
+      padding: 65px 24px 45px !important;
+      position: relative;
+      z-index: 2;
+      border: none !important;
+    }
+
+    .tres-trust-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .tres-trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .tres-trust-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #782E2B;
+      transition: transform 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+    .tres-trust-item:hover .tres-trust-icon {
+      transform: translateY(-4px) scale(1.08);
+      color: #D65D56;
+    }
+
+    .tres-trust-icon svg {
+      width: 44px;
+      height: 44px;
+      display: block;
+    }
+
+    .tres-trust-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif);
+      font-size: clamp(20px, 2vw, 25px);
+      font-weight: 600;
+      color: #381A18;
+      letter-spacing: -0.015em;
+      margin: 0;
+    }
+
+    /* REAL SMOOTH ANIMATED WAVES */
+    .footer-wave-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-bottom: -3px;
+      background: #FFFFFF;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .footer-waves-animated {
+      position: relative;
+      width: 100%;
+      height: clamp(80px, 9vw, 130px);
+      min-height: 70px;
+      max-height: 140px;
+      display: block;
+    }
+
+    /* Parallax Animation Layers */
+    .footer-wave-parallax1 > use {
+      animation: move-forever1 10s cubic-bezier(.55, .5, .45, .5) infinite;
+    }
+    .footer-wave-parallax2 > use {
+      animation: move-forever2 13s cubic-bezier(.55, .5, .45, .5) infinite;
+    }
+    .footer-wave-parallax3 > use {
+      animation: move-forever3 17s cubic-bezier(.55, .5, .45, .5) infinite;
+    }
+    .footer-wave-parallax4 > use {
+      animation: move-forever4 23s cubic-bezier(.55, .5, .45, .5) infinite;
+    }
+
+    @keyframes move-forever1 {
+      0% {
+        transform: translate3d(85px, 0, 0);
+      }
+      100% {
+        transform: translate3d(-90px, 0, 0);
+      }
+    }
+
+    @keyframes move-forever2 {
+      0% {
+        transform: translate3d(-90px, 0, 0);
+      }
+      100% {
+        transform: translate3d(85px, 0, 0);
+      }
+    }
+
+    @keyframes move-forever3 {
+      0% {
+        transform: translate3d(85px, 0, 0);
+      }
+      100% {
+        transform: translate3d(-90px, 0, 0);
+      }
+    }
+
+    @keyframes move-forever4 {
+      0% {
+        transform: translate3d(-90px, 0, 0);
+      }
+      100% {
+        transform: translate3d(85px, 0, 0);
+      }
+    }
+
+    /* WAVY FOOTER CONTAINER & CONTENT */
+    .wavy-site-footer {
+      background: linear-gradient(180deg, #FDEEE9 0%, #FAF0EC 40%, #F5DDD5 80%, #EEC9BC 100%) !important;
+      color: #3A1E1C !important;
+      padding: 40px 5vw 45px !important;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: none !important;
+      overflow: hidden;
+      font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+    }
+
+    .footer-content-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr 0.9fr 0.9fr;
+      gap: clamp(24px, 4vw, 56px);
+      padding-bottom: 50px;
+    }
+
+    .footer-newsletter-block {
+      max-width: 440px;
+    }
+
+    .footer-newsletter-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif);
+      font-size: clamp(24px, 2.5vw, 34px);
+      font-weight: 700;
+      color: #381A18;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .footer-newsletter-sub {
+      font-size: 14px;
+      color: #6C4441;
+      line-height: 1.5;
+      margin: 0 0 24px 0;
+    }
+
+    .footer-newsletter-form {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 9999px;
+      padding: 5px 8px 5px 22px;
+      box-shadow: 0 2px 14px rgba(120, 46, 43, 0.1);
+      border: 1px solid rgba(202, 160, 88, 0.35);
+      max-width: 380px;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .footer-newsletter-form:focus-within {
+      box-shadow: 0 4px 20px rgba(120, 46, 43, 0.18);
+      border-color: #CAA058;
+    }
+
+    .footer-newsletter-form input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: #381A18;
+      outline: none;
+      padding: 8px 4px;
+      font-family: inherit;
+    }
+
+    .footer-newsletter-form input::placeholder {
+      color: #9E7471;
+    }
+
+    .footer-newsletter-submit {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #4A1518 0%, #6E2628 50%, #88373A 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #FFFFFF;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(74, 21, 24, 0.3);
+    }
+
+    .footer-newsletter-submit:hover {
+      transform: translateX(3px) scale(1.05);
+      background: linear-gradient(135deg, #CAA058 0%, #DFBA74 100%);
+      color: #4A1518;
+      box-shadow: 0 4px 14px rgba(202, 160, 88, 0.45);
+    }
+
+    .footer-col-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: #381A18;
+      margin: 0 0 18px 0;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-content-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr 0.9fr 0.9fr;
+      gap: clamp(24px, 4vw, 56px);
+      padding-bottom: 50px;
+    }
+
+    .footer-newsletter-block {
+      max-width: 440px;
+    }
+
+    .footer-newsletter-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif);
+      font-size: clamp(24px, 2.5vw, 34px);
+      font-weight: 600;
+      color: #381A18;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .footer-newsletter-sub {
+      font-size: 14px;
+      color: #6C4441;
+      line-height: 1.5;
+      margin: 0 0 24px 0;
+    }
+
+    .footer-newsletter-form {
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      border-radius: 9999px;
+      padding: 5px 8px 5px 22px;
+      box-shadow: 0 2px 12px rgba(120, 46, 43, 0.08);
+      border: 1px solid rgba(214, 93, 86, 0.2);
+      max-width: 380px;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .footer-newsletter-form:focus-within {
+      box-shadow: 0 4px 18px rgba(120, 46, 43, 0.16);
+      border-color: #782E2B;
+    }
+
+    .footer-newsletter-form input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: #381A18;
+      outline: none;
+      padding: 8px 4px;
+      font-family: inherit;
+    }
+
+    .footer-newsletter-form input::placeholder {
+      color: #9E7471;
+    }
+
+    .footer-newsletter-submit {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #782E2B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #FFFFFF;
+      transition: transform 0.2s ease, background 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .footer-newsletter-submit:hover {
+      transform: translateX(3px) scale(1.05);
+      background: #D65D56;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-headings, "Playfair Display", Georgia, serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: #381A18;
+      margin: 0 0 18px 0;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links-list a {
+      color: #5C3836;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-links-list a:hover {
+      color: #782E2B;
+      transform: translateX(3px);
+    }
+
+    .footer-bottom-bar {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(120, 46, 43, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #6C4441;
+    }
+
+    @media (max-width: 900px) {
+      .footer-content-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+      .footer-newsletter-block {
+        grid-column: 1 / -1;
+      }
+      .tres-trust-container {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      /* Mobile Global Viewport Protection */
+      html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+      }
+      .header-container {
+        padding: 0 14px !important;
+        height: 56px !important;
+      }
+      .brand-saisa-lotus {
+        height: 36px !important;
+      }
+      .tres-trust-section {
+        padding: 38px 16px 28px !important;
+      }
+      .tres-trust-container {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .wavy-site-footer {
+        padding: 30px 16px 40px !important;
+      }
+      .footer-content-inner {
+        grid-template-columns: 1fr !important;
+        gap: 26px !important;
+        padding-bottom: 28px !important;
+      }
+      .footer-bottom-bar {
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: center !important;
+        padding-top: 18px !important;
+      }
+    }
+  </style>
 </head>
 <body class="editorial-home">
-  <a class="skip-link" href="#featured-products-section">Skip to shopping</a>
-  <div class="brand-intro" id="brand-intro" hidden aria-label="Welcome to Saisa">
-    <span class="intro-eyebrow">EVERYDAY, EXTRAORDINARY.</span>
-    <div class="intro-word" aria-hidden="true"><span>s</span><span>a</span><span>i</span><span>s</span><span>a</span><sup>®</sup></div>
-    <div class="intro-bottom"><span>Clothes to live in.</span><span class="intro-line"></span><button id="intro-skip">Enter saisa ↗</button></div>
-  </div>
+  <a class="skip-link" href="#ombre-collection">Skip to shopping</a>
 
-  <!-- Top Announcement Bar -->
-  <div class="announcement-bar" id="saisa-announcement-bar">
-    <div class="announcement-bar__content" id="announcement-text">
-      FREE SHIPPING ON ORDERS ABOVE ₹1,500 • PREPAID DISCOUNT: 5% OFF
-    </div>
-  </div>
-
-  <!-- Main Navigation Header -->
+  <!-- Main Navigation Header (Select Staples Deep Wine Style) -->
   <header class="site-header" id="saisa-header">
     <div class="header-container">
       <!-- Left: Mobile menu button and Logo -->
       <div class="header-left-wrap">
         <!-- Left: Mobile Menu Trigger -->
         <button class="icon-button" id="menu-drawer-open-btn" aria-label="Open navigation menu">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="icon-svg">
             <line x1="4" y1="6" x2="20" y2="6"></line>
             <line x1="4" y1="12" x2="20" y2="12"></line>
             <line x1="4" y1="18" x2="20" y2="18"></line>
@@ -52,30 +2451,23 @@
         </button>
 
         <!-- Logo -->
-        <div class="site-logo">
-          <a href="#" id="site-logo-link">saisa</a>
+        <div class="site-logo saisa-brand-logo">
+          <a href="#" id="site-logo-link" class="site-brand-saisa" aria-label="Saïsa - Ethnic Wear For Every You">
+            <img src="assets/logo_nav.png" alt="Saïsa - Ethnic Wear For Every You" class="brand-saisa-lotus" aria-hidden="true">
+          </a>
         </div>
       </div>
 
       <!-- Center: Desktop Navigation -->
       <nav class="desktop-navigation" aria-label="Main Navigation">
         <ul class="desktop-nav-list">
-          <li><a href="#featured-products-section" class="desktop-nav-link" id="nav-shop" data-filter="all">Shop</a></li>
-          <li class="nav-dropdown-wrapper">
-            <a href="#" class="desktop-nav-link" id="nav-collections">Collections <span class="dropdown-caret">↓</span></a>
-            <ul class="desktop-dropdown-menu">
-              <li><a href="#" class="dropdown-item" data-filter="Plain Kurtis">Plain Kurtas</a></li>
-              <li><a href="#" class="dropdown-item" data-filter="Short Kurtis">Short Kurtis</a></li>
-              <li><a href="#" class="dropdown-item" data-filter="Printed & Colorful">Printed & Colorful</a></li>
-              <li><a href="#" class="dropdown-item" data-filter="A-Line & Flared">A-Line & Flared</a></li>
-              <li><a href="#" class="dropdown-item" data-filter="Kurta Co-ords">Kurta Co-ords</a></li>
-              <li><a href="#" class="dropdown-item" data-filter="Linen & Cotton">Linen & Cotton</a></li>
-            </ul>
-          </li>
-          <li><a href="#" class="desktop-nav-link" id="nav-new-arrivals" data-filter="new-arrivals">New Arrivals</a></li>
-          <li><a href="#" class="desktop-nav-link" id="nav-best-sellers" data-filter="best-sellers">Best Sellers</a></li>
-          <li><a href="#" class="desktop-nav-link" id="nav-about">About</a></li>
-          <li><a href="#" class="desktop-nav-link" id="nav-contact">Contact</a></li>
+          <li><a href="#saisa-hero" class="desktop-nav-link" id="nav-home">HOME</a></li>
+          <li><a href="#tres-categories" class="desktop-nav-link" id="nav-collections">COLLECTIONS</a></li>
+          <li><a href="#ombre-collection" class="desktop-nav-link" id="nav-shop">SHOP ALL</a></li>
+          <li><a href="#saisa-reels-showcase" class="desktop-nav-link" id="nav-reels">REELS</a></li>
+          <li><a href="#influencer-favourites" class="desktop-nav-link" id="nav-influencers">INFLUENCER PICKS</a></li>
+          <li><a href="#worn-and-reviewed" class="desktop-nav-link" id="nav-reviews">REVIEWS</a></li>
+          <li><a href="#saisa-footer" class="desktop-nav-link" id="nav-contact">OUR STORY</a></li>
         </ul>
       </nav>
 
@@ -83,7 +2475,7 @@
       <div class="header-actions">
         <!-- Search Toggle -->
         <button class="icon-button" id="search-toggle-btn" aria-label="Search items">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="icon-svg">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
@@ -92,7 +2484,7 @@
         <!-- Account Section Dropdown -->
         <div class="account-wrapper" id="account-menu-wrapper">
           <button class="icon-button" id="account-dropdown-btn" aria-label="My Account">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="icon-svg">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
@@ -121,7 +2513,7 @@
 
         <!-- Wishlist Icon with Badge -->
         <button class="icon-button wishlist-trigger" id="wishlist-drawer-open-btn" aria-label="Open wishlist panel">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="icon-svg">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
           <span class="wishlist-count-badge" id="wishlist-badge-count">0</span>
@@ -129,7 +2521,7 @@
 
         <!-- Cart Icon with Badge -->
         <button class="icon-button cart-trigger" id="cart-drawer-open-btn" aria-label="Open cart drawer">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="icon-svg">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -154,22 +2546,26 @@
     </div>
     <nav class="drawer-nav">
       <ul class="nav-links-list">
-        <li><a href="#featured-products-section" class="nav-item active-link" id="mob-nav-shop" data-filter="all">Shop All</a></li>
+        <li><a href="#ombre-collection" class="nav-item active-link" id="mob-nav-shop" data-filter="all">Shop All</a></li>
         <li class="drawer-dropdown-wrapper">
           <button class="drawer-dropdown-toggle" id="mob-collections-toggle-btn" style="background: none; border: none; padding: 0; width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary); cursor: pointer; height: 50px;">
             <span>Collections</span> <span class="drawer-caret" id="mob-collections-caret">↓</span>
           </button>
           <ul class="drawer-dropdown-list" id="mob-collections-list" style="display: none; padding-left: 15px; margin-bottom: 15px;">
-            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Plain Kurtis" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Plain Kurtas</a></li>
-            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Short Kurtis" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Short Kurtis</a></li>
-            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Printed & Colorful" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Printed & Colorful</a></li>
-            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="A-Line & Flared" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">A-Line & Flared</a></li>
-            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Kurta Co-ords" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Kurta Co-ords</a></li>
-            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Linen & Cotton" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Linen & Cotton</a></li>
+            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Farshi Salwar Suits" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Farshi Salwar Suits</a></li>
+            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Co-ord sets" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Co-ord Sets</a></li>
+            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Kurtis" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Kurtis</a></li>
+            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Festive Edit" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Festive Edit</a></li>
+            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Dresses" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Dresses</a></li>
+            <li style="margin: 8px 0;"><a href="#" class="nav-item drawer-dropdown-item" data-filter="Anarkali Suits" style="font-size: 0.95rem; text-transform: none; letter-spacing: normal;">Anarkali Suits</a></li>
           </ul>
         </li>
-        <li><a href="#" class="nav-item" id="mob-nav-new-arrivals" data-filter="new-arrivals">New Arrivals</a></li>
-        <li><a href="#" class="nav-item" id="mob-nav-best-sellers" data-filter="best-sellers">Best Sellers</a></li>
+        <li><a href="#tres-categories" class="nav-item" id="mob-nav-categories">Categories</a></li>
+        <li><a href="#ombre-collection" class="nav-item" id="mob-nav-ombre">Ombre Edit</a></li>
+        <li><a href="#staples-showcase" class="nav-item" id="mob-nav-staples">Staples Edit</a></li>
+        <li><a href="#limited-edition-showcase" class="nav-item" id="mob-nav-limited">Limited Edition</a></li>
+        <li><a href="#influencer-favourites" class="nav-item" id="mob-nav-influencers">Influencer's Favourite</a></li>
+        <li><a href="#worn-and-reviewed" class="nav-item" id="mob-nav-reviews">Worn & Reviewed</a></li>
         <li><a href="#" class="nav-item" id="mob-nav-about">About</a></li>
         <li><a href="#" class="nav-item" id="mob-nav-contact">Contact</a></li>
         <li class="drawer-auth-item" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-color);">
@@ -185,7 +2581,7 @@
         </li>
       </ul>
       <div class="drawer-footer-info" style="margin-top: 30px;">
-        <p>saisa • Elevated Basics</p>
+        <p>Saïsa • Ethnic Wear For Every You</p>
         <p class="small-text">Proudly Made in India</p>
       </div>
     </nav>
@@ -194,7 +2590,7 @@
   <!-- Search Bar Overlay (Slides from under header) -->
   <div class="search-overlay-bar" id="search-overlay">
     <div class="search-container">
-      <input type="text" id="search-input-field" placeholder="Search for collections, tops, linen..." aria-label="Search input">
+      <input type="text" id="search-input-field" placeholder="Search for kurtas, anarkalis, co-ords, mulmul..." aria-label="Search input">
       <button class="icon-button" id="search-close-btn" aria-label="Close search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -207,221 +2603,766 @@
   <main id="MainContent">
 
     <section class="editorial-hero" id="saisa-hero">
-      <div class="hero-copy">
-        <p class="eyebrow hero-enter"><span class="live-dot"></span> THE EVERYDAY EDIT</p>
-        <h1><span class="line"><span>A little less.</span></span><span class="line"><span>A lot more</span></span><span class="line"><span><em>you.</em></span></span></h1>
-        <p class="hero-intro hero-enter">Easy silhouettes. Beautiful textures.<br>For wherever your everyday takes you.</p>
-        <div class="hero-links hero-enter"><a class="round-link" href="#featured-products-section" id="hero-cta-btn">Explore the edit <span>↗</span></a><a class="text-link" href="#shop-by-collection" id="hero-collections-btn">Find your feeling ↗</a></div>
-        <div class="hero-foot hero-enter"><span>DESIGNED TO BREATHE.<br>MADE TO BE LIVED IN.</span><a href="#featured-categories" aria-label="Scroll to collections">SCROLL TO DISCOVER <span>↓</span></a></div>
-      </div>
-      <div class="hero-art">
-        <div class="hero-photo"><img src="assets/hero_kurta.png" width="1024" height="1024" fetchpriority="high" alt="Sage green Saisa kurta in a sunlit sandstone courtyard"></div>
-        <span class="hero-photo-note">SOFT SHAPES. STRONG SENSE OF SELF.</span>
-        <div class="hero-photo-caption"><span>The art of<br><strong>taking it easy.</strong></span><a href="product.html?id=saisa_sage_kurta" aria-label="Shop the sage linen kurta">↗</a></div>
-        <div class="hero-mini"><img loading="lazy" src="assets/kurti_minimalist_alabaster.png" width="1024" height="1024" alt="Alabaster kurti from the everyday edit"><span>Less, but better.</span></div>
-      </div>
-    </section>
-    <div class="editorial-ribbon" aria-label="Soft on you. Easy on the everyday."><div class="ribbon-track" aria-hidden="true"><span>SOFT ON YOU <i>✳</i> EASY ON THE EVERYDAY <i>✳</i> ALWAYS YOURSELF <i>✳</i> </span><span>SOFT ON YOU <i>✳</i> EASY ON THE EVERYDAY <i>✳</i> ALWAYS YOURSELF <i>✳</i> </span></div></div>
-
-    <!-- 2. Featured Categories -->
-    <section class="categories-section reveal-on-scroll" id="featured-categories" style="padding: 60px 0; background-color: var(--bg-secondary);">
-      <div class="section-container">
-        <div class="section-header" style="text-align: center; margin-bottom: 45px;">
-          <span class="subheading-accent">THE WARDROBE, RECONSIDERED</span>
-          <h2 class="section-title">Find your everyday.</h2>
-          <p class="section-subtitle">A mood, a moment, a silhouette. Make it yours.</p>
-        </div>
-        <div class="categories-grid">
-          <!-- 6 Categories -->
-          <button type="button" class="category-card" data-filter="Plain Kurtis">
-            <div class="category-img-wrap"><img loading="lazy" src="assets/kurti_minimalist_alabaster.png" alt="Plain Kurtas"></div>
-            <div class="category-label">Plain Kurtas</div></button>
-          <button type="button" class="category-card" data-filter="Short Kurtis">
-            <div class="category-img-wrap"><img loading="lazy" src="assets/kurti_terracotta_short.png" alt="Short Kurtis"></div>
-            <div class="category-label">Short Kurtis</div></button>
-          <button type="button" class="category-card" data-filter="Printed & Colorful">
-            <div class="category-img-wrap"><img loading="lazy" src="assets/kurti_indigo_print.png" alt="Printed & Colorful"></div>
-            <div class="category-label">Printed & Colorful</div></button>
-          <button type="button" class="category-card" data-filter="A-Line & Flared">
-            <div class="category-img-wrap"><img loading="lazy" src="assets/kurti_pink_mulmul.png" alt="A-Line & Flared"></div>
-            <div class="category-label">A-Line & Flared</div></button>
-          <button type="button" class="category-card" data-filter="Kurta Co-ords">
-            <div class="category-img-wrap"><img loading="lazy" src="assets/kurti_solid_sage.png" alt="Kurta Co-ords"></div>
-            <div class="category-label">Kurta Co-ords</div></button>
-          <button type="button" class="category-card" data-filter="Linen & Cotton">
-            <div class="category-img-wrap"><img loading="lazy" src="assets/kurti_solid_sage.png" alt="Linen & Cotton"></div>
-            <div class="category-label">Linen & Cotton</div></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Best Sellers Section -->
-    <section class="catalog-section reveal-on-scroll" id="best-sellers-section" style="padding: 60px 0; background-color: var(--bg-primary);">
-      <div class="section-container">
-        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-          <span class="subheading-accent">SAISA FAVORITES</span>
-          <h2 class="section-title">On repeat. For a reason.</h2>
-          <p class="section-subtitle">Our most loved everyday basics</p>
-          <a class="section-inline-link" href="#featured-products-section">View the full wardrobe <span>↗</span></a>
-        </div>
-        <div class="product-grid" id="best-sellers-grid-display">
-          <!-- Dynamic Content Rendered by app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Different moods. Same you. -->
-    <section class="collections-cards-section reveal-on-scroll" id="shop-by-collection" style="padding: 60px 0; background-color: var(--bg-secondary);">
-      <div class="section-container">
-        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-          <span class="subheading-accent">THEMED EDITS</span>
-          <h2 class="section-title">Different moods. Same you.</h2>
-          <p class="section-subtitle">Curated styles for different moods</p>
-        </div>
-        <div class="collections-cards-grid">
-          <!-- Collection 1 -->
-          <div class="collection-card-item">
-            <div class="collection-card-img-wrap">
-              <img loading="lazy" src="assets/hero_kurta.png" alt="The Linen Edit">
+      <div class="hero-art" id="hero-slider-art" aria-label="Auto Moving Fashion Slideshow">
+        <div class="hero-slides-wrapper" id="hero-slides-wrapper">
+          <div class="hero-slides-track" id="hero-slides-track">
+            
+            <!-- Loop Clone: Last Slide Prepend (Slide 6: Wine Side) -->
+            <div class="hero-slide hero-slide-clone" data-real-index="5">
+              <img src="assets/hero_banner_wine_2.jpg" width="1920" height="1080" loading="lazy" alt="The Royal Mulberry" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h2 class="hero-editorial-title">THE ROYAL MULBERRY</h2>
+              </div>
             </div>
-            <div class="collection-card-info">
-              <h3 class="collection-card-title">The Linen Edit</h3>
-              <p class="collection-card-desc">Breezy, structural solid kurtas tailored from 100% natural European flax.</p>
-              <a href="#featured-products-section" class="explore-collection-link" data-collection-filter="Linen & Cotton">Explore Collection ↗</a>
-            </div>
-          </div>
-          <!-- Collection 2 -->
-          <div class="collection-card-item">
-            <div class="collection-card-img-wrap">
-              <img loading="lazy" src="assets/kurti_indigo_print.png" alt="Colorful & Printed">
-            </div>
-            <div class="collection-card-info">
-              <h3 class="collection-card-title">Colorful & Printed</h3>
-              <p class="collection-card-desc">Rich organic indigo, ochre silk, and hand-block Dabu prints.</p>
-              <a href="#featured-products-section" class="explore-collection-link" data-collection-filter="Printed & Colorful">Explore Collection ↗</a>
-            </div>
-          </div>
-          <!-- Collection 3 -->
-          <div class="collection-card-item">
-            <div class="collection-card-img-wrap">
-              <img loading="lazy" src="assets/kurti_solid_sage.png" alt="Minimalist Co-ords">
-            </div>
-            <div class="collection-card-info">
-              <h3 class="collection-card-title">Minimalist Co-ords</h3>
-              <p class="collection-card-desc">Coordinated kurta trousers and wide-leg sets for daily comfort.</p>
-              <a href="#featured-products-section" class="explore-collection-link" data-collection-filter="Kurta Co-ords">Explore Collection ↗</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 6. Your next favourite. (Main Shop Grid with Tabs) -->
-    <section class="catalog-section reveal-on-scroll" id="featured-products-section" style="padding: 60px 0; background-color: var(--bg-primary);">
-      <div class="section-container">
-        <div class="catalog-header" style="text-align: center; margin-bottom: 40px;">
-          <span class="subheading-accent">THE SAISA WARDROBE</span>
-          <h2 class="section-title">Your next favourite.</h2>
-          <p class="section-subtitle">Considered pieces. Endless ways to wear them.</p>
-        </div>
+            <!-- Slide 1: Blush Rose (Front Pose) -->
+            <div class="hero-slide active" data-real-index="0">
+              <img src="assets/hero_banner_blush_1.jpg" width="1920" height="1080" fetchpriority="high" alt="The Rose Mulmul" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h1 class="hero-editorial-title">THE ROSE MULMUL</h1>
+              </div>
+            </div>
 
-        <div class="catalog-controls-row">
-          <div class="filter-tabs" id="catalog-filters">
-            <button class="filter-tab-btn active" data-filter="all" id="filter-all-btn">All</button>
-            <button class="filter-tab-btn" data-filter="Plain Kurtis" id="filter-plain-btn">Plain Kurtas</button>
-            <button class="filter-tab-btn" data-filter="Short Kurtis" id="filter-short-btn">Short Kurtis</button>
-            <button class="filter-tab-btn" data-filter="Printed & Colorful" id="filter-printed-btn">Printed & Colorful</button>
-            <button class="filter-tab-btn" data-filter="A-Line & Flared" id="filter-flared-btn">A-Line & Flared</button>
-            <button class="filter-tab-btn" data-filter="Kurta Co-ords" id="filter-coords-btn">Kurta Co-ords</button>
-            <button class="filter-tab-btn" data-filter="Linen & Cotton" id="filter-linen-btn">Linen & Cotton</button>
-          </div>
+            <!-- Slide 2: Blush Rose (Side Pose) -->
+            <div class="hero-slide" data-real-index="1">
+              <img src="assets/hero_banner_blush_2.jpg" width="1920" height="1080" loading="lazy" alt="The Rose Mulmul" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h2 class="hero-editorial-title">THE ROSE MULMUL</h2>
+              </div>
+            </div>
 
-          <div class="sort-selector-wrap">
-            <label for="catalog-sort-by">Sort By:</label>
-            <select id="catalog-sort-by" aria-label="Sort products">
-              <option value="featured">Featured</option>
-              <option value="price-low-high">Price: Low to High</option>
-              <option value="price-high-low">Price: High to Low</option>
-              <option value="rating">Top Rated</option>
-            </select>
+            <!-- Slide 3: Sky Indigo (Front Pose) -->
+            <div class="hero-slide" data-real-index="2">
+              <img src="assets/hero_banner_sky_1.jpg" width="1920" height="1080" loading="lazy" alt="The Sky Indigo" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h2 class="hero-editorial-title">THE SKY INDIGO</h2>
+              </div>
+            </div>
+
+            <!-- Slide 4: Sky Indigo (Side Pose) -->
+            <div class="hero-slide" data-real-index="3">
+              <img src="assets/hero_banner_sky_2.jpg" width="1920" height="1080" loading="lazy" alt="The Sky Indigo" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h2 class="hero-editorial-title">THE SKY INDIGO</h2>
+              </div>
+            </div>
+
+            <!-- Slide 5: Royal Mulberry (Front Pose) -->
+            <div class="hero-slide" data-real-index="4">
+              <img src="assets/hero_banner_wine_1.jpg" width="1920" height="1080" loading="lazy" alt="The Royal Mulberry" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h2 class="hero-editorial-title">THE ROYAL MULBERRY</h2>
+              </div>
+            </div>
+
+            <!-- Slide 6: Royal Mulberry (Side Pose) -->
+            <div class="hero-slide" data-real-index="5">
+              <img src="assets/hero_banner_wine_2.jpg" width="1920" height="1080" loading="lazy" alt="The Royal Mulberry" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h2 class="hero-editorial-title">THE ROYAL MULBERRY</h2>
+              </div>
+            </div>
+
+            <!-- Loop Clone: First Slide Append (Slide 1: Blush Rose Front) -->
+            <div class="hero-slide hero-slide-clone" data-real-index="0">
+              <img src="assets/hero_banner_blush_1.jpg" width="1920" height="1080" loading="lazy" alt="The Rose Mulmul" class="hero-slide-img">
+              <div class="hero-editorial-overlay">
+                <h2 class="hero-editorial-title">THE ROSE MULMUL</h2>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Main Product Grid Container -->
-        <div class="product-grid" id="product-grid-display">
-          <!-- Dynamic Content Rendered by app.js -->
+        <!-- Minimal Slider Controls: Sleek chevrons & progress indicators -->
+        <div class="hero-slider-controls">
+          <button type="button" class="hero-nav-arrow hero-prev" id="hero-slide-prev" aria-label="Previous photo">‹</button>
+          <div class="hero-progress-bars" id="hero-progress-bars">
+            <div class="hero-progress-item active" data-index="0"><div class="hero-progress-fill"></div></div>
+            <div class="hero-progress-item" data-index="1"><div class="hero-progress-fill"></div></div>
+            <div class="hero-progress-item" data-index="2"><div class="hero-progress-fill"></div></div>
+            <div class="hero-progress-item" data-index="3"><div class="hero-progress-fill"></div></div>
+            <div class="hero-progress-item" data-index="4"><div class="hero-progress-fill"></div></div>
+            <div class="hero-progress-item" data-index="5"><div class="hero-progress-fill"></div></div>
+          </div>
+          <button type="button" class="hero-nav-arrow hero-next" id="hero-slide-next" aria-label="Next photo">›</button>
+        </div>
+      </div>
+    </section>
+    <!-- Saïsa Artisanal Ticker Ribbon -->
+    <div class="tres-heart-ribbon" aria-hidden="true">
+      <div class="tres-heart-track">
+        <span>🪷 Saïsa Festive Edit &nbsp;&nbsp;&nbsp;&nbsp; ✦ Pure Handcrafted Mulmul &nbsp;&nbsp;&nbsp;&nbsp; 🪷 Artisanal Zari & Prints &nbsp;&nbsp;&nbsp;&nbsp; ✦ New Arrivals &nbsp;&nbsp;&nbsp;&nbsp; 🪷 Ethnic Wear For Every You &nbsp;&nbsp;&nbsp;&nbsp; ✦ Lightweight Daily Kurtas</span>
+        <span>🪷 Saïsa Festive Edit &nbsp;&nbsp;&nbsp;&nbsp; ✦ Pure Handcrafted Mulmul &nbsp;&nbsp;&nbsp;&nbsp; 🪷 Artisanal Zari & Prints &nbsp;&nbsp;&nbsp;&nbsp; ✦ New Arrivals &nbsp;&nbsp;&nbsp;&nbsp; 🪷 Ethnic Wear For Every You &nbsp;&nbsp;&nbsp;&nbsp; ✦ Lightweight Daily Kurtas</span>
+      </div>
+    </div>
+
+    <!-- Saïsa Curated Categories Section -->
+    <section class="tres-categories-section reveal-on-scroll" id="tres-categories" aria-label="Shop by Category">
+      <!-- 2D Lotus Outline Background Motif -->
+      <img src="assets/lotus_outline_2d.svg" class="bg-lotus-watermark right" alt="" aria-hidden="true">
+      <div class="tres-categories-container">
+        <h2 class="tres-categories-heading">Curated Collections</h2>
+        <div class="tres-categories-grid">
+          
+          <!-- Card 1: Farshi Salwar Suits -->
+          <div class="tres-category-card" onclick="filterCatalogByCategory('Farshi Salwar Suits')">
+            <img src="assets/pink_farshi_flatlay.png" width="600" height="800" loading="lazy" alt="Farshi Salwar Suits">
+            <div class="tres-category-card-overlay">
+              <span class="tres-category-name">FARSHI SALWAR SUITS</span>
+              <span class="tres-category-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Co-ord sets -->
+          <div class="tres-category-card" onclick="filterCatalogByCategory('Co-ord sets')">
+            <img src="assets/coord_linen.png" width="600" height="800" loading="lazy" alt="Co-ord Sets">
+            <div class="tres-category-card-overlay">
+              <span class="tres-category-name">CO-ORD SETS</span>
+              <span class="tres-category-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Kurtis -->
+          <div class="tres-category-card" onclick="filterCatalogByCategory('Kurtis')">
+            <img src="assets/pink_farshi_closeup.jpg" width="600" height="800" loading="lazy" alt="Kurtis">
+            <div class="tres-category-card-overlay">
+              <span class="tres-category-name">KURTIS</span>
+              <span class="tres-category-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Festive Edit -->
+          <div class="tres-category-card" onclick="filterCatalogByCategory('Festive Edit')">
+            <img src="assets/wine_farshi_flatlay.png" width="600" height="800" loading="lazy" alt="Festive Edit">
+            <div class="tres-category-card-overlay">
+              <span class="tres-category-name">FESTIVE EDIT</span>
+              <span class="tres-category-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Dresses -->
+          <div class="tres-category-card" onclick="filterCatalogByCategory('Dresses')">
+            <img src="assets/sky_farshi_closeup.jpg" width="600" height="800" loading="lazy" alt="Dresses">
+            <div class="tres-category-card-overlay">
+              <span class="tres-category-name">DRESSES</span>
+              <span class="tres-category-arrow">↗</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Anarkali Suits -->
+          <div class="tres-category-card" onclick="filterCatalogByCategory('Anarkali Suits')">
+            <img src="assets/sky_farshi_flatlay.png" width="600" height="800" loading="lazy" alt="Anarkali Suits">
+            <div class="tres-category-card-overlay">
+              <span class="tres-category-name">ANARKALI SUITS</span>
+              <span class="tres-category-arrow">↗</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 8. New Arrivals Grid -->
-    <section class="catalog-section reveal-on-scroll" id="new-arrivals-section" style="padding: 60px 0; background-color: var(--bg-primary);">
-      <div class="section-container">
-        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-          <span class="subheading-accent">JUST ADDED</span>
-          <h2 class="section-title">Fresh perspective.</h2>
-          <p class="section-subtitle">Fresh shapes and breathable textures for the season</p>
-        </div>
-        <div class="product-grid" id="new-arrivals-grid-display">
-          <!-- Dynamic Content Rendered by app.js -->
+    <!-- Ombre Collection Section (Saïsa Gradient Palette) -->
+    <section class="ombre-collection-section reveal-on-scroll" id="ombre-collection" aria-label="Ombre Collection">
+      <!-- 2D Lotus Outline Background Motif -->
+      <img src="assets/lotus_outline_2d.svg" class="bg-lotus-watermark left rose" alt="" aria-hidden="true">
+      <div class="ombre-container">
+        <h2 class="ombre-collection-heading">Exclusive Farshi Salwar Collection</h2>
+        <div class="ombre-grid">
+          
+          <!-- Ombre 1 -->
+          <div class="ombre-card" onclick="openProductModal('saisa_farshi_blush')">
+            <div class="ombre-img-wrap">
+              <span class="ombre-badge">NEW</span>
+              <img src="assets/pink_farshi_closeup.jpg" width="600" height="800" loading="lazy" alt="The Rose Mulmul Farshi Salwar Suit">
+            </div>
+            <h3 class="ombre-card-title">The Rose Mulmul Farshi Salwar Suit</h3>
+            <div class="ombre-card-prices">
+              <span class="ombre-price-current">Rs. 2,499.00</span>
+              <span class="ombre-price-original">Rs. 3,499.00</span>
+            </div>
+          </div>
+
+          <!-- Ombre 2 -->
+          <div class="ombre-card" onclick="openProductModal('saisa_farshi_sky')">
+            <div class="ombre-img-wrap">
+              <span class="ombre-badge">HOT</span>
+              <img src="assets/sky_farshi_closeup.jpg" width="600" height="800" loading="lazy" alt="The Sky Indigo Farshi Salwar Suit">
+            </div>
+            <h3 class="ombre-card-title">The Sky Indigo Farshi Salwar Suit</h3>
+            <div class="ombre-card-prices">
+              <span class="ombre-price-current">Rs. 2,499.00</span>
+              <span class="ombre-price-original">Rs. 3,499.00</span>
+            </div>
+          </div>
+
+          <!-- Ombre 3 -->
+          <div class="ombre-card" onclick="openProductModal('saisa_farshi_mulberry')">
+            <div class="ombre-img-wrap">
+              <span class="ombre-badge">EXCLUSIVE</span>
+              <img src="assets/wine_farshi_closeup.jpg" width="600" height="800" loading="lazy" alt="The Royal Mulberry Farshi Salwar Suit">
+            </div>
+            <h3 class="ombre-card-title">The Royal Mulberry Farshi Salwar Suit</h3>
+            <div class="ombre-card-prices">
+              <span class="ombre-price-current">Rs. 2,699.00</span>
+              <span class="ombre-price-original">Rs. 3,699.00</span>
+            </div>
+          </div>
+
+          <!-- Ombre 4 -->
+          <div class="ombre-card" onclick="openProductModal('saisa_farshi_blush')">
+            <div class="ombre-img-wrap">
+              <span class="ombre-badge">2-PIECE SET</span>
+              <img src="assets/pink_farshi_flatlay.png" width="600" height="800" loading="lazy" alt="The Rose Mulmul 2-Piece Farshi Set">
+            </div>
+            <h3 class="ombre-card-title">The Rose Mulmul 2-Piece Farshi Set</h3>
+            <div class="ombre-card-prices">
+              <span class="ombre-price-current">Rs. 2,499.00</span>
+              <span class="ombre-price-original">Rs. 3,499.00</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- 9. Influencer / Creator Picks (Reels) -->
-    <section class="reels-section reveal-on-scroll" id="saisa-reels" style="padding: 60px 0; background-color: var(--bg-secondary);">
-      <div class="section-container">
-        <div class="reels-header" style="text-align: center; margin-bottom: 40px;">
-          <span class="subheading-accent">SAISA IN MOTION</span>
-          <h2 class="section-title">In your element.</h2>
-          <p class="section-subtitle">A little inspiration for the way you wear your everyday.</p>
-          <a class="section-inline-link" href="https://www.instagram.com/saisa.wardrobe/" target="_blank" rel="noopener noreferrer">Visit @saisa.wardrobe <span>↗</span></a>
+    <!-- 2. Saïsa Staples: 4-Variant Silhouette Palette Showcase -->
+    <section class="staples-showcase-section reveal-on-scroll" id="staples-showcase" aria-label="Saïsa Staples Flared Kurti Palette">
+      <!-- 2D Lotus Outline Background Motif -->
+      <img src="assets/lotus_outline_2d.svg" class="bg-lotus-watermark center" alt="" aria-hidden="true">
+      <div class="section-container staples-container">
+        
+        <!-- Header -->
+        <div class="staples-header">
+          <div class="staples-eyebrow">
+            <span class="staples-eyebrow-dot"></span>
+            <span>SAÏSA STAPLES ✦ THE PALETTE SERIES</span>
+            <span class="staples-eyebrow-dot"></span>
+          </div>
+          <h2 class="staples-title">One Iconic Cut. Four Daily Moods.</h2>
+          <p class="staples-desc">
+            Tailored spread collar, sculpted curved hemline, and statement flared cuffs. 
+            Crafted from breathable yarn-dyed pure cotton with artisanal flair.
+          </p>
+
+          <!-- Interactive Shade Filter Switcher -->
+          <div class="staples-palette-nav" role="tablist" aria-label="Filter by shade">
+            <button type="button" class="staples-pill active" data-staple-target="all" role="tab" aria-selected="true">
+              <span>✦ All 4 Shades</span>
+            </button>
+            <button type="button" class="staples-pill" data-staple-target="mint" role="tab" aria-selected="false">
+              <span class="staples-pill-dot" style="background-color: #A8D4D0;"></span>
+              <span>Mint Breeze</span>
+            </button>
+            <button type="button" class="staples-pill" data-staple-target="grey" role="tab" aria-selected="false">
+              <span class="staples-pill-dot" style="background-color: #B7AEAF;"></span>
+              <span>Slate Charcoal</span>
+            </button>
+            <button type="button" class="staples-pill" data-staple-target="pink" role="tab" aria-selected="false">
+              <span class="staples-pill-dot" style="background-color: #E8B8BA;"></span>
+              <span>Blossom Rose</span>
+            </button>
+            <button type="button" class="staples-pill" data-staple-target="blue" role="tab" aria-selected="false">
+              <span class="staples-pill-dot" style="background-color: #A9BDF2;"></span>
+              <span>Periwinkle Sky</span>
+            </button>
+          </div>
         </div>
-        <div class="lookbook-controls"><button type="button" id="looks-prev" aria-label="Previous looks">←</button><button type="button" id="looks-next" aria-label="Next looks">→</button></div><div class="reels-grid" id="looks-track" tabindex="0" aria-label="Shop the looks">
+
+        <!-- 4-Column Showcase Grid -->
+        <div class="staples-grid" id="staples-grid-container">
+          
+          <!-- Column 1: Mint Breeze -->
+          <article class="staples-card" data-shade="mint" style="--card-glow: rgba(168, 212, 208, 0.45); --card-pastel: #A8D4D0;">
+            <div class="staples-visual-wrap">
+              <img src="assets/staple_variant_mint@2x.png" 
+                   srcset="assets/staple_variant_mint.png 1x, assets/staple_variant_mint@2x.png 2x" 
+                   alt="The Flared Striped Kurti in Mint Breeze with white trousers" 
+                   class="staples-model-img" 
+                   loading="lazy">
+              <div class="staples-hover-action">
+                <button type="button" class="staples-hover-btn" onclick="openProductModal('saisa_staple_mint')">
+                  Quick View ↗
+                </button>
+              </div>
+            </div>
+            <div class="staples-info">
+              <div class="staples-shade-tag">
+                <span class="staples-swatch" style="background-color: #A8D4D0;"></span>
+                <span class="staples-shade-name">Mint Breeze</span>
+              </div>
+              <h3 class="staples-item-title">
+                <a href="product.html?id=saisa_staple_mint">The Flared Striped Kurti</a>
+              </h3>
+              <div class="staples-price-box">
+                <span class="staples-price">₹1,890</span>
+                <span class="staples-orig-price">₹2,490</span>
+                <span class="staples-discount">24% OFF</span>
+              </div>
+              <div class="staples-card-actions">
+                <button type="button" class="staples-btn-secondary" onclick="openProductModal('saisa_staple_mint')">
+                  Details
+                </button>
+                <button type="button" class="staples-btn-primary" onclick="quickAddStapleToCart('saisa_staple_mint')">
+                  Add to Bag ✦
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Column 2: Slate Charcoal -->
+          <article class="staples-card" data-shade="grey" style="--card-glow: rgba(183, 174, 175, 0.45); --card-pastel: #B7AEAF;">
+            <div class="staples-visual-wrap">
+              <img src="assets/staple_variant_grey@2x.png" 
+                   srcset="assets/staple_variant_grey.png 1x, assets/staple_variant_grey@2x.png 2x" 
+                   alt="The Flared Striped Kurti in Slate Charcoal with cigarette pants" 
+                   class="staples-model-img" 
+                   loading="lazy">
+              <div class="staples-hover-action">
+                <button type="button" class="staples-hover-btn" onclick="openProductModal('saisa_staple_grey')">
+                  Quick View ↗
+                </button>
+              </div>
+            </div>
+            <div class="staples-info">
+              <div class="staples-shade-tag">
+                <span class="staples-swatch" style="background-color: #B7AEAF;"></span>
+                <span class="staples-shade-name">Slate Charcoal</span>
+              </div>
+              <h3 class="staples-item-title">
+                <a href="product.html?id=saisa_staple_grey">The Flared Striped Kurti</a>
+              </h3>
+              <div class="staples-price-box">
+                <span class="staples-price">₹1,890</span>
+                <span class="staples-orig-price">₹2,490</span>
+                <span class="staples-discount">24% OFF</span>
+              </div>
+              <div class="staples-card-actions">
+                <button type="button" class="staples-btn-secondary" onclick="openProductModal('saisa_staple_grey')">
+                  Details
+                </button>
+                <button type="button" class="staples-btn-primary" onclick="quickAddStapleToCart('saisa_staple_grey')">
+                  Add to Bag ✦
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Column 3: Blossom Rose -->
+          <article class="staples-card" data-shade="pink" style="--card-glow: rgba(232, 184, 186, 0.45); --card-pastel: #E8B8BA;">
+            <div class="staples-visual-wrap">
+              <img src="assets/staple_variant_pink@2x.png" 
+                   srcset="assets/staple_variant_pink.png 1x, assets/staple_variant_pink@2x.png 2x" 
+                   alt="The Flared Striped Kurti in Blossom Rose with palazzo pants" 
+                   class="staples-model-img" 
+                   loading="lazy">
+              <div class="staples-hover-action">
+                <button type="button" class="staples-hover-btn" onclick="openProductModal('saisa_staple_pink')">
+                  Quick View ↗
+                </button>
+              </div>
+            </div>
+            <div class="staples-info">
+              <div class="staples-shade-tag">
+                <span class="staples-swatch" style="background-color: #E8B8BA;"></span>
+                <span class="staples-shade-name">Blossom Rose</span>
+              </div>
+              <h3 class="staples-item-title">
+                <a href="product.html?id=saisa_staple_pink">The Flared Striped Kurti</a>
+              </h3>
+              <div class="staples-price-box">
+                <span class="staples-price">₹1,890</span>
+                <span class="staples-orig-price">₹2,490</span>
+                <span class="staples-discount">24% OFF</span>
+              </div>
+              <div class="staples-card-actions">
+                <button type="button" class="staples-btn-secondary" onclick="openProductModal('saisa_staple_pink')">
+                  Details
+                </button>
+                <button type="button" class="staples-btn-primary" onclick="quickAddStapleToCart('saisa_staple_pink')">
+                  Add to Bag ✦
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Column 4: Periwinkle Sky -->
+          <article class="staples-card" data-shade="blue" style="--card-glow: rgba(169, 189, 242, 0.45); --card-pastel: #A9BDF2;">
+            <div class="staples-visual-wrap">
+              <img src="assets/staple_variant_blue@2x.png" 
+                   srcset="assets/staple_variant_blue.png 1x, assets/staple_variant_blue@2x.png 2x" 
+                   alt="The Flared Striped Kurti in Periwinkle Sky with white trousers" 
+                   class="staples-model-img" 
+                   loading="lazy">
+              <div class="staples-hover-action">
+                <button type="button" class="staples-hover-btn" onclick="openProductModal('saisa_staple_blue')">
+                  Quick View ↗
+                </button>
+              </div>
+            </div>
+            <div class="staples-info">
+              <div class="staples-shade-tag">
+                <span class="staples-swatch" style="background-color: #A9BDF2;"></span>
+                <span class="staples-shade-name">Periwinkle Sky</span>
+              </div>
+              <h3 class="staples-item-title">
+                <a href="product.html?id=saisa_staple_blue">The Flared Striped Kurti</a>
+              </h3>
+              <div class="staples-price-box">
+                <span class="staples-price">₹1,890</span>
+                <span class="staples-orig-price">₹2,490</span>
+                <span class="staples-discount">24% OFF</span>
+              </div>
+              <div class="staples-card-actions">
+                <button type="button" class="staples-btn-secondary" onclick="openProductModal('saisa_staple_blue')">
+                  Details
+                </button>
+                <button type="button" class="staples-btn-primary" onclick="quickAddStapleToCart('saisa_staple_blue')">
+                  Add to Bag ✦
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Mobile Scroll Indicator Dots -->
+        <div class="staples-mobile-dots" id="staples-mobile-dots" aria-hidden="true">
+          <span class="staples-dot active" data-index="0"></span>
+          <span class="staples-dot" data-index="1"></span>
+          <span class="staples-dot" data-index="2"></span>
+          <span class="staples-dot" data-index="3"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIMITED EDITION Section (Saïsa Signature Ethnic Sets) -->
+    <section class="limited-edition-section reveal-on-scroll" id="limited-edition-showcase" aria-label="Limited Edition">
+      <!-- 2D Lotus Outline Background Motif -->
+      <img src="assets/lotus_outline_2d.svg" class="bg-lotus-watermark right rose" alt="" aria-hidden="true">
+      <div class="limited-container">
+        <h2 class="limited-edition-heading">LIMITED EDITION</h2>
+        <div class="limited-grid">
+          
+          <!-- Card 1 -->
+          <div class="limited-card">
+            <div class="limited-img-wrap" onclick="openProductModal('saisa_farshi_sky')">
+              <img src="assets/sky_farshi_flatlay.png" width="600" height="890" loading="lazy" alt="The Sky Indigo Farshi Salwar Suit">
+              <button type="button" class="limited-quick-bag-btn" onclick="event.stopPropagation(); quickAddStapleToCart('saisa_farshi_sky')" title="Quick Add to Bag" aria-label="Add to bag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+            <p class="limited-card-name">The Sky Indigo Farshi Salwar Set</p>
+            <p class="limited-card-price">RS. 2,499.00</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="limited-card">
+            <div class="limited-img-wrap" onclick="openProductModal('saisa_farshi_mulberry')">
+              <img src="assets/wine_farshi_flatlay.png" width="600" height="890" loading="lazy" alt="The Royal Mulberry Farshi Set">
+              <button type="button" class="limited-quick-bag-btn" onclick="event.stopPropagation(); quickAddStapleToCart('saisa_farshi_mulberry')" title="Quick Add to Bag" aria-label="Add to bag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+            <p class="limited-card-name">The Royal Mulberry Farshi Set</p>
+            <p class="limited-card-price">RS. 2,699.00</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="limited-card">
+            <div class="limited-img-wrap" onclick="openProductModal('saisa_farshi_blush')">
+              <span class="limited-tag-badge">TOP SELLER</span>
+              <img src="assets/pink_farshi_closeup.jpg" width="600" height="890" loading="lazy" alt="The Rose Mulmul Lace Cuff Ensemble">
+              <button type="button" class="limited-quick-bag-btn" onclick="event.stopPropagation(); quickAddStapleToCart('saisa_farshi_blush')" title="Quick Add to Bag" aria-label="Add to bag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+            <p class="limited-card-name">The Rose Mulmul Lace Cuff Ensemble</p>
+            <p class="limited-card-price">RS. 2,499.00</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="limited-card">
+            <div class="limited-img-wrap" onclick="openProductModal('saisa_farshi_mulberry')">
+              <span class="limited-tag-badge">EXCLUSIVE</span>
+              <img src="assets/wine_farshi_closeup.jpg" width="600" height="890" loading="lazy" alt="The Royal Mulberry Lace Cuff Ensemble">
+              <button type="button" class="limited-quick-bag-btn" onclick="event.stopPropagation(); quickAddStapleToCart('saisa_farshi_mulberry')" title="Quick Add to Bag" aria-label="Add to bag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+            <p class="limited-card-name">The Royal Mulberry Lace Cuff Ensemble</p>
+            <p class="limited-card-price">RS. 2,699.00</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SAÏSA REELS SHOWCASE (Girly Pop Video Feed) -->
+    <section class="saisa-reels-section reveal-on-scroll" id="saisa-reels-showcase" aria-label="In Your Element Reels">
+      <!-- 2D Lotus Outline Background Motif -->
+      <img src="assets/lotus_outline_2d.svg" class="bg-lotus-watermark left" alt="" aria-hidden="true">
+      <div class="saisa-reels-container">
+        <div class="saisa-reels-header">
+          <div class="saisa-reels-badge">✦ IN YOUR ELEMENT ✦</div>
+          <h2 class="saisa-reels-title">Trending Reels & Drapes</h2>
+          <p class="saisa-reels-sub">Swipe, tap to watch, and shop the silhouettes loved by our community</p>
+        </div>
+
+        <div class="saisa-reels-grid">
           <!-- Reel 1 -->
-          <div class="reel-card" data-product-id="saisa_sage_kurta" id="reel-item-1">
-            <div class="reel-video-container">
-              <img loading="lazy" src="assets/kurti_solid_sage.png" alt="Saisa Linen Kurta Reel" class="reel-thumbnail">
-
-              <div class="reel-card-footer">
-                <span class="reel-handle">@saisa.official</span>
-                <a class="reel-product-tag real-reel-link" href="https://www.instagram.com/saisa.wardrobe/reel/DWdu4Ulkf_/" target="_blank" rel="noopener noreferrer">Watch the original reel ↗</a>
-              </div>
+          <article class="saisa-reel-card" onclick="openProductModal('saisa_pink_kurti')">
+            <div class="saisa-reel-meta-top">
+              <span class="saisa-reel-tag">✦ REEL</span>
+              <span class="saisa-reel-likes">❤️ 12.4K</span>
             </div>
-          </div>
+            <img src="assets/reel_1.png" alt="Silk Blossom Drape Reel" class="saisa-reel-thumb" loading="lazy">
+            <div class="saisa-reel-play-btn" aria-label="Play reel">
+              <svg viewBox="0 0 24 24"><polygon points="7,4 20,12 7,20"></polygon></svg>
+            </div>
+            <div class="saisa-reel-bottom">
+              <span class="saisa-reel-handle">@saisa.wardrobe</span>
+              <p class="saisa-reel-caption">The Silk Blossom Edit 🌸</p>
+              <button type="button" class="saisa-reel-shop-btn" onclick="event.stopPropagation(); openProductModal('saisa_pink_kurti');">
+                Shop Look ↗
+              </button>
+            </div>
+          </article>
+
           <!-- Reel 2 -->
-          <div class="reel-card" data-product-id="saisa_aura_kurti" id="reel-item-2">
-            <div class="reel-video-container">
-              <img loading="lazy" src="assets/kurti_minimalist_alabaster.png" alt="Aura Minimalist Kurti Reel" class="reel-thumbnail">
-
-              <div class="reel-card-footer">
-                <span class="reel-handle">@saisa.official</span>
-                <a class="reel-product-tag real-reel-link" href="https://www.instagram.com/saisa.wardrobe/reel/DdHXSXIzlvc/" target="_blank" rel="noopener noreferrer">Watch the original reel ↗</a>
-              </div>
+          <article class="saisa-reel-card" onclick="openProductModal('saisa_terracotta_short')">
+            <div class="saisa-reel-meta-top">
+              <span class="saisa-reel-tag">✦ REEL</span>
+              <span class="saisa-reel-likes">❤️ 18.9K</span>
             </div>
-          </div>
+            <img src="assets/reel_2.png" alt="Mulmul Twirl Moment Reel" class="saisa-reel-thumb" loading="lazy">
+            <div class="saisa-reel-play-btn" aria-label="Play reel">
+              <svg viewBox="0 0 24 24"><polygon points="7,4 20,12 7,20"></polygon></svg>
+            </div>
+            <div class="saisa-reel-bottom">
+              <span class="saisa-reel-handle">@saisa.wardrobe</span>
+              <p class="saisa-reel-caption">Golden Hour Mulmul Twirl ✨</p>
+              <button type="button" class="saisa-reel-shop-btn" onclick="event.stopPropagation(); openProductModal('saisa_terracotta_short');">
+                Shop Look ↗
+              </button>
+            </div>
+          </article>
+
           <!-- Reel 3 -->
-          <div class="reel-card" data-product-id="saisa_indigo_kurti" id="reel-item-3">
-            <div class="reel-video-container">
-              <img loading="lazy" src="assets/kurti_indigo_print.png" alt="Indigo Hand-Block Kurti Reel" class="reel-thumbnail">
-
-              <div class="reel-card-footer">
-                <span class="reel-handle">@saisa.official</span>
-                <a class="reel-product-tag real-reel-link" href="https://www.instagram.com/saisa.wardrobe/reel/Dcp9XbuxlDc/" target="_blank" rel="noopener noreferrer">Watch the original reel ↗</a>
-              </div>
+          <article class="saisa-reel-card" onclick="openProductModal('saisa_staple_blue')">
+            <div class="saisa-reel-meta-top">
+              <span class="saisa-reel-tag">✦ REEL</span>
+              <span class="saisa-reel-likes">❤️ 9.8K</span>
             </div>
-          </div>
+            <img src="assets/reel_3.png" alt="Festive Zari Details Reel" class="saisa-reel-thumb" loading="lazy">
+            <div class="saisa-reel-play-btn" aria-label="Play reel">
+              <svg viewBox="0 0 24 24"><polygon points="7,4 20,12 7,20"></polygon></svg>
+            </div>
+            <div class="saisa-reel-bottom">
+              <span class="saisa-reel-handle">@saisa.wardrobe</span>
+              <p class="saisa-reel-caption">Handcrafted Lotus & Zari 🪷</p>
+              <button type="button" class="saisa-reel-shop-btn" onclick="event.stopPropagation(); openProductModal('saisa_staple_blue');">
+                Shop Look ↗
+              </button>
+            </div>
+          </article>
+
           <!-- Reel 4 -->
-          <div class="reel-card" data-product-id="saisa_ochre_kurta" id="reel-item-4">
-            <div class="reel-video-container">
-              <img loading="lazy" src="assets/kurti_ochre_silk.png" alt="Ochre Cotton-Silk Kurta Reel" class="reel-thumbnail">
-
-              <div class="reel-card-footer">
-                <span class="reel-handle">@saisa.official</span>
-                <a class="reel-product-tag real-reel-link" href="https://www.instagram.com/saisa.wardrobe/reel/Dcd2JgjzZsM/" target="_blank" rel="noopener noreferrer">Watch the original reel ↗</a>
-              </div>
+          <article class="saisa-reel-card" onclick="openProductModal('saisa_staple_grey')">
+            <div class="saisa-reel-meta-top">
+              <span class="saisa-reel-tag">✦ REEL</span>
+              <span class="saisa-reel-likes">❤️ 24.1K</span>
             </div>
-          </div>
+            <img src="assets/reel_4.png" alt="Everyday Floral Drape Reel" class="saisa-reel-thumb" loading="lazy">
+            <div class="saisa-reel-play-btn" aria-label="Play reel">
+              <svg viewBox="0 0 24 24"><polygon points="7,4 20,12 7,20"></polygon></svg>
+            </div>
+            <div class="saisa-reel-bottom">
+              <span class="saisa-reel-handle">@saisa.wardrobe</span>
+              <p class="saisa-reel-caption">Everyday Summer Elegance 🌿</p>
+              <button type="button" class="saisa-reel-shop-btn" onclick="event.stopPropagation(); openProductModal('saisa_staple_grey');">
+                Shop Look ↗
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFLUENCER FAVOURITE'S -->
+    <section class="influencer-section reveal-on-scroll" id="influencer-favourites" aria-label="Influencer Favourites">
+      <div class="section-container">
+        <div class="influencer-header">
+          <h2 class="influencer-title">INFLUENCER FAVOURITE'S</h2>
+          <p class="influencer-subtitle">Curated ethnic looks loved by our creators</p>
+        </div>
+
+        <div class="influencer-grid">
+          <!-- Card 1: Apoorva -->
+          <article class="influencer-card" onclick="openProductModal('saisa_staple_pink')">
+            <div class="influencer-img-wrap">
+              <img src="assets/influencer_apoorva_flamingo@2x.png" 
+                   srcset="assets/influencer_apoorva_flamingo.png 1x, assets/influencer_apoorva_flamingo@2x.png 2x" 
+                   alt="Apoorva in Flamingo Rose Anarkali" 
+                   class="influencer-img" 
+                   loading="lazy">
+              <button type="button" class="influencer-bag-btn" aria-label="Shop Flamingo Rose Anarkali">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="influencer-caption">Apoorva in Flamingo Rose Anarkali</p>
+          </article>
+
+          <!-- Card 2: Reem -->
+          <article class="influencer-card" onclick="openProductModal('saisa_pink_kurti')">
+            <div class="influencer-img-wrap">
+              <img src="assets/influencer_reem_cherry@2x.png" 
+                   srcset="assets/influencer_reem_cherry.png 1x, assets/influencer_reem_cherry@2x.png 2x" 
+                   alt="Reem in Crimson Silk Kurta Set" 
+                   class="influencer-img" 
+                   loading="lazy">
+              <button type="button" class="influencer-bag-btn" aria-label="Shop Crimson Silk Kurta Set">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="influencer-caption">Reem in Crimson Silk Kurta Set</p>
+          </article>
+
+          <!-- Card 3: Kujum -->
+          <article class="influencer-card" onclick="openProductModal('saisa_staple_grey')">
+            <div class="influencer-img-wrap">
+              <img src="assets/influencer_kujum_bodysuit@2x.png" 
+                   srcset="assets/influencer_kujum_bodysuit.png 1x, assets/influencer_kujum_bodysuit@2x.png 2x" 
+                   alt="Kujum in Cherry Zari Kurta Co-ord" 
+                   class="influencer-img" 
+                   loading="lazy">
+              <button type="button" class="influencer-bag-btn" aria-label="Shop Cherry Zari Kurta Co-ord">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="influencer-caption">Kujum in Cherry Zari Kurta Co-ord</p>
+          </article>
+
+          <!-- Card 4: Nitibha -->
+          <article class="influencer-card" onclick="openProductModal('saisa_staple_blue')">
+            <div class="influencer-img-wrap">
+              <img src="assets/influencer_nitibha_onyx@2x.png" 
+                   srcset="assets/influencer_nitibha_onyx.png 1x, assets/influencer_nitibha_onyx@2x.png 2x" 
+                   alt="Nitibha in Onyx Hand-Block Kurti" 
+                   class="influencer-img" 
+                   loading="lazy">
+              <button type="button" class="influencer-bag-btn" aria-label="Shop Onyx Hand-Block Kurti">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="influencer-caption">Nitibha in Onyx Hand-Block Kurti</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- See what our Saïsa girls said -->
+    <section class="worn-reviewed-section reveal-on-scroll" id="worn-and-reviewed" aria-label="Customer Reviews">
+      <!-- 2D Lotus Outline Background Motif -->
+      <img src="assets/lotus_outline_2d.svg" class="bg-lotus-watermark center rose" alt="" aria-hidden="true">
+      <div class="worn-reviewed-header">
+        <h2 class="worn-reviewed-title">See what our Saïsa girls said</h2>
+      </div>
+
+      <div class="worn-reviewed-carousel-wrap">
+        <button type="button" class="rev-arrow rev-prev" id="rev-arrow-prev" aria-label="Previous customer review">‹</button>
+        <button type="button" class="rev-arrow rev-next" id="rev-arrow-next" aria-label="Next customer review">›</button>
+
+        <div class="worn-reviewed-track" id="worn-reviewed-track">
+          <!-- Review 1: Sanya -->
+          <article class="review-card">
+            <div class="customer-header-row">
+              <div class="customer-avatar-initial">S</div>
+              <span class="customer-author-name">Sanya</span>
+            </div>
+            <img src="assets/customer_review_1.png" 
+                 alt="Customer Sanya wearing festive anarkali set" 
+                 class="customer-review-photo" 
+                 loading="lazy">
+            <div class="customer-stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="customer-review-body">This anarkali set is stunning! The mulmul is super lightweight and creates an effortless festive statement.</p>
+          </article>
+
+          <!-- Review 2: Sogo -->
+          <article class="review-card">
+            <div class="customer-header-row">
+              <div class="customer-avatar-initial">S</div>
+              <span class="customer-author-name">Sogo</span>
+            </div>
+            <img src="assets/customer_review_2_sogo.png" 
+                 alt="Customer Sogo wearing ombre kurta with flowers" 
+                 class="customer-review-photo" 
+                 loading="lazy">
+            <div class="customer-stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="customer-review-body">Absolutely obsessed with this ombre kurta! The gradient dye is even prettier in person and the fabric falls so beautifully. Got SO many compliments on daytime festive gatherings!</p>
+          </article>
+
+          <!-- Review 3: Garima -->
+          <article class="review-card">
+            <div class="customer-header-row">
+              <div class="customer-avatar-initial">G</div>
+              <span class="customer-author-name">Garima</span>
+            </div>
+            <img src="assets/customer_review_3_garima.png" 
+                 alt="Customer Garima in magenta flared kurta set" 
+                 class="customer-review-photo" 
+                 loading="lazy">
+            <div class="customer-stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="customer-review-body">This kurta set is literally made for celebrations 😭💖 The fit is so flattering and the flow of the flared silhouette is gorgeous. Loved it!</p>
+          </article>
+
+          <!-- Review 4: Tiya -->
+          <article class="review-card">
+            <div class="customer-header-row">
+              <div class="customer-avatar-initial">T</div>
+              <span class="customer-author-name">Tiya</span>
+            </div>
+            <img src="assets/customer_review_4_tiya.png" 
+                 alt="Customer Tiya in yellow dip-dye kurta in Singapore" 
+                 class="customer-review-photo" 
+                 loading="lazy">
+            <div class="customer-stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="customer-review-body">Wore this for my birthday and felt so elegant! The colours, fit and zari detailing are just perfect. Definitely one of my favourite Saïsa pieces!</p>
+          </article>
+
+          <!-- Review 5: Aanaya -->
+          <article class="review-card">
+            <div class="customer-header-row">
+              <div class="customer-avatar-initial">A</div>
+              <span class="customer-author-name">Aanaya</span>
+            </div>
+            <img src="assets/customer_review_5_aanaya.png" 
+                 alt="Customer Aanaya in rainbow mulmul kurta ensemble" 
+                 class="customer-review-photo" 
+                 loading="lazy">
+            <div class="customer-stars-row" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="customer-review-body">Such a dreamy kurta ensemble! The fabric is breathable pure mulmul, lightweight, and photographs beautifully. It looked exactly like the pictures.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -449,51 +3390,54 @@
           <p class="section-subtitle">Tag @saisa.official on Instagram to be featured in our lookbook</p>
         </div>
         <div class="instagram-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-          <div class="instagram-item"><img loading="lazy" src="assets/kurti_solid_sage.png" alt="Community style 1" style="width: 100%; object-fit: cover; aspect-ratio: 1; filter: grayscale(15%); transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23F2EFE9\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231F2E28\'>Saisa Lookbook</text></svg>';"></div>
-          <div class="instagram-item"><img loading="lazy" src="assets/kurti_minimalist_alabaster.png" alt="Community style 2" style="width: 100%; object-fit: cover; aspect-ratio: 1; filter: grayscale(15%); transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23F2EFE9\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231F2E28\'>Saisa Lookbook</text></svg>';"></div>
-          <div class="instagram-item"><img loading="lazy" src="assets/kurti_indigo_print.png" alt="Community style 3" style="width: 100%; object-fit: cover; aspect-ratio: 1; filter: grayscale(15%); transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23F2EFE9\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231F2E28\'>Saisa Lookbook</text></svg>';"></div>
-          <div class="instagram-item"><img loading="lazy" src="assets/kurti_pink_mulmul.png" alt="Community style 4" style="width: 100%; object-fit: cover; aspect-ratio: 1; filter: grayscale(15%); transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23F2EFE9\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231F2E28\'>Saisa Lookbook</text></svg>';"></div>
+          <div class="instagram-item"><img loading="lazy" src="assets/kurti_terracotta_short.png" alt="Community style 1" style="width: 100%; object-fit: cover; aspect-ratio: 1; transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23FAF1DF\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%238A443F\'>Saïsa Lookbook</text></svg>';"></div>
+          <div class="instagram-item"><img loading="lazy" src="assets/kurti_minimalist_alabaster.png" alt="Community style 2" style="width: 100%; object-fit: cover; aspect-ratio: 1; filter: grayscale(15%); transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23FDF5F2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23361F1D\'>Saïsa Lookbook</text></svg>';"></div>
+          <div class="instagram-item"><img loading="lazy" src="assets/kurti_indigo_print.png" alt="Community style 3" style="width: 100%; object-fit: cover; aspect-ratio: 1; filter: grayscale(15%); transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23FDF5F2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23361F1D\'>Saïsa Lookbook</text></svg>';"></div>
+          <div class="instagram-item"><img loading="lazy" src="assets/kurti_pink_mulmul.png" alt="Community style 4" style="width: 100%; object-fit: cover; aspect-ratio: 1; filter: grayscale(15%); transition: filter var(--transition-speed);" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23FDF5F2\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23361F1D\'>Saïsa Lookbook</text></svg>';"></div>
         </div>
       </div>
     </section>
 
-    <!-- 12. Interactive Customer Features Grid -->
-    <section class="features-grid-section reveal-on-scroll" id="saisa-features">
-      <div class="features-container">
-        <div class="features-row">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
-                <rect x="1" y="3" width="15" height="13"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
-            </div>
-            <h4 class="feature-title">Pan-India Delivery</h4>
-            <p class="feature-text">Free shipping across India on all orders exceeding ₹1,500.</p>
+    <!-- 12. Trust Badges Section -->
+    <section class="tres-trust-section" id="saisa-features">
+      <div class="tres-trust-container">
+        <div class="tres-trust-item">
+          <div class="tres-trust-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 15L24 6L40 15L24 24L8 15Z"></path>
+              <path d="M8 15V33L24 42V24"></path>
+              <path d="M40 15V33L24 42"></path>
+              <path d="M16 10.5L32 19.5"></path>
+            </svg>
           </div>
+          <h3 class="tres-trust-title">Fast Delivery</h3>
+        </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
-              </svg>
-            </div>
-            <h4 class="feature-title">7-Day Exchanges</h4>
-            <p class="feature-text">Unsure about size? We support easy exchanges within seven days of receipt.</p>
+        <div class="tres-trust-item">
+          <div class="tres-trust-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 10C24 7.5 26 5.5 28.5 5.5C31 5.5 32.5 7.5 31.5 9.8C30.5 12 24 14.5 24 17.5V20"></path>
+              <path d="M24 20L6 31C4.5 32 5.5 34.5 7.5 34.5H40.5C42.5 34.5 43.5 32 42 31L24 20Z"></path>
+              <path d="M20 28H28"></path>
+            </svg>
           </div>
+          <h3 class="tres-trust-title">New Styles</h3>
+        </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-svg">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
-            </div>
-            <h4 class="feature-title">Slow & Organic</h4>
-            <p class="feature-text">Grown sustainably, dyed with low-impact dyes, and spun with care.</p>
+        <div class="tres-trust-item">
+          <div class="tres-trust-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="10" width="32" height="28" rx="6"></rect>
+              <path d="M15 10V18"></path>
+              <path d="M24 10V22"></path>
+              <path d="M33 10V18"></path>
+              <path d="M8 24H40"></path>
+              <path d="M15 38V30"></path>
+              <path d="M24 38V26"></path>
+              <path d="M33 38V30"></path>
+            </svg>
           </div>
+          <h3 class="tres-trust-title">Best fit</h3>
         </div>
       </div>
     </section>
@@ -521,7 +3465,7 @@
         <path d="M16 10a4 4 0 0 1-8 0"></path>
       </svg>
       <p>Your bag is currently empty.</p>
-      <button class="button-outline" id="cart-continue-shopping-btn">Explore Staples</button>
+      <button class="button-outline" id="cart-continue-shopping-btn">Explore Collections</button>
     </div>
 
     <!-- Active Cart Items Container -->
@@ -613,6 +3557,12 @@
             <button class="button-primary" id="modal-add-to-cart-btn" style="flex: 1;">Add to Bag</button>
             <button class="button-outline" id="modal-buy-now-btn" style="flex: 1; border-color: var(--text-primary); color: var(--text-primary);">Buy Now</button>
           </div>
+        </div>
+
+        <!-- Customisations & Urgent Orders Note -->
+        <div class="custom-orders-notice" style="margin-top: 14px; padding: 11px 14px; background: #FAF3EE; border: 1px solid rgba(166, 91, 86, 0.22); border-radius: 8px; display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #5E3D39; line-height: 1.4;">
+          <span class="custom-orders-icon" style="color: #CAA058; font-size: 0.95rem; flex-shrink: 0;">✦</span>
+          <span>For customisations and urgent orders, DM <a href="https://www.instagram.com/saisa.wardrobe/" target="_blank" rel="noopener noreferrer" style="color: #A65B56; font-weight: 600; text-decoration: underline; text-underline-offset: 2px;">@saisa.wardrobe</a></span>
         </div>
 
         <!-- Trust Section -->
@@ -748,7 +3698,7 @@
     <div class="razorpay-header">
       <div class="razorpay-header__left">
         <span class="razorpay-logo">Razorpay</span>
-        <p class="razorpay-merchant">Saisa Staples</p>
+        <p class="razorpay-merchant">Saïsa Ethnic Wear</p>
       </div>
       <div class="razorpay-header__right">
         <span class="razorpay-amount" id="razorpay-amount-display">₹1,499</span>
@@ -854,7 +3804,7 @@
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
       </svg>
       <p>Your wishlist is currently empty.</p>
-      <button class="button-outline" id="wishlist-continue-shopping-btn">Explore Staples</button>
+      <button class="button-outline" id="wishlist-continue-shopping-btn">Explore Collections</button>
     </div>
 
     <!-- Active Wishlist Items Container -->
@@ -932,56 +3882,86 @@
     <span id="toast-message-text">Item added to bag!</span>
   </div>
 
-  <footer class="site-footer" id="saisa-footer">
-    <div class="footer-signature" aria-hidden="true">saisa<span>®</span></div><div class="footer-container">
-      <div class="footer-brand-column">
-        <span class="footer-logo">saisa</span>
-        <p class="footer-tagline">Elevated Basics. Made with care in India. Designed to breathe.</p>
-        <div class="footer-socials">
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="Pinterest">Pinterest</a>
+  <!-- Animated Wavy Footer Transition -->
+  <div class="footer-wave-wrapper" aria-hidden="true">
+    <svg class="footer-waves-animated" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="footer-wave-parallax4">
+        <use xlink:href="#gentle-wave" x="50" y="6" fill="#FDEEE9" opacity="0.25"></use>
+      </g>
+      <g class="footer-wave-parallax3">
+        <use xlink:href="#gentle-wave" x="50" y="9" fill="#FDEEE9" opacity="0.45"></use>
+      </g>
+      <g class="footer-wave-parallax2">
+        <use xlink:href="#gentle-wave" x="50" y="0" fill="#FDEEE9" opacity="0.65"></use>
+      </g>
+      <g class="footer-wave-parallax1">
+        <use xlink:href="#gentle-wave" x="50" y="3" fill="#FDEEE9" opacity="1.0"></use>
+      </g>
+    </svg>
+  </div>
+
+  <footer class="wavy-site-footer" id="saisa-footer">
+    <div class="footer-content-inner">
+      <div class="footer-newsletter-block">
+        <!-- Saïsa Master Logo in Footer -->
+        <div style="margin-bottom: 22px;">
+          <img src="assets/saisa_master_logo.png" alt="Saïsa - Ethnic Wear For Every You" style="height: 105px; width: auto; display: block; filter: drop-shadow(0 2px 8px rgba(58, 30, 28, 0.08));">
         </div>
+        <h3 class="footer-newsletter-title">Stay in the loop</h3>
+        <p class="footer-newsletter-sub">Be the first to know about new collections and exclusive offers.</p>
+        <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Saïsa!');">
+          <input type="email" placeholder="Email" aria-label="Email address" required>
+          <button type="submit" class="footer-newsletter-submit" aria-label="Subscribe to newsletter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </form>
       </div>
 
-      <div class="footer-links-grid">
-        <div class="footer-column">
-          <h5 class="footer-heading">Shop</h5>
-          <ul>
-            <li><a href="#" class="nav-item" data-filter="all">Shop All</a></li>
-            <li><a href="#" class="nav-item" data-filter="Plain Kurtis">Plain Kurtas</a></li>
-            <li><a href="#" class="nav-item" data-filter="Printed & Colorful">Printed & Colorful</a></li>
-            <li><a href="#" class="nav-item" data-filter="Kurta Co-ords">Kurta Co-ords</a></li>
-          </ul>
-        </div>
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Collections</h4>
+        <ul class="footer-links-list">
+          <li><a href="#tres-categories" class="nav-item" data-filter="all">All Collections</a></li>
+          <li><a href="#tres-categories" class="nav-item" data-filter="Farshi Salwar Suits">Farshi Salwar Suits</a></li>
+          <li><a href="#tres-categories" class="nav-item" data-filter="Co-ord sets">Co-ord Sets</a></li>
+          <li><a href="#tres-categories" class="nav-item" data-filter="Kurtis">Kurtis</a></li>
+          <li><a href="#tres-categories" class="nav-item" data-filter="Festive Edit">Festive Edit</a></li>
+          <li><a href="#tres-categories" class="nav-item" data-filter="Dresses">Dresses</a></li>
+          <li><a href="#tres-categories" class="nav-item" data-filter="Anarkali Suits">Anarkali Suits</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-column">
-          <h5 class="footer-heading">Support</h5>
-          <ul>
-            <li><a href="#">Track Order</a></li>
-            <li><a href="#">Returns & Exchanges</a></li>
-            <li><a href="#">Size Guide</a></li>
-            <li><a href="#">Contact Support</a></li>
-          </ul>
-        </div>
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Support</h4>
+        <ul class="footer-links-list">
+          <li><a href="javascript:void(0)" onclick="const s = document.getElementById('search-input'); if(s) s.focus();">Search</a></li>
+          <li><a href="#reviews-section">All reviews</a></li>
+          <li><a href="javascript:void(0)" onclick="alert('Saïsa: Crafting slow, sustainable ethnic fashion with artisanal care.');">About Us</a></li>
+          <li><a href="mailto:care@saisa.in">Contact Us</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-column">
-          <h5 class="footer-heading">Our Values</h5>
-          <ul>
-            <li><a href="#">About Saisa</a></li>
-            <li><a href="#">Fabric Guide</a></li>
-            <li><a href="#">Ethical Production</a></li>
-          </ul>
-        </div>
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Our Policy</h4>
+        <ul class="footer-links-list">
+          <li><a href="javascript:void(0)" onclick="alert('Privacy Policy: We respect your privacy and never sell personal data.');">Privacy Policy</a></li>
+          <li><a href="javascript:void(0)" onclick="alert('Shipping Policy: Free Pan-India shipping over ₹1,500. Fast dispatch in 24-48 hours.');">Shipping Policy</a></li>
+          <li><a href="javascript:void(0)" onclick="alert('Terms & Conditions: Handcrafted quality and honest transparency.');">Terms & Conditions</a></li>
+          <li><a href="javascript:void(0)" onclick="alert('Return and Refund: Hassle-free 7-day exchanges on all unworn items.');">Return and Refund</a></li>
+        </ul>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <div class="footer-bottom-container">
-        <p class="copyright-text">&copy; 2026 saisa. All Rights Reserved. Made in India. &bull; Made by <a href="https://www.curiouskaizer.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;" title="Curious Kaizer - Web Development Company in Delhi">Curious Kaizer</a></p>
-        <div class="footer-policies">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
+    <div class="footer-bottom-bar">
+      <div class="footer-bottom-copy">
+        &copy; 2026 Saïsa &bull; Ethnic Wear For Every You
+      </div>
+      <div class="footer-bottom-extra">
+        Handcrafted with 🪷 in India
       </div>
     </div>
   </footer>
@@ -996,8 +3976,11 @@
       </svg>
     </button>
     <div class="auth-modal__body">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <img src="assets/saisa_master_logo.png" alt="Saïsa" style="max-width: 140px; height: auto; display: inline-block;">
+      </div>
       <h3 class="auth-modal__title" id="auth-modal-title">Sign In</h3>
-      <p class="auth-modal__subtitle" id="auth-modal-subtitle">Enter your email and password to log in to saisa.</p>
+      <p class="auth-modal__subtitle" id="auth-modal-subtitle">Enter your email and password to log in to Saïsa.</p>
 
       <form id="auth-form">
         <div class="form-group" id="auth-name-group" style="display: none;">
@@ -1084,11 +4067,19 @@
     </div>
   </aside>
 
+  <!-- Floating WhatsApp Action Button (Saïsa Style) -->
+  <a href="https://wa.me/919999999999?text=Hi%20Saïsa%2C%20I%20have%20an%20inquiry%20about%20your%20ethnic%20wear%20collections" class="floating-whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32">
+      <path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.3-4.4 1.2 1.2-4.3-.3-.4a11.6 11.6 0 1 1 9.8 5.4zm6.4-8.7c-.3-.2-2-.1-2.3-.8s-.6-.2-.8.2-.9 1.1-1.1 1.3-.4.2-.7.1a9.2 9.2 0 0 1-2.7-1.7 10.2 10.2 0 0 1-1.9-2.3c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6a.6.6 0 0 0 0-.6c-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2c0 1.9 1.4 3.7 1.6 3.9.2.3 2.7 4.2 6.6 5.8 1 .4 1.7.6 2.3.8 1 .3 1.8.3 2.5.2.8-.1 2.3-.9 2.6-1.8.4-.9.4-1.7.3-1.8-.2-.2-.5-.3-.9-.5z"/>
+    </svg>
+  </a>
+
   <!-- Include App Data & Core Logic Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="products.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=sections2026_v7"></script>
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="motion.js?v=flow_flow_v2"></script>
 </body>
 </html>

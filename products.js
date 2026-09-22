@@ -1,329 +1,657 @@
 const PRODUCTS = [
   {
-    id: "saisa_aura_kurti",
-    title: "Aura Minimalist Plain Kurti",
-    price: 999,
-    originalPrice: 1499,
-    category: "Plain Kurtis",
-    image: "assets/kurti_minimalist_alabaster.png",
-    gallery: [
-      "assets/kurti_minimalist_alabaster.png",
-      "assets/kurti_solid_sage.png",
-      "assets/kurti_indigo_print.png"
+    "id": "saisa_farshi_blush",
+    "title": "The Rose Mulmul Farshi Salwar Suit",
+    "price": 2499,
+    "originalPrice": 3499,
+    "category": "Farshi Salwar Suits",
+    "image": "assets/pink_farshi_flatlay.png",
+    "gallery": [
+      "assets/pink_farshi_closeup.jpg",
+      "assets/pink_farshi_flatlay.png",
+      "assets/hero_banner_blush_1.jpg",
+      "assets/hero_banner_blush_2.jpg"
     ],
-    description: "An elevated everyday straight kurta tailored from soft, breathable cotton-linen. Features clean structural lines, side slits, and a subtle keyhole neck for minimalist styling.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Warm Alabaster", hex: "#FAF9F6" },
-      { name: "Earthy Sage", hex: "#8A9A86" },
-      { name: "Charcoal", hex: "#2C3531" }
+    "description": "Ethereal blush pink Farshi Salwar suit crafted from cloud-soft mulmul cotton. Detailed with intricate handcrafted floral lace cuffs, scallop keyhole neckline, and wide-flare traditional farshi trousers.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
     ],
-    details: [
-      "60% Organic Cotton, 40% Flax Linen",
-      "Breathable, lightweight daily fabric",
-      "Handcrafted in local Indian handloom clusters",
-      "Model is 5'7\" and is wearing a size S"
+    "colors": [
+      {
+        "name": "Blush Rose",
+        "hex": "#F8C8C6"
+      },
+      {
+        "name": "Ivory Lace",
+        "hex": "#FFFFF0"
+      }
     ],
-    inStock: true,
-    rating: 4.8,
-    reviewsCount: 36,
-    badge: "BEST SELLER",
-    reviews: [
-      { name: "Anjali M.", rating: 5, date: "2026-05-10", text: "The fabric is incredibly soft and holds its shape beautifully after washing. Will buy in charcoal too!", verified: true },
-      { name: "Pooja K.", rating: 4.5, date: "2026-05-18", text: "Elegant cut, pairs nicely with high-waisted linen trousers. Highly recommend.", verified: true },
-      { name: "Riya S.", rating: 5, date: "2026-05-28", text: "A summer staple. Breathable cotton blend feels premium and looks very chic.", verified: true }
+    "details": [
+      "100% Pure Mulmul Cotton with Artisanal Lace Cuffs",
+      "Full Farshi flared salwar with comfortable elasticated waistband",
+      "Scalloped neckline with keyhole button accent",
+      "Model is 5'8\" wearing size S"
+    ],
+    "inStock": true,
+    "rating": 5.0,
+    "reviewsCount": 64,
+    "badge": "NEW ARRIVAL",
+    "reviews": [
+      {
+        "name": "Aditi V.",
+        "rating": 5,
+        "date": "2026-06-18",
+        "text": "The lace work on the sleeves is breathtaking in person! The farshi flare is majestic.",
+        "verified": true
+      },
+      {
+        "name": "Rhea K.",
+        "rating": 5,
+        "date": "2026-06-20",
+        "text": "So light and comfortable for festivities. Pure elegance!",
+        "verified": true
+      }
     ]
   },
   {
-    id: "saisa_sage_kurta",
-    title: "Serene Sage Linen Kurta",
-    price: 1499,
-    originalPrice: 1999,
-    category: "Linen & Cotton",
-    image: "assets/kurti_solid_sage.png",
-    gallery: [
-      "assets/kurti_solid_sage.png",
-      "assets/kurti_minimalist_alabaster.png",
-      "assets/kurti_indigo_print.png"
+    "id": "saisa_farshi_sky",
+    "title": "The Sky Indigo Farshi Salwar Suit",
+    "price": 2499,
+    "originalPrice": 3499,
+    "category": "Farshi Salwar Suits",
+    "image": "assets/sky_farshi_flatlay.png",
+    "gallery": [
+      "assets/sky_farshi_closeup.jpg",
+      "assets/sky_farshi_flatlay.png",
+      "assets/hero_banner_sky_1.jpg",
+      "assets/hero_banner_sky_2.jpg"
     ],
-    description: "Spun from 100% premium European flax linen, this plain solid kurta provides a breezy and elegant look. Complete with deep side pockets and a classic V-neck.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Earthy Sage", hex: "#8A9A86" },
-      { name: "Warm Alabaster", hex: "#FAF9F6" }
+    "description": "Serene pastel sky blue Farshi Salwar set in fine breathable cotton. Highlighted with handcrafted ivory lace bell sleeve cuffs and traditional pleated farshi bottoms.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
     ],
-    details: [
-      "100% European Flax Linen",
-      "Side pockets and structured side slits",
-      "Pre-shrunk for maximum comfort and durability",
-      "Model is 5'8\" and is wearing a size S"
+    "colors": [
+      {
+        "name": "Sky Indigo",
+        "hex": "#A9BDF2"
+      },
+      {
+        "name": "Ivory Lace",
+        "hex": "#FFFFF0"
+      }
     ],
-    inStock: true,
-    rating: 4.9,
-    reviewsCount: 22,
-    badge: "NEW ARRIVAL",
-    reviews: [
-      { name: "Kritika G.", rating: 5, date: "2026-05-12", text: "Absolutely stunning kurta! The side pockets are a dream and the flax linen feels heavy and high-quality.", verified: true },
-      { name: "Meera D.", rating: 4.8, date: "2026-05-24", text: "Love the clean collar neckline. Perfect length for styling with trousers or palazzos.", verified: true }
+    "details": [
+      "100% Breathable Fine Cotton Khadi blend",
+      "Dramatic wide-flare farshi silhouette",
+      "Intricate artisanal cuff lace detailing",
+      "Model is 5'8\" wearing size S"
+    ],
+    "inStock": true,
+    "rating": 4.9,
+    "reviewsCount": 42,
+    "badge": "HOT SELLER",
+    "reviews": [
+      {
+        "name": "Megha P.",
+        "rating": 5,
+        "date": "2026-06-12",
+        "text": "The pastel blue shade is so cooling and royal. Got compliments everywhere.",
+        "verified": true
+      }
     ]
   },
   {
-    id: "saisa_indigo_kurti",
-    title: "Indigo Hand-Block Kurti",
-    price: 1299,
-    originalPrice: 1799,
-    category: "Printed & Colorful",
-    image: "assets/kurti_indigo_print.png",
-    gallery: [
-      "assets/kurti_indigo_print.png",
-      "assets/kurti_ochre_silk.png",
-      "assets/kurti_minimalist_alabaster.png"
+    "id": "saisa_farshi_mulberry",
+    "title": "The Royal Mulberry Farshi Salwar Suit",
+    "price": 2699,
+    "originalPrice": 3699,
+    "category": "Farshi Salwar Suits",
+    "image": "assets/wine_farshi_flatlay.png",
+    "gallery": [
+      "assets/wine_farshi_closeup.jpg",
+      "assets/wine_farshi_flatlay.png",
+      "assets/hero_banner_wine_1.jpg",
+      "assets/hero_banner_wine_2.jpg"
     ],
-    description: "A traditional cotton kurta dyed with natural organic indigo. Adorned with beautiful hand-stamped block prints crafted by local artisans in Rajasthan.",
-    sizes: ["XS", "S", "M", "L"],
-    colors: [
-      { name: "Indigo Blue", hex: "#3F51B5" },
-      { name: "Charcoal", hex: "#2C3531" }
+    "description": "Deep regal mulberry wine Farshi Salwar suit featuring statement ivory lace sleeve borders, scallop keyhole neckline, and flowing farshi trousers.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
     ],
-    details: [
-      "100% Organic Handspun Cotton",
-      "Traditional Dabu block printing",
-      "Eco-friendly natural indigo dye",
-      "Model is 5'9\" and is wearing a size S"
+    "colors": [
+      {
+        "name": "Royal Mulberry",
+        "hex": "#5E1F22"
+      },
+      {
+        "name": "Ivory Lace",
+        "hex": "#FFFFF0"
+      }
     ],
-    inStock: true,
-    rating: 4.7,
-    reviewsCount: 18,
-    badge: "SELLING FAST",
-    reviews: [
-      { name: "Divya N.", rating: 5, date: "2026-05-15", text: "The indigo color is so rich and deep. Got so many compliments at office!", verified: true },
-      { name: "Sonia P.", rating: 4, date: "2026-05-22", text: "Very comfortable block print design. Handcrafted feel is obvious.", verified: true }
+    "details": [
+      "Pure Cotton-Linen rich blend in jewel tone",
+      "Statement lace bell cuffs and side slits",
+      "Ultra-comfortable farshi flared trousers",
+      "Dry clean or gentle hand wash recommended"
+    ],
+    "inStock": true,
+    "rating": 5.0,
+    "reviewsCount": 38,
+    "badge": "EXCLUSIVE",
+    "reviews": [
+      {
+        "name": "Sunaina M.",
+        "rating": 5,
+        "date": "2026-06-22",
+        "text": "Rich jewel tone! The contrast with the ivory lace sleeves is stunning.",
+        "verified": true
+      }
     ]
   },
   {
-    id: "saisa_khadi_short",
-    title: "Terracotta Khadi Short Kurti",
-    price: 899,
-    originalPrice: 1299,
-    category: "Short Kurtis",
-    image: "assets/kurti_terracotta_short.png",
-    gallery: [
-      "assets/kurti_terracotta_short.png",
-      "assets/kurti_minimalist_alabaster.png",
-      "assets/kurti_solid_sage.png"
+    "id": "saisa_coord_pant",
+    "title": "Linen Minimal Kurta Co-ord Set",
+    "price": 2199,
+    "originalPrice": 2999,
+    "category": "Co-ord sets",
+    "image": "assets/coord_linen.png",
+    "gallery": [
+      "assets/coord_linen.png",
+      "assets/pink_farshi_flatlay.png"
     ],
-    description: "Designed for modern convenience, this short kurti is crafted from handspun cotton khadi. Perfect for hot summer days styled with linen trousers or denim.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Terracotta", hex: "#D2691E" },
-      { name: "Beige Oatmeal", hex: "#EBE3D5" }
+    "description": "A premium two-piece set consisting of a minimal straight linen kurta and matching high-waisted cigarette trousers.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
     ],
-    details: [
-      "100% Handspun Cotton Khadi",
-      "Mid-thigh length with buttoned front slit",
-      "Ultra-breathable texture",
-      "Model is 5'7\" and is wearing a size S"
+    "colors": [
+      {
+        "name": "Lotus Rose",
+        "hex": "#A65B56"
+      },
+      {
+        "name": "Warm Alabaster",
+        "hex": "#FAF9F6"
+      }
     ],
-    inStock: true,
-    rating: 4.6,
-    reviewsCount: 14,
-    badge: "ESSENTIAL",
-    reviews: [
-      { name: "Neha C.", rating: 4.5, date: "2026-05-08", text: "Very comfortable fit. The short kurta silhouette looks great with linen pants.", verified: true }
-    ]
-  },
-  {
-    id: "saisa_mulmul_pink",
-    title: "Gulabi Flared Mulmul Kurti",
-    price: 1699,
-    originalPrice: 2299,
-    category: "A-Line & Flared",
-    image: "assets/kurti_pink_mulmul.png",
-    gallery: [
-      "assets/kurti_pink_mulmul.png",
-      "assets/kurti_ochre_silk.png",
-      "assets/kurti_indigo_print.png"
-    ],
-    description: "Feel weightless in this beautiful tiered A-line kurta spun from cloud-soft mulmul cotton. Featuring a delicate pink dye, it drapes in fluid pleats.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Gulabi Pink", hex: "#FF80AB" },
-      { name: "Warm Alabaster", hex: "#FAF9F6" }
-    ],
-    details: [
-      "100% Fine Mulmul Cotton",
-      "Lightweight, semi-sheer layered styling",
-      "Feminine A-line tiered silhouette",
-      "Model is 5'9\" and is wearing a size S"
-    ],
-    inStock: true,
-    rating: 4.8,
-    reviewsCount: 19,
-    badge: "BEST SELLER",
-    reviews: [
-      { name: "Tanya B.", rating: 5, date: "2026-05-02", text: "The fabric feels like air. Elegant and very comfortable for hot climates.", verified: true },
-      { name: "Ishita M.", rating: 4.6, date: "2026-05-14", text: "Beautiful pink shade. Softest cotton I've ever felt.", verified: true }
-    ]
-  },
-  {
-    id: "saisa_ochre_kurta",
-    title: "Ochre Cotton-Silk Kurta",
-    price: 1899,
-    originalPrice: 2499,
-    category: "Printed & Colorful",
-    image: "assets/kurti_ochre_silk.png",
-    gallery: [
-      "assets/kurti_ochre_silk.png",
-      "assets/kurti_solid_sage.png",
-      "assets/kurti_indigo_print.png"
-    ],
-    description: "A luxurious kurta woven from a rich cotton-silk blend in a warm ochre mustard hue. Features delicate gold zari stitching on the neck cuffs for high-agency styling.",
-    sizes: ["XS", "S", "M", "L"],
-    colors: [
-      { name: "Ochre Mustard", hex: "#DAA520" },
-      { name: "Earthy Sage", hex: "#8A9A86" }
-    ],
-    details: [
-      "70% Organic Cotton, 30% Mulberry Silk",
-      "Elegant silk sheen with natural cotton drape",
-      "Intricate hand-stitched zari neck placket",
-      "Dry clean only recommended"
-    ],
-    inStock: true,
-    rating: 4.9,
-    reviewsCount: 11,
-    badge: "NEW ARRIVAL",
-    reviews: [
-      { name: "Aaradhya S.", rating: 5, date: "2026-05-20", text: "Absolutely gorgeous shade of yellow! Feels so luxurious and looks rich.", verified: true }
-    ]
-  },
-  {
-    id: "saisa_coord_pant",
-    title: "Sage Minimal Kurta Co-ord Set",
-    price: 2199,
-    originalPrice: 2999,
-    category: "Kurta Co-ords",
-    image: "assets/kurti_solid_sage.png",
-    gallery: [
-      "assets/kurti_solid_sage.png",
-      "assets/kurti_minimalist_alabaster.png"
-    ],
-    description: "A premium two-piece set consisting of a minimal straight linen kurta and matching high-waisted cigarette trousers. An effortless corporate or festive choice.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Earthy Sage", hex: "#8A9A86" },
-      { name: "Charcoal", hex: "#2C3531" }
-    ],
-    details: [
+    "details": [
       "80% Flax Linen, 20% Cotton Khadi",
       "Straight fit kurta with matching pencil trousers",
       "Clean hidden button placket",
       "Model is 5'7\" and wears size S"
     ],
-    inStock: true,
-    rating: 4.5,
-    reviewsCount: 26,
-    badge: "SELLING FAST",
-    reviews: [
-      { name: "Kajal P.", rating: 4.5, date: "2026-05-04", text: "Incredibly thick and not see-through at all! Essential basic.", verified: true }
+    "inStock": true,
+    "rating": 4.8,
+    "reviewsCount": 26,
+    "badge": "SELLING FAST",
+    "reviews": [
+      {
+        "name": "Kajal P.",
+        "rating": 5,
+        "date": "2026-05-04",
+        "text": "Incredibly thick and not see-through at all! Essential basic.",
+        "verified": true
+      }
     ]
   },
   {
-    id: "saisa_kaftan_kurti",
-    title: "Ivory Editorial Kaftan Kurti",
-    price: 1599,
-    originalPrice: 2199,
-    category: "Plain Kurtis",
-    image: "assets/kurti_minimalist_alabaster.png",
-    gallery: [
-      "assets/kurti_minimalist_alabaster.png",
-      "assets/kurti_ochre_silk.png"
+    "id": "saisa_coord_lounge",
+    "title": "Blush Rose Relaxed Co-ord Set",
+    "price": 1999,
+    "originalPrice": 2599,
+    "category": "Co-ord sets",
+    "image": "assets/pink_farshi_flatlay.png",
+    "gallery": [
+      "assets/pink_farshi_flatlay.png",
+      "assets/coord_linen.png"
     ],
-    description: "An oversized editorial kaftan kurta featuring relaxed kimono sleeves and an adjustable inner waist tie. Made from heavy washed flax linen.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Warm Alabaster", hex: "#FAF9F6" },
-      { name: "Charcoal", hex: "#2C3531" }
+    "description": "Relaxed resort & daily co-ord set in breathable organic cotton, complete with wide-leg cropped trousers.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
     ],
-    details: [
-      "100% Organic Washed Linen",
-      "Fully adjustable inner waist sash",
-      "Flowy silhouette with kimono drape",
-      "Ethically made in India"
+    "colors": [
+      {
+        "name": "Blush Rose",
+        "hex": "#E8B8BA"
+      }
     ],
-    inStock: true,
-    rating: 4.7,
-    reviewsCount: 15,
-    badge: "ESSENTIAL",
-    reviews: [
-      { name: "Shikha A.", rating: 5, date: "2026-05-11", text: "Flattering drape. Fits well across different body types because of the adjustable waist tie.", verified: true }
+    "details": [
+      "100% Organic Handloom Cotton",
+      "Relaxed boxy silhouette",
+      "Side pockets in trousers"
+    ],
+    "inStock": true,
+    "rating": 4.7,
+    "reviewsCount": 19,
+    "badge": "DAILY FAVORITE",
+    "reviews": [
+      {
+        "name": "Pooja T.",
+        "rating": 5,
+        "date": "2026-05-18",
+        "text": "So soft and comfortable for working from home and brunch.",
+        "verified": true
+      }
     ]
   },
   {
-    id: "saisa_ajrakh_short",
-    title: "Ajrakh Block-Print Short Kurta",
-    price: 999,
-    originalPrice: 1499,
-    category: "Short Kurtis",
-    image: "assets/kurti_indigo_print.png",
-    gallery: [
-      "assets/kurti_indigo_print.png",
-      "assets/kurti_ochre_silk.png"
+    "id": "saisa_aura_kurti",
+    "title": "The Rose Mulmul Artisanal Kurti",
+    "price": 1499,
+    "originalPrice": 1999,
+    "category": "Kurtis",
+    "image": "assets/pink_farshi_closeup.jpg",
+    "gallery": [
+      "assets/pink_farshi_closeup.jpg",
+      "assets/pink_farshi_flatlay.png"
     ],
-    description: "Traditional Ajrakh block printing styled on a contemporary short silhouette. Handcrafted with organic root dyes in deep madder red and natural charcoal.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Madder Red", hex: "#A35C50" },
-      { name: "Charcoal", hex: "#2C3531" }
+    "description": "An elevated everyday straight kurta tailored from soft, breathable cotton mulmul with floral lace sleeve inserts.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
     ],
-    details: [
-      "100% Hand-spun Cotton",
-      "Genuine Ajrakh woodblock stamps",
-      "Organic vegetable dyes",
-      "Delicate hand-wash only"
+    "colors": [
+      {
+        "name": "Blush Rose",
+        "hex": "#F8C8C6"
+      },
+      {
+        "name": "Lotus Rose",
+        "hex": "#A65B56"
+      }
     ],
-    inStock: true,
-    rating: 4.6,
-    reviewsCount: 12,
-    badge: "LIMITED EDIT",
-    reviews: [
-      { name: "Rashmi V.", rating: 4.8, date: "2026-05-06", text: "Beautiful print! Looks so elegant layered over pants.", verified: true }
+    "details": [
+      "100% Organic Cotton Mulmul",
+      "Breathable, lightweight daily fabric"
+    ],
+    "inStock": true,
+    "rating": 4.8,
+    "reviewsCount": 36,
+    "badge": "BEST SELLER",
+    "reviews": [
+      {
+        "name": "Anjali M.",
+        "rating": 5,
+        "date": "2026-05-10",
+        "text": "The fabric is incredibly soft and holds shape beautifully.",
+        "verified": true
+      }
     ]
   },
   {
-    id: "saisa_marigold_anarkali",
-    title: "Marigold Flared Anarkali Kurta",
-    price: 1999,
-    originalPrice: 2799,
-    category: "A-Line & Flared",
-    image: "assets/kurti_ochre_silk.png",
-    gallery: [
-      "assets/kurti_ochre_silk.png",
-      "assets/kurti_solid_sage.png"
+    "id": "saisa_staple_mint",
+    "title": "The Sky Indigo Lace Kurti",
+    "price": 1499,
+    "originalPrice": 1999,
+    "category": "Kurtis",
+    "image": "assets/sky_farshi_closeup.jpg",
+    "gallery": [
+      "assets/sky_farshi_closeup.jpg",
+      "assets/sky_farshi_flatlay.png"
     ],
-    description: "Celebrate natural color in this majestic flared Anarkali kurta dyed in warm marigold yellow. Crafted from airy cotton cambric with beautiful geometric folds.",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    colors: [
-      { name: "Marigold Yellow", hex: "#FFC107" },
-      { name: "Warm Alabaster", hex: "#FAF9F6" }
+    "description": "Signature kurti tailored with statement floral lace cuffs and keyhole neckline in pastel sky blue.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
     ],
-    details: [
-      "100% Cotton Cambric",
-      "Flared panel Kalidaar construction",
-      "Gold gota patti trims on border",
-      "Breathable and skin-soft texture"
+    "colors": [
+      {
+        "name": "Sky Indigo",
+        "hex": "#A9BDF2"
+      }
     ],
-    inStock: true,
-    rating: 4.8,
-    reviewsCount: 9,
-    badge: "MUST HAVE",
-    reviews: [
-      { name: "Sneha S.", rating: 5, date: "2026-05-09", text: "Feels like staying in a 5-star resort. The fabric is extremely soft.", verified: true }
+    "details": [
+      "100% Breathable Fine Cotton",
+      "Signature embroidered lace cuffs"
+    ],
+    "inStock": true,
+    "rating": 4.9,
+    "reviewsCount": 48,
+    "badge": "SA\u00cfSA STAPLE",
+    "reviews": [
+      {
+        "name": "Tanvi S.",
+        "rating": 5,
+        "date": "2026-06-01",
+        "text": "The fit is unreal! Most flattering silhouette.",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "id": "saisa_staple_pink",
+    "title": "The Royal Mulberry Lace Kurti",
+    "price": 1699,
+    "originalPrice": 2299,
+    "category": "Kurtis",
+    "image": "assets/wine_farshi_closeup.jpg",
+    "gallery": [
+      "assets/wine_farshi_closeup.jpg",
+      "assets/wine_farshi_flatlay.png"
+    ],
+    "description": "Regal jewel-tone cotton-linen kurti with handcrafted ivory lace bell sleeve cuffs.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "Royal Mulberry",
+        "hex": "#5E1F22"
+      }
+    ],
+    "details": [
+      "100% Breathable Cotton Linen",
+      "Artisanal lace bell cuffs with split seam"
+    ],
+    "inStock": true,
+    "rating": 5.0,
+    "reviewsCount": 52,
+    "badge": "MOST LOVED",
+    "reviews": [
+      {
+        "name": "Kashish M.",
+        "rating": 5,
+        "date": "2026-06-15",
+        "text": "The wine shade and lace sleeves are breathtaking.",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "id": "saisa_khadi_short",
+    "title": "Terracotta Khadi Short Kurti",
+    "price": 899,
+    "originalPrice": 1299,
+    "category": "Kurtis",
+    "image": "assets/pink_farshi_closeup.jpg",
+    "gallery": [
+      "assets/pink_farshi_closeup.jpg"
+    ],
+    "description": "Designed for modern convenience, this short kurti is crafted from handspun cotton khadi.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "Terracotta",
+        "hex": "#D2691E"
+      }
+    ],
+    "details": [
+      "100% Handspun Cotton Khadi",
+      "Mid-thigh length with buttoned front slit"
+    ],
+    "inStock": true,
+    "rating": 4.6,
+    "reviewsCount": 14,
+    "badge": "ESSENTIAL",
+    "reviews": [
+      {
+        "name": "Neha C.",
+        "rating": 4.5,
+        "date": "2026-05-08",
+        "text": "Very comfortable fit for summer.",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "id": "saisa_ochre_kurta",
+    "title": "Royal Mulberry Festive Set",
+    "price": 2699,
+    "originalPrice": 3499,
+    "category": "Festive Edit",
+    "image": "assets/wine_farshi_closeup.jpg",
+    "gallery": [
+      "assets/wine_farshi_closeup.jpg",
+      "assets/wine_farshi_flatlay.png"
+    ],
+    "description": "A luxurious festive salwar ensemble woven from deep jewel mulberry tones with statement ivory lace accents.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      {
+        "name": "Royal Mulberry",
+        "hex": "#5E1F22"
+      },
+      {
+        "name": "Ivory Lace",
+        "hex": "#FFFFF0"
+      }
+    ],
+    "details": [
+      "70% Organic Cotton, 30% Linen Silk",
+      "Intricate hand-stitched lace cuff borders"
+    ],
+    "inStock": true,
+    "rating": 4.9,
+    "reviewsCount": 28,
+    "badge": "FESTIVE SPECIAL",
+    "reviews": [
+      {
+        "name": "Aaradhya S.",
+        "rating": 5,
+        "date": "2026-05-20",
+        "text": "Gorgeous shade of wine! Feels so luxurious and looks rich.",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "id": "saisa_flare_dress",
+    "title": "The Sky Indigo Flare Suit",
+    "price": 2499,
+    "originalPrice": 3299,
+    "category": "Dresses",
+    "image": "assets/sky_farshi_closeup.jpg",
+    "gallery": [
+      "assets/sky_farshi_closeup.jpg",
+      "assets/sky_farshi_flatlay.png"
+    ],
+    "description": "A feminine flowy tiered suit with flared cuffs, scalloped neckline, and wide pleated bottoms.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "Sky Indigo",
+        "hex": "#A9BDF2"
+      }
+    ],
+    "details": [
+      "100% Organic Washed Cotton",
+      "Tiered flare with delicate lace cuffs"
+    ],
+    "inStock": true,
+    "rating": 4.9,
+    "reviewsCount": 31,
+    "badge": "BESTSELLER",
+    "reviews": [
+      {
+        "name": "Geetika S.",
+        "rating": 5,
+        "date": "2026-05-29",
+        "text": "The drape is heavenly. Absolutely adore it!",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "id": "saisa_blazer_dress",
+    "title": "The Rose Mulmul Trench Ensemble",
+    "price": 2599,
+    "originalPrice": 3499,
+    "category": "Dresses",
+    "image": "assets/pink_farshi_flatlay.png",
+    "gallery": [
+      "assets/pink_farshi_flatlay.png",
+      "assets/pink_farshi_closeup.jpg"
+    ],
+    "description": "Tailored 2-piece set with flared sleeve lace accents and structured neckline.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      {
+        "name": "Blush Rose",
+        "hex": "#F8C8C6"
+      }
+    ],
+    "details": [
+      "100% European Flax Linen-Cotton",
+      "Embroidered lace detailing"
+    ],
+    "inStock": true,
+    "rating": 4.8,
+    "reviewsCount": 22,
+    "badge": "NEW ARRIVAL",
+    "reviews": [
+      {
+        "name": "Shreya D.",
+        "rating": 5,
+        "date": "2026-06-03",
+        "text": "Super sharp and elegant for festivities.",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "id": "saisa_mulmul_pink",
+    "title": "The Rose Mulmul Farshi Anarkali",
+    "price": 2499,
+    "originalPrice": 3499,
+    "category": "Anarkali Suits",
+    "image": "assets/pink_farshi_closeup.jpg",
+    "gallery": [
+      "assets/pink_farshi_closeup.jpg",
+      "assets/pink_farshi_flatlay.png"
+    ],
+    "description": "Majestic tiered flared Anarkali suit spun from cloud-soft mulmul cotton with matching farshi trousers.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "Blush Rose",
+        "hex": "#F8C8C6"
+      },
+      {
+        "name": "Ivory Lace",
+        "hex": "#FFFFF0"
+      }
+    ],
+    "details": [
+      "100% Fine Mulmul Cotton",
+      "Flared construction with lace cuffs",
+      "Includes matching farshi trousers"
+    ],
+    "inStock": true,
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "badge": "BEST SELLER",
+    "reviews": [
+      {
+        "name": "Tanya B.",
+        "rating": 5,
+        "date": "2026-05-02",
+        "text": "The fabric feels like air. Elegant and comfortable.",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "id": "saisa_marigold_anarkali",
+    "title": "The Sky Indigo Farshi Anarkali",
+    "price": 2499,
+    "originalPrice": 3499,
+    "category": "Anarkali Suits",
+    "image": "assets/sky_farshi_flatlay.png",
+    "gallery": [
+      "assets/sky_farshi_flatlay.png",
+      "assets/sky_farshi_closeup.jpg"
+    ],
+    "description": "Celebration-ready flared suit in serene pastel sky blue with delicate floral lace bell sleeves.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "Sky Indigo",
+        "hex": "#A9BDF2"
+      }
+    ],
+    "details": [
+      "100% Cotton with floral lace trims",
+      "Kalidaar farshi silhouette with generous flare"
+    ],
+    "inStock": true,
+    "rating": 4.8,
+    "reviewsCount": 19,
+    "badge": "FESTIVE TWIRL",
+    "reviews": [
+      {
+        "name": "Sneha S.",
+        "rating": 5,
+        "date": "2026-05-09",
+        "text": "Magnificent twirl and rich celebratory colors!",
+        "verified": true
+      }
     ]
   }
 ];
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = PRODUCTS;
 } else {
   window.PRODUCTS = PRODUCTS;
